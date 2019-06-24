@@ -15,7 +15,10 @@ var express               = require("express"),
 var commentRoutes = require("./routes/commentRoutes.js"),
     blogRoutes = require("./routes/blogRoutes.js"),
     authRoutes = require("./routes/authRoutes.js");
-    
+
+const port = process.env.PORT || 3000;
+const ip = process.env.IP || "127.0.0.1";
+
 app.use(require("express-session")({
     secret: "Once again Rusty wins cutest dog!",
     resave: false,
@@ -58,6 +61,6 @@ app.use(methodOverride("_method"));
 
 
 
-app.listen(3000, function(){
+app.listen(port, function(){
     console.log("SERVER STARTED");
 });
