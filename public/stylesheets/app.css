@@ -1,0 +1,17 @@
+i .icon{
+    font-size: 2em;
+}
+
+.container.main{
+    margin-top: 5em;
+}
+.description{
+	font-size: 1.3em !important;
+}
+.inlineButton{
+    display:inline;
+}
+
+hr{
+    background-color: white;
+}
