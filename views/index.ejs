@@ -1,9 +1,9 @@
 <% include ./partials/header %>
-<div class="main container">
+<div class="main container-fluid">
   <div class="ui huge header">RESTful Blog App</div>
       <div class="row">
         <% blogs.forEach(function(blog){ %>
-		  <div class="col-6">
+		  <div class="col-6 col-sm-12">
 			<div class="card">
 				  <div class="card-img-top">
 					<img style="height: 20em" class="img-fluid" src="<%= blog.image %>">
