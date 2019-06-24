@@ -3,10 +3,10 @@
   <div class="ui huge header">RESTful Blog App</div>
       <div class="row">
         <% blogs.forEach(function(blog){ %>
-		  <div class="col-6 col-sm-12">
+		  <div class="col-12 col-md-6">
 			<div class="card">
 				  <div class="card-img-top">
-					<img style="height: 20em" class="img-fluid" src="<%= blog.image %>">
+					<img style="height: 20em" class="img-fluid ui centered image" src="<%= blog.image %>">
 				  </div>
 				  <div class="card-body">
 					<a class="card-title" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
@@ -16,6 +16,7 @@
 					<div class="card-text">
 					  <p><%= blog.body.substring(0, 100) %>...</p>
 					</div>
+					  <br>
 					<div class="extra">
 					  <a class="ui floated basic violet button" href="/blogs/<%= blog._id %>">
 						Read more
