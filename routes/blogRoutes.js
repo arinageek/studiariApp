@@ -5,9 +5,7 @@ var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
 var bodyParser = require("body-parser");
 
-
 router.use(bodyParser.urlencoded({extended: true}));
-
 router.use(methodOverride("_method"));
 router.use(expressSanitizer());
 router.get("/", function(req, res){
@@ -23,6 +21,7 @@ router.get("/blogs", function(req, res){
         }
     });
 });
+
 
 router.get("/secret", isLoggedIn, function(req,res){
     res.render("secret");
@@ -50,7 +49,7 @@ router.get("/blogs/:id", function(req,res){
             res.render("show", {blog: foundBlog});
         }
     });
-})
+});
 
 router.get("/blogs/:id/edit", function(req, res){
     Blog.findById(req.params.id, function(err,foundBlog){
