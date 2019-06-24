@@ -5,9 +5,9 @@ i .icon{
 .container.main{
     margin-top: 5em;
 }
-.description{
+/* .description{
 	font-size: 1.3em !important;
-}
+} */
 .inlineButton{
     display:inline;
 }
