@@ -1,6 +1,5 @@
 require('dotenv').config();
 var express               = require("express"),
-    app                   = express(),
     methodOverride        = require("method-override"),
     bodyParser            = require("body-parser"),
     passport              = require("passport"),
@@ -17,6 +16,7 @@ var commentRoutes = require("./routes/commentRoutes.js"),
     blogRoutes = require("./routes/blogRoutes.js"),
     authRoutes = require("./routes/authRoutes.js");
 
+const app = require("express")();
 const port = process.env.PORT || 3000;
 const ip = process.env.IP || "127.0.0.1";
 
