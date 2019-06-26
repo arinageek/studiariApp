@@ -23,15 +23,11 @@ router.get("/blogs", function(req, res){
 });
 
 
-router.get("/secret", isLoggedIn, function(req,res){
-    res.render("secret");
-});
-
-router.get("/blogs/new", function(req,res){
+router.get("/blogs/new",isAdmin, function(req,res){
     res.render("new");
 });
 
-router.post("/blogs", function(req, res){
+router.post("/blogs",isAdmin, function(req, res){
     Blog.create(req.body.blog, function(err, newBlog){
         if(err){
             res.render("new");
@@ -51,7 +47,7 @@ router.get("/blogs/:id", function(req,res){
     });
 });
 
-router.get("/blogs/:id/edit", function(req, res){
+router.get("/blogs/:id/edit", isAdmin, function(req, res){
     Blog.findById(req.params.id, function(err,foundBlog){
         if(err){
             res.redirect("/blogs");
@@ -62,7 +58,7 @@ router.get("/blogs/:id/edit", function(req, res){
     
 });
 
-router.put("/blogs/:id", function(req,res){
+router.put("/blogs/:id",isAdmin, function(req,res){
     req.body.blog.body = req.sanitize(req.body.blog.body);
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
         if(err){
@@ -73,7 +69,7 @@ router.put("/blogs/:id", function(req,res){
     });
 });
 
-router.delete("/blogs/:id", function(req,res){
+router.delete("/blogs/:id",isAdmin, function(req,res){
     Blog.findByIdAndRemove(req.params.id, function(err){
         if(err){
             res.redirect("/blogs");
@@ -91,6 +87,12 @@ function isLoggedIn(req, res, next){
     res.redirect("/register");
 }
 
+function isAdmin(req,res,next){
+	if(req.isAuthenticated() && req.user.isAdmin){
+		return next();
+	}
+	res.redirect("/");
+}
 module.exports = router;
 
 

@@ -1,13 +1,31 @@
 i .icon{
     font-size: 2em;
 }
-
-.container.main{
-    margin-top: 5em;
+nav{
+	margin-bottom: 3rem;
 }
-/* .description{
-	font-size: 1.3em !important;
-} */
+@media screen and (max-width: 1000px) {
+  body {
+    font-size: 4rem;
+  }
+	.container-fluid img{
+		width: 100%;
+	}
+}
+@media screen and (min-width: 1001px) {
+  body {
+    font-size: 17px;
+  }
+	.container-fluid img{
+		width: 50%;
+	}
+	.container-fluid .card{
+		margin-right: 6rem;
+		margin-left: 6rem;
+	}
+}
+
+
 .inlineButton{
     display:inline;
 }
@@ -17,4 +35,7 @@ hr{
 }
 .card{
 	margin-bottom: 2em;
+}
+.card-body{
+	padding: 1.5rem;
 }

@@ -1,13 +1,11 @@
 <% include ./partials/header %>
-<div class="main container-fluid">
-  <br>
-  <div class="ui huge header">RESTful Blog App</div>
+<div class="main container">
       <div class="row">
         <% blogs.forEach(function(blog){ %>
-		  <div class="col-12 col-lg-6">
+		  <div class="col-12 col-lg-6 col-xl-4">
 			<div class="card">
 				  <div class="card-img-top">
-					<img style="height: 20em" class="img-fluid ui centered image" src="<%= blog.image %>">
+					<img style="width: 100%" class="img-fluid ui centered image" src="<%= blog.image %>">
 				  </div>
 				  <div class="card-body">
 					<a class="card-title" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
@@ -19,7 +17,7 @@
 					</div>
 					  <br>
 					<div class="extra">
-					  <a class="ui floated basic violet button" href="/blogs/<%= blog._id %>">
+					  <a class="btn btn-info btn-lg" href="/blogs/<%= blog._id %>">
 						Read more
 						<i class="right chevron icon"></i>
 					  </a>

@@ -1,27 +1,31 @@
 <% include ./partials/header %>
 
 
-<div class="main container">
-    <div class="ui huge header"><%= blog.title %></div>
+<div class="main container-fluid">
 	<div class="card">
 	
         <div class="card-img-top">
-           <img class="ui centered rounded image" src="<%=blog.image%>">
+           <img class="ui image" src="<%=blog.image%>">
         </div>
         <div class="card-body">
            <span><%=blog.created.toDateString()%></span>
-			
+			<div class="card-title">
+				<%= blog.title %>
+			</div>
         <div class="card-text">
            <p><%=blog.body%></p>
         </div>
         <br>
-            <a class="ui orange basic button" href="/blogs/<%= blog._id %>/edit">Edit</a>
-            <form id="delete" class="inlineButton" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
-                <button class="ui basic red button">Delete</button>
-            </form>
-            <form class="inlineButton" action="/blogs/<%= blog._id %>/newcom" method="GET">
-                <button class="ui basic green button">Create a comment</button>
-            </form>
+			<% if(currentUser && currentUser.isAdmin){ %>
+				<a class="btn btn-warning btn-lg" href="/blogs/<%= blog._id %>/edit">Edit</a>
+				<form id="delete" class="inlineButton" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+					<button class="btn btn-danger btn-lg">Delete</button>
+				</form>
+			<% } %>
+            
+            <!-- <form class="inlineButton" action="/blogs/<%= blog._id %>/newcom" method="GET">
+                <button class="btn btn-success btn-lg">Create a comment</button>
+            </form> -->
         </div>
 </div>
 	
