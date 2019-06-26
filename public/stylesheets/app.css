@@ -12,6 +12,10 @@ nav{
 	.container-fluid img{
 		width: 100%;
 	}
+	.btn{
+		font-size: 3rem;
+		padding: 4rem;
+	}
 }
 @media screen and (min-width: 1001px) {
   body {
