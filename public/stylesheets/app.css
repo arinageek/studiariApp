@@ -4,6 +4,7 @@ i .icon{
 nav{
 	margin-bottom: 3rem;
 }
+
 @media screen and (max-width: 1000px) {
   body {
     font-size: 4rem;
