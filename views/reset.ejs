@@ -1,0 +1,25 @@
+<% include ./partials/header %>
+
+<div class="row space">
+			<div class="col-1 col-lg-2"></div>
+			<div class="col-10 col-lg-8">
+				<div class="forma">
+					<h1 style="text-align:center">Восстановление пароля</h1>
+					<form action="/reset/<%= token %>" method="POST">
+						  <div class="form-group">
+							<label for="password">Новый пароль</label>
+							<input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control" required/>
+					      </div>
+						  <div class="form-group">
+							<label for="confirm">Подтвердите пароль</label>
+							<input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control" required/>
+						  </div>
+						  <div class="form-group">
+							<button type="submit" class="btn btn-primary">Обновить</button>
+						  </div>
+					</form>
+				</div>
+			</div>
+			<div class="col-1 col-lg-2"></div>
+		</div>
+<% include ./partials/footer %>
