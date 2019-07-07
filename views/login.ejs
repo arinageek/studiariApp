@@ -1,11 +1,26 @@
 <% include ./partials/header %>
 
-<h1>Login</h1>
 
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <button>Login</button>
-</form>
+		<div class="row space">
+			<div class="col-1 col-lg-2"></div>
+			<div class="col-10 col-lg-8">
+					<div class="forma">
+						<h1 style="text-align:center">Вход</h1>
+						<form action="/login" method="POST">
+						  <div class="form-group">
+							<label for="login">Логин</label>
+							<input type="text" class="form-control" id="login" name="username">
+						  </div>
+						  <div class="form-group">
+							<label for="pass">Пароль</label>
+							<input type="password" class="form-control" id="pass" name="password">
+						  </div>
+						  <button type="submit" class="btn btn-primary">Войти</button>
+						</form>
+				    </div>
+			</div>
+			<div class="col-1 col-lg-2"></div>
+		</div>
+
 
 <% include ./partials/footer %>

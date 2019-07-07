@@ -12,7 +12,7 @@ router.get("/", function(req, res){
     res.redirect("/blogs");
 });
 
-router.get("/blogs", function(req, res){
+router.get("/blogs",pay, function(req, res){
     Blog.find({}, function(err,blogs){
         if(err){
             console.log(err);
@@ -37,7 +37,7 @@ router.post("/blogs",isAdmin, function(req, res){
     });
 });
 
-router.get("/blogs/:id", function(req,res){
+router.get("/blogs/:id",pay, function(req,res){
     Blog.findById(req.params.id).populate("comments").exec(function(err,foundBlog){
         if(err){
             res.redirect("/blogs");
@@ -87,11 +87,18 @@ function isLoggedIn(req, res, next){
     res.redirect("/register");
 }
 
+function pay(req,res,next){
+	if(req.isAuthenticated() && (req.user.isAdmin || req.user.paid) ){
+		return next();
+	}
+	res.redirect("/landing");
+}
+
 function isAdmin(req,res,next){
 	if(req.isAuthenticated() && req.user.isAdmin){
 		return next();
 	}
-	res.redirect("/");
+	res.redirect("/landing");
 }
 module.exports = router;
 

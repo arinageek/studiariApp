@@ -1,11 +1,11 @@
 <% include ./partials/header %>
-<div class="main container">
+<div class="main container space">
       <div class="row">
         <% blogs.forEach(function(blog){ %>
 		  <div class="col-12 col-lg-6 col-xl-4">
-			<div class="card">
+			<div class="card" style="border-radius: 15px">
 				  <div class="card-img-top">
-					<img style="width: 100%" class="img-fluid ui centered image" src="<%= blog.image %>">
+					<img style="width: 100%; border-radius: 15px" class="img-fluid ui centered image" src="<%= blog.image %>">
 				  </div>
 				  <div class="card-body">
 					<a class="card-title" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
@@ -18,7 +18,7 @@
 					  <br>
 					<div class="extra">
 					  <a class="btn btn-info btn-lg" href="/blogs/<%= blog._id %>">
-						Read more
+						Подробнее
 						<i class="right chevron icon"></i>
 					  </a>
 					</div>
@@ -27,7 +27,6 @@
 	    </div>
         <% }); %>
       </div>
-	
 </div>
 
 <% include ./partials/footer %>

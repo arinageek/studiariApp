@@ -25,7 +25,7 @@ const keySecret = process.env.SECRET_KEY;
 const stripe = require("stripe")(keySecret);
 
 app.use(require("express-session")({
-    secret: "Once again Rusty wins cutest dog!",
+    secret: "This is a study blog!",
     resave: false,
     saveUninitialized: false
 }));
@@ -64,8 +64,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
-app.get("/buy", (req, res) =>
-  res.render("buy", {keyPublishable}));
+app.get("/charge", (req,res) =>
+	   res.render("charge"));
+
+app.get("/landing", (req, res) =>
+  res.render("landing", {keyPublishable}));
 
 app.post("/charge", (req, res) => {
   let amount = 500;
@@ -81,7 +84,17 @@ app.post("/charge", (req, res) => {
          currency: "usd",
          customer: customer.id
     }))
-  .then(charge => res.render("charge"));
+  .then(charge => {
+	  User.findByIdAndUpdate(req.user._id, {$set: {paid: "true"}} , function(err, user){
+        if(err){
+            console.log("err");
+        }else{
+			res.render("charge");
+        }
+      });
+	  
+  });
+  
 });
 
 

@@ -10,52 +10,56 @@
     </head>
     <body>
         
-		<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#"><i class="fas fa-fire-alt"></i> NAVBAR</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
-                </li>
-				<% if(currentUser && currentUser.isAdmin){ %>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="#"><i class="fas fa-fire-alt"></i>StudiAri</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavDropdown">
+				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="/blogs/new">NEW POST</a>
-                    </li>
-				<% } %>
-                
-            </ul>
-			 <ul class="navbar-nav ml-auto">
-				  <% if(!currentUser) { %>
-                    <li class="nav-item"><a class="nav-link" href="/login">Sign in</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
-                    <% }else { %>
-                    <li class="nav-item"><a class="nav-link" href="/blogs">Signed in as <%= currentUser.username %></a></li>
-                    <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-                    <% } %>
-			</ul>
+						<a class="nav-link" href="/landing">Главная</a>
+					</li>
+					<% if(currentUser && (currentUser.isAdmin || currentUser.paid)){ %>
+					<li class="nav-item">
+						<a class="nav-link" href="/">Статьи <span class="sr-only">(current)</span></a>
+					</li>
+					<% } %>
+					<% if(currentUser && currentUser.isAdmin){ %>
+						<li class="nav-item">
+							<a class="nav-link" href="/blogs/new">Новая статья</a>
+						</li>
+					<% } %>
+					
+
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					  <% if(!currentUser) { %>
+						<li class="nav-item"><a class="nav-link" href="/login">Войти</a></li>
+						<li class="nav-item"><a class="nav-link" href="/register">Регистрация</a></li>
+						<% }else { %>
+						<li class="nav-item"><a class="nav-link" href="/blogs">Вы вошли как <%= currentUser.username %></a></li>
+						<li class="nav-item"><a class="nav-link" href="/logout">Выйти</a></li>
+						<% } %>
+				</ul>
+			</div>
         </div>
-    </div>
    </nav>
-        <div style="margin-top: 100px" class="container">
-            <% if(error && error.length > 0){ %>
-            <div class="alert alert-danger" role="alert">
-                <%= error %>
-            </div>
-			<br>
-        <% } %>
-        <% if(success && success.length > 0){ %>
-            <div class="alert alert-success" role="alert">
-                <%= success %>
-            </div>
-			<br>
-        <% } %>
-        </div>
+	<div class="container">
+		<% if(error && error.length > 0){ %>
+		<br>
+		<div class="alert alert-danger" role="alert">
+			<%= error %>
+		</div>
+		
+	<% } %>
+	<% if(success && success.length > 0){ %>
+		<br>
+		<div class="alert alert-success" role="alert">
+			<%= success %>
+		</div>
+		
+	<% } %>
+	</div>
         
-        
-        
-        
-    

@@ -1,26 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
+
 i .icon{
     font-size: 2em;
 }
-nav{
-	margin-bottom: 3rem;
+
+em{
+	font-weight: bold;
+}
+
+
+h1{
+	font-family: 'Russo One', sans-serif;
+}
+
+.white{
+	background: white;
+}
+
+.charge{
+	text-align: center;
+	padding: 2rem;
+}
+body{
+	background-image: url("https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80"); 
+	/* background-repeat: no-repeat;  */
+    background-attachment: fixed;
+}
+
+.forma{
+	border: 15px solid #ffcce6;
+	background: #74ebd5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+	padding: 2rem;
 }
 
 @media screen and (max-width: 1000px) {
   body {
     font-size: 4rem;
   }
+	.charge{
+		margin-top: 5rem;
+	}
+	h3{
+	font-size: 4.5rem;
+    }
+	.form-group{
+		margin-top: 4rem;
+		margin-bottom: 4rem;
+	}
+	input[type=text]{
+		padding: 3rem 1rem;
+		font-size: 4rem;
+	}
+	input[type=password]{
+		padding: 3rem 1rem;
+		font-size: 4rem;
+	}
+	h1{
+		font-size: 6rem;
+	}
 	.container-fluid img{
 		width: 100%;
 	}
 	.btn{
 		font-size: 3rem;
-		padding: 4rem;
+		padding: 3rem;
 	}
+	.navbar-brand{
+		font-size: 4rem;
+	}
+	.land{
+		margin-top: 16rem;
+	}
+	.land div{
+		padding: 2rem;
+	}
+	.space{
+		margin-top: 16rem;
+	}
+	h2{
+	    font-size: 6rem;
+    }
 }
 @media screen and (min-width: 1001px) {
   body {
     font-size: 17px;
   }
+	h2{
+		font-size: 25px;
+	}
+	h3{
+	font-size: 2.2rem;
+	}
+	.charge{
+		border: 3px solid darkgray;
+		margin-top: 8rem;
+	}
 	.container-fluid img{
 		width: 50%;
 	}
@@ -28,7 +105,21 @@ nav{
 		margin-right: 6rem;
 		margin-left: 6rem;
 	}
+	.space{
+		margin-top: 9rem;
+	}
+	.land{
+		margin-top: 10rem;
+		margin-right: 8rem;
+		margin-left: 8rem;
+		
+    }
+	.land div{
+		padding: 4rem;
+	}
+	
 }
+
 
 
 .inlineButton{
