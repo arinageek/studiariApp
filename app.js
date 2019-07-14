@@ -65,14 +65,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
-app.get("/charge", (req,res) =>
-	   res.render("charge"));
-
 app.get("/landing", (req, res) =>
   res.render("landing", {keyPublishable}));
 
 app.post("/charge", (req, res) => {
-  let amount = 500;
+  let amount = 2000;
 
   stripe.customers.create({
      email: req.body.stripeEmail,
@@ -81,8 +78,8 @@ app.post("/charge", (req, res) => {
   .then(customer =>
     stripe.charges.create({
       amount,
-      description: "Sample Charge",
-         currency: "usd",
+      description: "Оплата подписки",
+         currency: "eur",
          customer: customer.id
     }))
   .then(charge => {

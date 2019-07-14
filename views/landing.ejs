@@ -99,7 +99,8 @@ vigente - действующий
 </div>
 
 <div class="row land white">
-	<div class="col-12 ">
+	
+	<div class="col-12 col-lg-6 order-last">
 		<h1>
 			Стоимость подписки на наш сервис: €20<br>
 			Думаете, это много? 
@@ -107,8 +108,7 @@ vigente - действующий
 		<p>
 			А подписка здесь не на месяц! За эти деньги вы получите <em>пожизненный доступ</em><br> к сотни постоянно обновляющихся учебных статей и прокачаeте свой язык до идеала.
 	    </p>
-	</div>
-	<div class="col-12">
+		<br><br>
 		<h1>
 			Как получить доступ к статьям?
 		</h1>
@@ -117,25 +117,33 @@ vigente - действующий
 		</p>
 		<ul>
 			<li><a href="/register">Зарегистрируйтесь</a> на нашем сайте</li>
-			<li>На этой странице внизу появится кнопка “Купить подписку”, нажмите на нее, оплатите взнос и приступайте к изучению испанского!</li>
+			<li>На этой странице внизу появится кнопка “Pay with card”, нажмите на нее, оплатите взнос и приступайте к изучению испанского!</li>
 		</ul>
 		<br>
 		<% if(currentUser && currentUser.paid===false){ %>
 			<form action="/charge" method="POST">
 					<article>
-						<label>Amount: $5.00</label>
+						<label>Стоимость: €20</label>
 						<script src="//checkout.stripe.com/v2/checkout.js"
 					class="stripe-button"
 					data-key="<%=keyPublishable%>"
 					data-locale="auto"
-					data-description="Sample Charge"
-					data-amount="500"></script>
+					data-description="Subscription charge"
+					data-amount="2000"></script>
 					</article>
 			</form>
 		<% } %>
 	</div>
+	<div class="col-12 col-lg-6 order-first">
+		<video id="vid" width="100%" height="100%" controls muted>
+            <source src="video/studiari1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+           </video>
+	</div>
+	
+	
 	
 </div>
 
 
-<% include ./partials/header %>
+<% include ./partials/footer %>

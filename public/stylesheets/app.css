@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 i .icon{
     font-size: 2em;
+}
+pre{
+	white-space: pre-line;
+	font-family: 'Roboto', sans-serif;
 }
 
 em{
@@ -28,11 +32,6 @@ body{
 }
 
 .forma{
-	/* border: 15px solid #ffcce6;
-	background: #74ebd5;  
-background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  
-background: linear-gradient(to right, #ACB6E5, #74ebd5); 
- */
 	background: white;
 	padding: 2rem;
 }
@@ -66,7 +65,7 @@ background: linear-gradient(to right, #ACB6E5, #74ebd5);
 	h1{
 		font-size: 6rem;
 	}
-	.container-fluid img{
+	.show img{
 		width: 100%;
 	}
 	.btn{
@@ -88,11 +87,16 @@ background: linear-gradient(to right, #ACB6E5, #74ebd5);
 	h2{
 	    font-size: 6rem;
     }
+	
 }
 @media screen and (min-width: 1001px) {
   body {
     font-size: 17px;
   }
+	.index{
+		margin-right: 4rem;
+		margin-left: 4rem;
+	}
 	h2{
 		font-size: 25px;
 	}
@@ -103,7 +107,7 @@ background: linear-gradient(to right, #ACB6E5, #74ebd5);
 		border: 3px solid darkgray;
 		margin-top: 8rem;
 	}
-	.container-fluid img{
+	.show img{
 		width: 50%;
 	}
 	.container-fluid .card{

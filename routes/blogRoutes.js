@@ -59,7 +59,7 @@ router.get("/blogs/:id/edit", isAdmin, function(req, res){
 });
 
 router.put("/blogs/:id",isAdmin, function(req,res){
-    req.body.blog.body = req.sanitize(req.body.blog.body);
+    // req.body.blog.body = req.sanitize(req.body.blog.body);
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
         if(err){
             res.redirect("/blogs");

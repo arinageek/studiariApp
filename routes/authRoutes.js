@@ -14,8 +14,7 @@ router.get("/register", function(req,res){
 
 router.post("/register", function(req,res){
 	var newUser = new User({
-        username: req.body.username,
-        email: req.body.email
+        username: req.body.username
       });
     User.register(newUser, req.body.password, function(err,user){
         if(err){
@@ -24,7 +23,7 @@ router.post("/register", function(req,res){
             res.redirect("/register");
         }else{
             passport.authenticate("local")(req,res, function(){
-                req.flash("success", "You are now registered!");
+                req.flash("success", "Вы зарегистрировались!");
                 res.redirect("/blogs");
             });
         }
@@ -47,7 +46,7 @@ router.post("/login", passport.authenticate("local",
 
 router.get("/logout", function(req, res){
    req.logout();
-   req.flash("success", "You are now logged out!");
+   req.flash("success", "Вы вышли!");
    res.redirect("/blogs");
 });
 
@@ -64,7 +63,7 @@ router.post('/forgot', function(req, res, next) {
       });
     },
     function(token, done) {
-      User.findOne({ email: req.body.email }, function(err, user) {
+      User.findOne({ username: req.body.email }, function(err, user) {
         if (!user) {
           req.flash('error', 'No account with that email address exists.');
           return res.redirect('/forgot');
@@ -87,7 +86,7 @@ router.post('/forgot', function(req, res, next) {
         }
       });
       var mailOptions = {
-        to: user.email,
+        to: user.username,
         from: 'studiariweb@gmail.com',
         subject: 'Сброс пароля',
         text: 'Вы получили это письмо, потому что запросили сброс пароля для своего аккаунта на StudiAri\n\n' +
@@ -97,7 +96,7 @@ router.post('/forgot', function(req, res, next) {
       };
       smtpTransport.sendMail(mailOptions, function(err) {
         console.log('mail sent');
-        req.flash('success', 'На почту ' + user.email + ' было отправлено письмо с последующими инструкциями.');
+        req.flash('success', 'На почту ' + user.username + ' было отправлено письмо с последующими инструкциями.');
         done(err, 'done');
       });
     }
@@ -137,7 +136,7 @@ router.post('/reset/:token', function(req, res) {
             });
           });
         } else {
-            req.flash("error", "Passwords do not match.");
+            req.flash("error", "Пароли не совпадают!");
             return res.redirect('back');
         }
       });
@@ -151,14 +150,14 @@ router.post('/reset/:token', function(req, res) {
         }
       });
       var mailOptions = {
-        to: user.email,
+        to: user.username,
         from: 'studiariweb@mail.com',
         subject: 'Ваш пароль был изменен',
         text: 'Здравствуйте,\n\n' +
-          'Это подтверждение о том, что пароль от аккаунта ' + user.email + ' был изменен.\n'
+          'Это подтверждение о том, что пароль от аккаунта ' + user.username + ' был изменен.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
-        req.flash('success', 'Success! Your password has been changed.');
+        req.flash('success', 'Ваш пароль был успешно изменен!');
         done(err);
       });
     }

@@ -1,34 +1,7 @@
 <% include ./partials/header %>
 
 
-<!-- <div class="main container-fluid space">
-	<div class="card" >
-        <img class="card-img-top" src="<%=blog.image%>">
-        <div class="card-body">
-           
-			<div class="card-title">
-				<h1>
-					<%= blog.title %>
-				</h1>
-			</div>
-			<span><%=blog.created.toDateString()%></span>
-        <div class="card-text">
-           <pre><%=blog.body%></pre>
-        </div>
-        <br>
-			<% if(currentUser && currentUser.isAdmin){ %>
-				<a class="btn btn-warning btn-lg" href="/blogs/<%= blog._id %>/edit">Edit</a>
-				<form id="delete" class="inlineButton" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
-					<button class="btn btn-danger btn-lg">Delete</button>
-				</form>
-			<% } %>
-            
-            
-        </div>
-    </div>
-</div> -->
-
-<div class="main container-fluid space">
+<div class="main show space">
 	<div class="land white" >
 		<div>
 			<img src="<%=blog.image%>">
@@ -38,7 +11,19 @@
 			</h1>
 			<span><%=blog.created.toDateString()%></span>
 			<br><br>
-		   <p><%=blog.body%></p>
+			<pre><%=blog.body1%></pre>
+			<br>
+			<hr style="border: 1px solid darkgray">
+			<br>
+				<pre><%=blog.body2%></pre>
+			<br>
+			<hr style="border: 1px solid darkgray">
+			<br>
+				<pre><%=blog.body3%></pre>
+			<br>
+			<hr style="border: 1px solid darkgray">
+			<br>
+			<pre><%=blog.body4%></pre>
 		   <br>
 			<% if(currentUser && currentUser.isAdmin){ %>
 				<a class="btn btn-warning btn-lg" href="/blogs/<%= blog._id %>/edit">Edit</a>
