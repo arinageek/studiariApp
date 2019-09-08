@@ -2,26 +2,13 @@
 <div class="main index space">
       <div class="row">
         <% blogs.forEach(function(blog){ %>
-		  <div class="col-12 col-lg-6 col-xl-4">
-			<div class="card" style="border-radius: 15px">
-				  <div class="card-img-top">
-					<img style="width: 100%; border-radius: 15px" class="img-fluid ui centered image" src="<%= blog.image %>">
-				  </div>
-				  <div class="card-body">
+		  <div class="col-12 col-lg-4 col-xl-3">
+			<div class="card indCard">
+				<div class="card-img-top">
+					<img style="width: 100%; height:20em" class="ui centered image" src="<%= blog.image %>">
+				</div>
+				<div class="card-body">
 					<a class="card-title" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
-					<div class="meta">
-					  <span><%= blog.created.toDateString() %></span>
-					</div>
-					<div class="card-text">
-					  <p><%= blog.body3.substring(0, 100) %>...</p>
-					</div>
-					  <br>
-					<div class="extra">
-					  <a class="btn btn-info btn-lg" href="/blogs/<%= blog._id %>">
-						Подробнее
-						<i class="right chevron icon"></i>
-					  </a>
-					</div>
 				</div>
 			</div>
 	    </div>

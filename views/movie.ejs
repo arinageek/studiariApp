@@ -1,0 +1,147 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSubsApp</title>
+	<script src="https://kit.fontawesome.com/dee72ff5c6.js"></script>
+<style>
+	video::cue{
+    color:aquamarine;
+}
+video::-webkit-media-controls-fullscreen-button {
+    display: none;
+}
+
+.exit{
+    /* width: 3em;
+    height:3em; */
+	text-decoration: none;
+	border-radius: 80%;
+    position:absolute;
+    top:0;
+    right:0;
+    margin: 10px;
+}
+	.exit i{
+		font-size: 3em;
+	}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+video{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%; 
+  min-height: 100%;
+}
+video::-webkit-media-controls-panel {
+    z-index:3 !important;
+    position: absolute;
+    bottom: 0;
+    height: 100%;
+    width: inherit;
+}
+.vidos{
+    position: relative;
+    width: inherit;
+}
+.subs{
+    visibility:hidden;
+  position: fixed;
+  bottom: 2em;
+	left:7em;
+	right: 7em;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+    padding:10px;
+    text-align:center;
+}
+
+
+
+.subs span{
+    z-index:4;
+    display: inline;
+    position:relative;
+    color: white;
+    font-size: 1.2em;
+     
+}
+
+	</style>
+</head>
+<body>
+
+       <video id="myVideo" width="700" height="400" controls>
+       <source src="video/studiari1.mp4" type="video/mp4">
+        <track kind="subtitles" src="stylesheets/subn.vtt" srclang="en" label="English">
+      </video>
+      <div class="subs">
+      </div>
+     <a href="/blogs" class="exit"><i class="fas fa-times-circle"></i></a>
+    
+  <script>
+	var vid = document.getElementById("myVideo");
+var texts = document.getElementsByClassName("subs");
+var txt = texts[0];
+var track = vid.textTracks[0];
+track.mode = 'hidden';
+        
+txt.addEventListener('mouseover', function () {
+    vid.pause();
+});
+        
+
+track.addEventListener('cuechange', function () {
+       
+   var vidCues = track.activeCues;  // array of current cues
+    var cue = vidCues[0];
+    track.mode = 'hidden';
+    if(cue){
+        txt.style.visibility = "visible";
+        txt.textContent = vidCues[0].text;
+        var words = txt.textContent.split(" ");
+        txt.textContent = "";
+        for(i=0; i<words.length; i++){
+            txt.innerHTML += "<span class=\"tooltip\"> "+words[i]+" <span class=\"tooltiptext\">Hi</span> </span> ";
+        }
+    }else{
+        txt.style.visibility = "hidden";
+        txt.textContent = "";
+    }
+  
+});
+	</script>
+<% include ./partials/footer %>

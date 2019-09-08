@@ -12,6 +12,7 @@ var express               = require("express"),
     flash                 = require("connect-flash"),
     mongoose              = require("mongoose");
 
+
     
 var commentRoutes = require("./routes/commentRoutes.js"),
     blogRoutes = require("./routes/blogRoutes.js"),
@@ -24,6 +25,7 @@ const ip = process.env.IP || "127.0.0.1";
 const keyPublishable = process.env.PUBLISHABLE_KEY;
 const keySecret = process.env.SECRET_KEY;
 const stripe = require("stripe")(keySecret);
+
 
 app.use(require("express-session")({
     secret: "This is a study blog!",
@@ -45,7 +47,6 @@ app.use(function(req, res, next){
 });
 
 
-
 app.use("/blogs/:id",commentRoutes);
 app.use(blogRoutes);
 app.use(authRoutes);
@@ -65,36 +66,19 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
-app.get("/landing", (req, res) =>
-  res.render("landing", {keyPublishable}));
+const paypal = require('paypal-rest-sdk');
 
-app.post("/charge", (req, res) => {
-  let amount = 2000;
-
-  stripe.customers.create({
-     email: req.body.stripeEmail,
-    source: req.body.stripeToken
-  })
-  .then(customer =>
-    stripe.charges.create({
-      amount,
-      description: "Оплата подписки",
-         currency: "eur",
-         customer: customer.id
-    }))
-  .then(charge => {
-	  User.findByIdAndUpdate(req.user._id, {$set: {paid: "true"}} , function(err, user){
-        if(err){
-            console.log("err");
-        }else{
-			res.render("charge");
-        }
-      });
-	  
-  });
-  
+paypal.configure({
+  'mode': 'sandbox', 
+  'client_id': 'Ae5CdtpNnpWLbQ5BHFibfCR6jNAN5LXWyczivyXDKyGQhGD3yhll7IBto8pzpEMoAk2GwyEpfo5ozoGW',
+  'client_secret': 'EH1OJzngH-XeVOJA0ww7mFo3r1XI0JiZrAtddaBauGbBS3wjzTsy0PEAWxkc-2zkUOPWmmBEAywdvMra'
 });
 
+
+app.get("/movie", (req,res) => 
+	   res.render("movie"));
+
+app.get('/cancel', (req, res) => res.send('Cancelled'));
 
 
 app.listen(port, function(){

@@ -19,13 +19,8 @@
 			<div class="collapse navbar-collapse" id="navbarNavDropdown">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="/landing">Главная</a>
-					</li>
-					<% if(currentUser && (currentUser.isAdmin || currentUser.paid)){ %>
-					<li class="nav-item">
 						<a class="nav-link" href="/">Статьи <span class="sr-only">(current)</span></a>
 					</li>
-					<% } %>
 					<% if(currentUser && currentUser.isAdmin){ %>
 						<li class="nav-item">
 							<a class="nav-link" href="/blogs/new">Новая статья</a>

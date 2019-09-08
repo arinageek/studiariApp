@@ -162,7 +162,7 @@ router.post('/reset/:token', function(req, res) {
       });
     }
   ], function(err) {
-    res.redirect('/landing');
+    res.redirect('/blogs');
   });
 });
 
