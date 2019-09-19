@@ -1,18 +1,18 @@
 <% include ./partials/header %>
 <div class="main index space">
-      <div class="row">
-        <% blogs.forEach(function(blog){ %>
-		  <div class="col-12 col-lg-4 col-xl-3">
-			<div class="card indCard">
+      <div class="row" style="margin: 0% 10%">
+		<% blogs.forEach(function(blog){ %>
+		  <div class="col-6 col-lg-4 col-xl-3">
+			<div class="card">
 				<div class="card-img-top">
-					<img style="width: 100%; height:20em" class="ui centered image" src="<%= blog.image %>">
+					<img style="width: 100%" class="img-fluid ui centered image" src="<%= blog.image %>">
 				</div>
 				<div class="card-body">
 					<a class="card-title" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
 				</div>
 			</div>
 	    </div>
-        <% }); %>
+        <% }); %>  
       </div>
 </div>
 

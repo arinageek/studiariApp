@@ -3,145 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <title>WebSubsApp</title>
+	<link href="/stylesheets/movie.css" rel="stylesheet" type="text/css">
 	<script src="https://kit.fontawesome.com/dee72ff5c6.js"></script>
-<style>
-	video::cue{
-    color:aquamarine;
-}
-video::-webkit-media-controls-fullscreen-button {
-    display: none;
-}
 
-.exit{
-    /* width: 3em;
-    height:3em; */
-	text-decoration: none;
-	border-radius: 80%;
-    position:absolute;
-    top:0;
-    right:0;
-    margin: 10px;
-}
-	.exit i{
-		font-size: 3em;
-	}
-.tooltip {
-  position: relative;
-  display: inline-block;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -60px;
-}
-
-.tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: black transparent transparent transparent;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
-video{
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  width: 100%; 
-  min-height: 100%;
-}
-video::-webkit-media-controls-panel {
-    z-index:3 !important;
-    position: absolute;
-    bottom: 0;
-    height: 100%;
-    width: inherit;
-}
-.vidos{
-    position: relative;
-    width: inherit;
-}
-.subs{
-    visibility:hidden;
-  position: fixed;
-  bottom: 2em;
-	left:7em;
-	right: 7em;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-    padding:10px;
-    text-align:center;
-}
-
-
-
-.subs span{
-    z-index:4;
-    display: inline;
-    position:relative;
-    color: white;
-    font-size: 1.2em;
-     
-}
-
-	</style>
 </head>
 <body>
 
-       <video id="myVideo" width="700" height="400" controls>
-       <source src="video/studiari1.mp4" type="video/mp4">
-        <track kind="subtitles" src="stylesheets/subn.vtt" srclang="en" label="English">
-      </video>
-      <div class="subs">
-      </div>
-     <a href="/blogs" class="exit"><i class="fas fa-times-circle"></i></a>
-    
-  <script>
-	var vid = document.getElementById("myVideo");
-var texts = document.getElementsByClassName("subs");
-var txt = texts[0];
-var track = vid.textTracks[0];
-track.mode = 'hidden';
-        
-txt.addEventListener('mouseover', function () {
-    vid.pause();
-});
-        
-
-track.addEventListener('cuechange', function () {
-       
-   var vidCues = track.activeCues;  // array of current cues
-    var cue = vidCues[0];
-    track.mode = 'hidden';
-    if(cue){
-        txt.style.visibility = "visible";
-        txt.textContent = vidCues[0].text;
-        var words = txt.textContent.split(" ");
-        txt.textContent = "";
-        for(i=0; i<words.length; i++){
-            txt.innerHTML += "<span class=\"tooltip\"> "+words[i]+" <span class=\"tooltiptext\">Hi</span> </span> ";
-        }
-    }else{
-        txt.style.visibility = "hidden";
-        txt.textContent = "";
-    }
+<a href="/blogs"><i class="exit fas fa-times-circle"></i></a>
+     <div class="player">
+  <video class="player-video" src="video/cat.mp4" type="video/mp4">
+	  <track kind="subtitles" src="stylesheets/subn.vtt" srclang="en" label="English" data-state="active">
+  </video>
   
+  <div class="player-controls">
+	<div class="subs">
+		
+	</div>
+    <div class="progress">
+      <div class="filled-progress"></div>
+    </div>
+
+        <div class="ply-btn">
+        <button class="player-btn toggle-play" title="Toggle Play">
+        <svg class="" width="16" height="16" viewBox="0 0 16 16"><title>play</title><path d="M3 2l10 6-10 6z"></path></svg>
+        </button>
+    </div>
+
+    <div class="sliders">
+    <input type="range" name="volume" class="player-slider" min="0" max="1" step="0.05" value="1">
+
+    <input type="range" name="playbackRate" class="player-slider" min="0.5" max="2" step="0.1" value="1">
+    </div>
+
+    <button data-skip="-10" class="player-btn">« 10s</button>
+
+    <button data-skip="10" class="player-btn">10s »</button>
+	  
+	<button class="player-btn" id="subtitles" type="button" data-state="subtitles">CC</button>
+
+  </div>
+</div>
+     
+    
+<script>
+	
+	function showTip(m) {
+		var result = <%-JSON.stringify(res)%>;
+		var tooltipTexts = document.querySelectorAll('.tooltiptext');
+		tooltipTexts.forEach(function(item) {
+			item.style.setProperty('visibility', 'hidden', 'important');
+		});
+		m.querySelector('.tooltiptext').style.setProperty('visibility', 'visible', 'important');
+		var orig = m.childNodes[0].nodeValue.toString();
+		console.log(orig);
+		for(var i=0; i<result.length; i++){
+			var f=" "+result[i].en.toString();
+			var s=" "+result[i].en.toString()+" ";
+			var e=result[i].en.toString()+" ";
+			if((orig === f) || (orig === s) || (orig === e)){
+				console.log("Got it!! esp= "+result[i].es);
+				m.querySelector('.tooltiptext').textContent = result[i].es;
+			}
+			// console.log("eng="+result[i].en+" esp="+result[i].es);
+		}
+	}
+	function hideTip() {
+		var tooltipTexts = document.querySelectorAll('.tooltiptext');
+		tooltipTexts.forEach(function(item) {
+			item.style.setProperty('visibility', 'hidden', 'important');
+		});
+	}
+window.addEventListener('DOMContentLoaded', function(){
+	const player = document.querySelector('.player');
+	const video = player.querySelector('.player-video');
+	const progress = player.querySelector('.progress');
+	const progressFilled = player.querySelector('.filled-progress');
+	const toggle = player.querySelector('.toggle-play');
+	const skippers = player.querySelectorAll('[data-skip]');
+	const ranges = player.querySelectorAll('.player-slider');
+
+	
+	var texts = document.getElementsByClassName("subs");
+	var txt = texts[0];
+	var track = video.textTracks[0];
+	track.mode = 'hidden';
+
+	txt.addEventListener('mouseover', function () {
+		video.pause();
+	});
+
+
+	track.addEventListener('cuechange', function () {
+
+	   var vidCues = track.activeCues;  // array of current cues
+		var cue = vidCues[0];
+		track.mode = 'hidden';
+		if(cue){
+			txt.style.visibility = "visible";
+			txt.textContent = vidCues[0].text;
+			var words = txt.textContent.split(" ");
+			txt.textContent = "";
+			for(var i=0; i<words.length; i++){
+				txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words[i]+" <span class=\"tooltiptext\">Empty</span> </span> ";
+			}
+
+		}else{
+			txt.style.visibility = "hidden";
+			txt.textContent = "";
+		}
+
+		
+	});	  
+
+	// Logic
+
+	function togglePlay() {
+	  const playState = video.paused ? 'play' : 'pause';
+	  video[playState](); // Call play or paused method
+	}
+
+
+	function updateButton() {
+	  const togglePlayBtn = document.querySelector('.toggle-play');
+
+	  if(this.paused) {
+		togglePlayBtn.innerHTML = `<svg class="" width="16" height="16" viewBox="0 0 16 16"><title>play</title><path d="M3 2l10 6-10 6z"></path></svg>`;
+	  } else {
+		togglePlayBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16"><title>pause</title><path d="M2 2h5v12H2zm7 0h5v12H9z"></path></svg>`;
+	  }
+	}
+
+	function skip() {
+	  video.currentTime += parseFloat(this.dataset.skip);
+	}
+
+	function rangeUpdate() {
+	  video[this.name] = this.value;
+	}
+
+	function progressUpdate() {
+	  const percent = (video.currentTime / video.duration) * 100;
+	  progressFilled.style.flexBasis = `${percent}%`;
+	}
+
+	function scrub(e) {
+	  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+	  video.currentTime = scrubTime;
+	}
+
+	// Event listeners
+	video.addEventListener('click', togglePlay);
+	video.addEventListener('play', updateButton);
+	video.addEventListener('pause', updateButton);
+	video.addEventListener('timeupdate', progressUpdate);
+
+	toggle.addEventListener('click', togglePlay);
+	skippers.forEach(button => button.addEventListener('click', skip));
+	ranges.forEach(range => range.addEventListener('change', rangeUpdate));
+	ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate));
+
+	let mousedown = false;
+	progress.addEventListener('click', scrub);
+	progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
+	progress.addEventListener('mousedown', () => mousedown = true);
+	progress.addEventListener('mouseup', () => mousedown = false);
 });
-	</script>
+</script>
 <% include ./partials/footer %>

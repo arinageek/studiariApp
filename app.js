@@ -12,7 +12,7 @@ var express               = require("express"),
     flash                 = require("connect-flash"),
     mongoose              = require("mongoose");
 
-
+const fs = require("fs");
     
 var commentRoutes = require("./routes/commentRoutes.js"),
     blogRoutes = require("./routes/blogRoutes.js"),
@@ -66,17 +66,35 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
-const paypal = require('paypal-rest-sdk');
-
-paypal.configure({
-  'mode': 'sandbox', 
-  'client_id': 'Ae5CdtpNnpWLbQ5BHFibfCR6jNAN5LXWyczivyXDKyGQhGD3yhll7IBto8pzpEMoAk2GwyEpfo5ozoGW',
-  'client_secret': 'EH1OJzngH-XeVOJA0ww7mFo3r1XI0JiZrAtddaBauGbBS3wjzTsy0PEAWxkc-2zkUOPWmmBEAywdvMra'
+app.get("/movie", (req,res) => {
+	var eng,esp;
+	var result=[];
+	fs.readFile("eng.txt", "utf-8", (err, data) => {
+		if (err) { console.log(err) }
+		eng = data.toString().split("\n");
+		getEsp();
+	});
+	
+	function getEsp() {
+		fs.readFile("esp.txt", "utf-8", (err, data) => {
+			if (err) { console.log(err) }
+			esp = data.toString().split("\n");
+			getRes();
+		});
+	}
+	
+	function getRes() {
+		if(eng != undefined){
+			for(var i=0; i<eng.length; i++){
+				var obj = {en: eng[i], es: esp[i]};
+				result.push(obj);
+			}
+			console.log(result);
+			res.render("movie",{res: result});
+		}
+	}
+	
 });
-
-
-app.get("/movie", (req,res) => 
-	   res.render("movie"));
 
 app.get('/cancel', (req, res) => res.send('Cancelled'));
 

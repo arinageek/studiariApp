@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-12 col-lg-6 showCol">
 				
-				<img src="<%=blog.image%>">
+				<img style="border:2px solid gray" src="<%=blog.image%>">
 				<br>
 				<% if(currentUser && currentUser.isAdmin){ %>
 					<a class="btn btn-warning btn-lg" href="/blogs/<%= blog._id %>/edit">Edit</a>
@@ -22,17 +22,25 @@
 				<h1>
 					<%= blog.title %>
 				</h1>
-				<br><br>
+				<br>
 				<pre><%=blog.description%></pre>
 				<br>
-				<p>
-					Season 1
-				</p>
-				<a href="/movie">Episode 1</a>
+				<div class="ui top attached tabular menu">
+				  <a class="item active" data-tab="first">First</a>
+				  <a class="item" data-tab="second">Second</a>
+				</div>
+				<div class="ui bottom attached tab segment active" data-tab="first">
+				  <a href="/movie">S1E1</a>
+				</div>
+				<div class="ui bottom attached tab segment" data-tab="second">
+				  <a href="/movie">S2E1</a>
+				</div>
+				
 			</div>
 		</div>
     </div>
 </div>
-	
-    <br><br>
+	<script>
+		$('.menu .item').tab();
+	</script>
 <% include ./partials/footer %>
