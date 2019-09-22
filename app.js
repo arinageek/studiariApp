@@ -13,6 +13,7 @@ var express               = require("express"),
     mongoose              = require("mongoose");
 
 const fs = require("fs");
+const aws = require("aws-sdk");
     
 var commentRoutes = require("./routes/commentRoutes.js"),
     blogRoutes = require("./routes/blogRoutes.js"),
@@ -67,32 +68,75 @@ app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
 app.get("/movie", (req,res) => {
-	var eng,esp;
-	var result=[];
-	fs.readFile("eng.txt", "utf-8", (err, data) => {
-		if (err) { console.log(err) }
-		eng = data.toString().split("\n");
-		getEsp();
-	});
 	
-	function getEsp() {
-		fs.readFile("esp.txt", "utf-8", (err, data) => {
-			if (err) { console.log(err) }
-			esp = data.toString().split("\n");
-			getRes();
-		});
-	}
-	
-	function getRes() {
-		if(eng != undefined){
-			for(var i=0; i<eng.length; i++){
-				var obj = {en: eng[i], es: esp[i]};
-				result.push(obj);
+	(async function(){
+		try{
+			aws.config.setPromisesDependency();
+			aws.config.update({
+				accessKeyId: process.env.aws_access_key_id,
+				secretAccessKey: process.env.aws_secret_access_key,
+				region: 'eu-west-2'
+			});
+			
+			const s3 = new aws.S3();
+			var fileVideo = fs.createWriteStream('./public/video/studiari.mp4');
+			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
+			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
+			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
+			s3.getObject({
+				Bucket: 'studiari',
+				Key: 'subn.vtt'
+			}, getEng).createReadStream().pipe(file);
+			
+			
+			function getEng(){
+				s3.getObject({
+			      Bucket: 'studiari',
+			      Key: 'eng.txt'
+			    }, getEsp).createReadStream().pipe(fileEng);
 			}
-			console.log(result);
-			res.render("movie",{res: result});
+			
+			function getEsp(){
+				s3.getObject({
+				Bucket: 'studiari',
+				Key: 'esp.txt'
+			    }, mergeAndRedirect).createReadStream().pipe(fileEsp);
+			}
+			
+			function mergeAndRedirect(){
+
+		    var eng,esp;
+			var result=[];
+			fs.readFile("./public/subs/eng.txt", "utf-8", (err, data) => {
+				if (err) { console.log(err) }
+				eng = data.toString().replace(/\r/g,"").split("\n");
+				getEsp();
+			});	
+
+			function getEsp() {
+				fs.readFile("./public/subs/esp.txt", "utf-8", (err, data) => {
+				if (err) { console.log(err) }
+				esp = data.toString().replace(/\r/g,"").split("\n");
+				getRes();
+			});
+			}
+
+			function getRes() {
+				if(eng != undefined){
+				for(var i=0; i<eng.length; i++){
+					var obj = {en: eng[i], es: esp[i]};
+					result.push(obj);
+				}
+				console.log(result);
+				res.render("movie",{res: result});
+				}
+			}
+	        }	
+			
+		}catch(e){
+			console.log("error", e);
 		}
-	}
+	})();
 	
 });
 

@@ -82,8 +82,7 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  /* transform: translateY(100%) translateY(-5px); */
-	transform: translateY(100%) translateY(-70px);
+  transform: translateY(100%) translateY(-70px);
   transition: all 0.3s;
   flex-wrap: wrap;
   background: rgba(0, 0, 0, 0.3);
@@ -169,13 +168,13 @@ input[type=range]::-moz-range-thumb {
   background: white;
   cursor: pointer;
 }
-	.subs {
-		justify-content:center;
-		padding-bottom: 10px;
-		padding-top: 10px;
-		font-size: 1.2rem;
-		color: orange;
-		font-weight: bold;
+.subs {
+  justify-content:center;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-size: 1.2rem;
+  color: orange;
+  font-weight: bold;
   position: relative;
   display: flex;
   flex: 10;

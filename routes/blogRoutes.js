@@ -12,7 +12,6 @@ router.get("/", function(req, res){
     res.redirect("/blogs");
 });
 
-// router.get("/blogs",pay, function(req, res){
 router.get("/blogs", function(req, res){
     Blog.find({}, function(err,blogs){
         if(err){
