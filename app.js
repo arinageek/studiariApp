@@ -6,16 +6,17 @@ var express               = require("express"),
     LocalStrategy         = require("passport-local"),
     expressSanitizer      = require("express-sanitizer"),
     Blog                  = require("./models/blog.js"),
-    Comment               = require("./models/comment.js"),
     User                  = require("./models/user"),
-    Comment               = require("./models/comment"),
+    Season               = require("./models/season.js"),
+	Episode               = require("./models/episode.js"),
     flash                 = require("connect-flash"),
     mongoose              = require("mongoose");
 
 const fs = require("fs");
 const aws = require("aws-sdk");
     
-var commentRoutes = require("./routes/commentRoutes.js"),
+var seasonRoutes = require("./routes/seasonRoutes.js"),
+	episodeRoutes = require("./routes/episodeRoutes.js"),
     blogRoutes = require("./routes/blogRoutes.js"),
     authRoutes = require("./routes/authRoutes.js");
 
@@ -48,7 +49,8 @@ app.use(function(req, res, next){
 });
 
 
-app.use("/blogs/:id",commentRoutes);
+app.use("/blogs/:id",seasonRoutes);
+app.use("/seasons/:id",episodeRoutes);
 app.use(blogRoutes);
 app.use(authRoutes);
 mongoose.connect("mongodb+srv://arina:pass435@cluster0-dagh6.mongodb.net/test?retryWrites=true&w=majority", {
@@ -67,7 +69,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
-app.get("/movie", (req,res) => {
+app.get("/profile",isLoggedIn, (req,res) => {
+	res.render("profile");
+});
+
+app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 	
 	(async function(){
 		try{
@@ -83,23 +89,28 @@ app.get("/movie", (req,res) => {
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
 			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
 			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
-			s3.getObject({
-				Bucket: 'studiari',
-				Key: 'subn.vtt'
-			}, getEng).createReadStream().pipe(file);
+			
+			Episode.findById(req.params.episodeId, function(err, foundEpisode){
+				if(err){
+					console.log(err);
+				}else{
+					s3.getObject({
+					Bucket: 'studiari',
+					Key: foundEpisode.subtitles
+				}, getEng).createReadStream().pipe(file);
 			
 			
 			function getEng(){
 				s3.getObject({
 			      Bucket: 'studiari',
-			      Key: 'eng.txt'
+			      Key: foundEpisode.englishSub
 			    }, getEsp).createReadStream().pipe(fileEng);
 			}
 			
 			function getEsp(){
 				s3.getObject({
 				Bucket: 'studiari',
-				Key: 'esp.txt'
+				Key: foundEpisode.spanishSub
 			    }, mergeAndRedirect).createReadStream().pipe(fileEsp);
 			}
 			
@@ -128,11 +139,12 @@ app.get("/movie", (req,res) => {
 					result.push(obj);
 				}
 				console.log(result);
-				res.render("movie",{res: result});
+				res.render("movie",{res: result, episode: foundEpisode});
 				}
 			}
 	        }	
-			
+				}
+			});	
 		}catch(e){
 			console.log("error", e);
 		}
@@ -142,6 +154,19 @@ app.get("/movie", (req,res) => {
 
 app.get('/cancel', (req, res) => res.send('Cancelled'));
 
+function pay(req,res,next){
+	if(req.isAuthenticated() && (req.user.isAdmin || req.user.paid) ){
+		return next();
+	}
+	res.redirect("/blogs");
+}
+
+function isLoggedIn(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect("/register");
+}
 
 app.listen(port, function(){
     console.log("SERVER STARTED");

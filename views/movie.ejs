@@ -11,16 +11,16 @@
 	<!-- exit button -->
 <a href="/blogs"><i class="exit fas fa-times-circle"></i></a>
 <div class="player">
-    <video class="player-video" src="https://studiari.s3.eu-west-2.amazonaws.com/videoplayback.mp4" type="video/mp4">
+    <video id="video-active" class="player-video" src="<%= episode.link %>" type="video/mp4" autoplay>
         <track kind="subtitles" src="/subs/subtitles.vtt" srclang="en" label="English" data-state="active">
     </video>
 
     <div class="player-controls">
-        <div class="subs">
+		<span class="subs">
 
-        </div>
+        </span>
         <div class="progress">
-            <div class="filled-progress"></div>
+			<div class="filled-progress"></div>
         </div>
 
         <div class="ply-btn">
@@ -31,10 +31,17 @@
                 </svg>
             </button>
         </div>
+		<div id="timeline">
+			<p>
+				<span id="current">00:00:00</span> / <span id="duration">00:00:00</span>
+			</p>	
+		</div>
+		
 
         <div class="sliders">
+			<i class="fas fa-volume-down"></i>
             <input type="range" name="volume" class="player-slider" min="0" max="1" step="0.05" value="1">
-
+			<i class="fas fa-running"></i>
             <input type="range" name="playbackRate" class="player-slider" min="0.5" max="2" step="0.1" value="1">
         </div>
 
@@ -51,6 +58,9 @@
 	
 	//show tip with translation when a span is clicked
 	function showTip(m) {
+		var player = document.querySelector('.player');
+		var video = player.querySelector('.player-video');
+		video.pause();
 		var result = <%-JSON.stringify(res)%>;
 		var tooltipTexts = document.querySelectorAll('.tooltiptext');
 		tooltipTexts.forEach(function(item) {
@@ -72,11 +82,41 @@
 	
 	//hide tip when mouse is out of span
 	function hideTip() {
+		var player = document.querySelector('.player');
+		var video = player.querySelector('.player-video');
+		video.play();
 		var tooltipTexts = document.querySelectorAll('.tooltiptext');
 		tooltipTexts.forEach(function(item) {
 			item.style.setProperty('visibility', 'hidden', 'important');
 		});
 	}
+	
+	function onTrackedVideoFrame(currentTime, duration){
+		
+		//formatting currentTime
+		var hours = Math.floor(currentTime / 3600);
+		if(hours<10) hours = "0"+hours;
+		currentTime -= 3600*hours;
+		var minutes = Math.floor(currentTime / 60);
+		if(minutes<10) minutes = "0"+minutes;
+		currentTime -= 60*minutes;
+		var seconds = currentTime;
+		if(seconds<10) seconds = "0"+seconds;
+		
+		//formatting duration
+		var hours2 = Math.floor(duration / 3600);
+		if(hours2<10) hours2 = "0"+hours2;
+		duration -= 3600*hours2;
+		var minutes2 = Math.floor(duration / 60);
+		if(minutes2<10) minutes2 = "0"+minutes2;
+		duration -= 60*minutes2;
+		var seconds2 = duration;
+		if(seconds2<10) seconds2 = "0"+seconds2;
+		
+		//displaying the timeline
+		$("#current").text(hours+":"+minutes+":"+seconds);
+		$("#duration").text(hours2+":"+minutes2+":"+seconds2);
+}
 	
 	//when page is loaded, do this
 window.addEventListener('DOMContentLoaded', function(){
@@ -87,16 +127,35 @@ window.addEventListener('DOMContentLoaded', function(){
 	const toggle = player.querySelector('.toggle-play');
 	const skippers = player.querySelectorAll('[data-skip]');
 	const ranges = player.querySelectorAll('.player-slider');
+	const subtitles = player.querySelector('#subtitles');
+	
+	// const loadProgressFilled = player.querySelector('.load-progress');
 
 	//set up subtitle variables
 	var texts = document.getElementsByClassName("subs");
 	var txt = texts[0];
 	var track = video.textTracks[0];
 	track.mode = 'hidden';
-
-	txt.addEventListener('mouseover', function () {
-		video.pause();
+	
+	subtitles.addEventListener('click', function () {
+		if(track.mode=='hidden'){
+			track.mode='disabled';
+			txt.style.visibility = "hidden";
+			txt.textContent = "";
+		}else{
+			track.mode='hidden';
+		}
 	});
+	
+	$("#video-active").on(
+    "timeupdate", 
+    function(event){
+      onTrackedVideoFrame(Math.floor(this.currentTime), Math.floor(this.duration));
+    });
+
+	// txt.addEventListener('mouseover', function () {
+	// 	video.pause();
+	// });
 
 	//change subtitle text when cue changes
 	track.addEventListener('cuechange', function () {
@@ -149,7 +208,15 @@ window.addEventListener('DOMContentLoaded', function(){
 	  const percent = (video.currentTime / video.duration) * 100;
 	  progressFilled.style.flexBasis = `${percent}%`;
 	}
+	
+	// function loadProgressUpdate() {
+	// 	if(video.buffered.length > 0){
+	// 		const percent = (video.buffered.end(0) / video.duration) * 100;
+	//         loadProgressFilled.style.flexBasis = `${percent}%`;
+	// 	}
+	// }
 
+	
 	function scrub(e) {
 	  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
 	  video.currentTime = scrubTime;
@@ -160,6 +227,7 @@ window.addEventListener('DOMContentLoaded', function(){
 	video.addEventListener('play', updateButton);
 	video.addEventListener('pause', updateButton);
 	video.addEventListener('timeupdate', progressUpdate);
+	// video.addEventListener('progress', loadProgressUpdate);
 
 	toggle.addEventListener('click', togglePlay);
 	skippers.forEach(button => button.addEventListener('click', skip));

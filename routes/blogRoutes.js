@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var Blog = require("../models/blog.js");
+var Season = require("../models/season.js");
 var methodOverride = require("method-override");
 var expressSanitizer = require("express-sanitizer");
 var bodyParser = require("body-parser");
@@ -22,8 +23,6 @@ router.get("/blogs", function(req, res){
     });
 });
 
-
-
 router.get("/blogs/new",isAdmin, function(req,res){
     res.render("new");
 });
@@ -40,12 +39,15 @@ router.post("/blogs",isAdmin, function(req, res){
 
 //router.get("/blogs/:id",pay, function(req,res){
 router.get("/blogs/:id", function(req,res){
-    Blog.findById(req.params.id).populate("comments").exec(function(err,foundBlog){
-        if(err){
+    Blog.findById(req.params.id).populate("seasons").exec(function(err,foundBlog){
+		Season.populate(foundBlog.seasons, {path: 'episodes'}, function (err, doc) {
+			if(err){
             res.redirect("/blogs");
         }else{
             res.render("show", {blog: foundBlog});
         }
+         });
+        
     });
 });
 

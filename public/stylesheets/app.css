@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:200i&display=swap');
+
+.blackBack{
+	background-color:black;
+	
+}
+
+.bg-dark{
+	background-color: #a044ff !important;
+}
+
 i .icon{
     font-size: 2em;
 }
@@ -24,8 +35,15 @@ h1{
 	text-align: center;
 	padding: 2rem;
 }
-body{
+
+.headerText{
+	font-size: 3em;
+	color: white;
+	font-weight: 250;
+	text-align:center;
+	font-family: 'Raleway', sans-serif;
 }
+
 
 .forma{
 	background: white;
@@ -81,11 +99,14 @@ body{
 		padding: 2rem;
 	}
 	.space{
-		margin-top: 16rem;
+		padding-top: 14rem !important;
 	}
 	h2{
 	    font-size: 6rem;
     }
+	.card-body{
+		font-size: 30px;
+	}
 	
 }
 @media screen and (min-width: 1001px) {
@@ -114,16 +135,20 @@ body{
 		margin-left: 6rem;
 	}
 	.space{
-		margin-top: 9rem;
+		padding-top: 6rem !important;
 	}
 	.land{
 		padding: 2em 5em 0em 2em;
+		margin-top: 6em;
     }
 	.showCol:nth-child(1){
 		text-align: center;
 	}
 	.showCol:nth-child(2){
 		text-align: left;
+	}
+	.card-body{
+		font-size:1.1em;
 	}
 }
 
@@ -137,12 +162,18 @@ hr{
     background-color: white;
 }
 .card{
-	
+	background-color: transparent !important;
 	margin-bottom: 2em;
-	border-color: #e8e1e1;
-    box-shadow: 0 0 10px #241f1f;
+	border:2px solid #a044ff;
+    box-shadow: 0 0 5px #a044ff;
+	transition: all .2s ease-in-out;
+}
+.card:hover{
+	transform: scale(1.1);
 }
 .card-body{
-	font-size: 16px;
 	padding: 1.5rem;
+}
+.card-title{
+	color: white !important;
 }

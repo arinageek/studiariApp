@@ -12,11 +12,11 @@
 					<form id="delete" class="inlineButton" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
 						<button class="btn btn-danger btn-lg">Delete</button>
 					</form>
+					<br>
+                    <form class="inlineButton" action="/blogs/<%= blog._id %>/newseason" method="GET">
+						<button class="btn btn-success btn-lg">Create a season</button>
+					</form>
 				<% } %>
-
-				<!-- <form class="inlineButton" action="/blogs/<%= blog._id %>/newcom" method="GET">
-					<button class="btn btn-success btn-lg">Create a comment</button>
-				</form> -->
 			</div>
 			<div class="col-12 col-lg-6 showCol">
 				<h1>
@@ -26,15 +26,37 @@
 				<pre><%=blog.description%></pre>
 				<br>
 				<div class="ui top attached tabular menu">
-				  <a class="item active" data-tab="first">First</a>
-				  <a class="item" data-tab="second">Second</a>
+					<% blog.seasons.forEach(function(season,ind){ %>
+					   <% if(ind==0){ %>
+					       <a class="item active" data-tab="<%=season.name%>"><%=season.name%></a>
+					   <% }else{ %>
+						   <a class="item" data-tab="<%=season.name%>"><%=season.name%></a>
+						<% } %>
+						<% if(currentUser && currentUser.isAdmin){ %>
+							<form class="inlineButton" action="/seasons/<%= season._id %>/newepisode" method="GET">
+								<button class="btn btn-success">+</button>
+							</form>
+						<% } %>
+					 <% }); %>
+					
 				</div>
-				<div class="ui bottom attached tab segment active" data-tab="first">
-				  <a href="/movie">S1E1</a>
-				</div>
-				<div class="ui bottom attached tab segment" data-tab="second">
-				  <a href="/movie">S2E1</a>
-				</div>
+				<% blog.seasons.forEach(function(season,ind){ %>
+				  
+					<% if(ind==0){ %>
+						<div class="ui bottom attached tab segment active" data-tab="<%=season.name%>">
+							<% season.episodes.forEach(function(episode){ %>
+								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=episode.name%></a><br>
+							<% }); %>
+						</div>
+				    <% }else{ %>
+				        <div class="ui bottom attached tab segment" data-tab="<%=season.name%>">
+							<% season.episodes.forEach(function(episode){ %>
+								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=episode.name%></a><br>
+							<% }); %>
+						</div>
+				    <% } %>
+				  
+				<% }); %>
 				
 			</div>
 		</div>

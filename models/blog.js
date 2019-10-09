@@ -1,13 +1,12 @@
 var mongoose = require("mongoose");
-
 var blogSchema = new mongoose.Schema({
     title: String,
     image: String,
     description: String,
-    comments: [
+    seasons: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Comment"
+            ref: "Season"
         }
     ]
 });

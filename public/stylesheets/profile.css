@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani|Raleway&display=swap');
+
+
+
+@media screen and (max-width: 1000px) {
+	.navbar-brand{
+		font-size: 4rem !important;
+}
+	.nav-link{
+		font-size: 3.3rem !important;
+	}
+	
+	h1{
+		font-size: 4rem !important;
+	}
+	p{
+		font-size: 3rem;
+	}
+	.card-title{
+		font-size: 2.7rem;
+	}
+	.card-text{
+	font-size: 2.5rem;
+	}
+	.price{
+    font-size: 3rem;
+	}
+	.card-link{
+		font-size: 2.5rem;
+		padding: 0.5rem 1rem;
+	}
+	.cont{
+		margin: 10rem 1rem;
+	}
+}
+
+@media screen and (min-width: 1001px) {
+	h1{
+		font-size: 40px;
+	}
+	p{
+		font-size: 20px;
+	}
+	.card-title{
+		font-size: 35px;
+	}
+	.card-text{
+	font-size: 25px;
+	}
+	.price{
+    font-size: 35px;
+	}
+	.card-link{
+		font-size: 17px;
+		padding: 5px 10px;
+	}
+	.cont{
+		margin: 3rem 1rem;
+	}
+}
+.bg-nav{
+	background-color: #a044ff !important;
+}
+.cont{
+    font-family: 'Raleway', sans-serif;
+}
+.navbar-brand{
+		font-size: 3.5rem;
+	}
+.row{
+    background:white;
+    padding: 2em;
+}
+.card{
+    transition: all 0.5s linear;
+	margin-bottom: 2rem;
+	 background: #74ebd5;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #ACB6E5, #74ebd5);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #ACB6E5, #74ebd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.card-link{
+    border: 2px solid indigo;
+	color: black !important;
+    border-radius: 20px;
+}
+
+
+.gray{
+    font-size: 1rem;
+    color: gray;
+}
+input{
+    border-radius: 20px;
+    border-color: aqua;
+    padding: 5px 10px;
+}
+.btn{
+    border-radius: 20px;
+    color: white !important;
+    background-color: indigo;
+    border-radius: 20px !important;
+    transition: all 2s linear;
+}
+.card-link:hover{
+    color: white !important;
+    background-color: indigo !important;
+}

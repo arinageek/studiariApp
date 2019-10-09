@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment space">
+    <div class="ui huge header">New Episode to <%= season.name %> </div>
+    <form class="ui form" action="/seasons/<%= season._id %>/newepisode" method="POST">
+        <div class="field">
+            <label>Name</label>
+            <input type="text" name="episode[name]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to video</label>
+            <input type="text" name="episode[link]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to subs</label>
+            <input type="text" name="episode[subtitles]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to English subs</label>
+            <input type="text" name="episode[englishSub]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to Spanish subs</label>
+            <input type="text" name="episode[spanishSub]" placeholder="text">
+        </div>
+        <input class="ui violet basic button" type="submit">
+    </form>
+</div>
+
+<% include ./partials/footer %>
