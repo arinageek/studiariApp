@@ -8,7 +8,7 @@ var UserSchema = new mongoose.Schema({
    resetPasswordExpires: Date,
    password: String,
    isAdmin: {type: Boolean, default: false},
-   paid: {type: Boolean, default: false}
+   expirationDate: Date
 });
 
 UserSchema.plugin(passportLocalMongoose);

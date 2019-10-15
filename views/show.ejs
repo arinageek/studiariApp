@@ -8,14 +8,16 @@
 				<img style="border:2px solid gray" src="<%=blog.image%>">
 				<br>
 				<% if(currentUser && currentUser.isAdmin){ %>
+				<br><br>
 					<a class="btn btn-warning btn-lg" href="/blogs/<%= blog._id %>/edit">Edit</a>
 					<form id="delete" class="inlineButton" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
 						<button class="btn btn-danger btn-lg">Delete</button>
 					</form>
-					<br>
+					<br><br>
                     <form class="inlineButton" action="/blogs/<%= blog._id %>/newseason" method="GET">
 						<button class="btn btn-success btn-lg">Create a season</button>
 					</form>
+				<br><br>
 				<% } %>
 			</div>
 			<div class="col-12 col-lg-6 showCol">

@@ -85,65 +85,114 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 			});
 			
 			const s3 = new aws.S3();
-			var fileVideo = fs.createWriteStream('./public/video/studiari.mp4');
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
 			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
 			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
 			
+			function getEngFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/eng.txt", "utf-8", (err, data) => {
+						if (err) console.log(err); 
+						
+						var eng = [];
+						eng = data.toString().replace(/\r/g,"").split("\n");
+						resolve(eng);
+					
+					});	
+				});
+			}
+			
+			function getEspFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/esp.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var esp = [];
+							esp = data.toString().replace(/\r/g,"").split("\n"); 
+							resolve(esp);						
+					});
+				});
+			}
+			
+			function getSubs(foundEpisode){
+				return new Promise(resolve => {
+					s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.subtitles
+					}, resolve(1)).createReadStream().pipe(file);
+				});
+			}
+			
+			function getEng(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.englishSub
+					}).createReadStream();
+					stream.pipe(fileEng);
+					stream.on("end", () => {
+						resolve(1);
+					});
+				});
+			}
+			
+			function getEsp(foundEpisode){
+				return new Promise(resolve => {
+					// s3.getObject({
+					// 	Bucket: 'studiari',
+					// 	Key: foundEpisode.spanishSub
+					// }).createReadStream().pipe(fileEsp);
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.spanishSub
+					}).createReadStream();
+					stream.pipe(fileEsp);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
+			
+			function getRes(eng,esp){
+				return new Promise(resolve => {
+					var result = [];
+						for(var i=0; i<eng.length; i++){
+							var obj = {en: eng[i], es: esp[i]};
+							result.push(obj);
+						}
+						console.log(result);
+						resolve(result);
+				});
+			}
+			
 			Episode.findById(req.params.episodeId, function(err, foundEpisode){
 				if(err){
+					console.log("Error in finding the episode!");
 					console.log(err);
 				}else{
-					s3.getObject({
-					Bucket: 'studiari',
-					Key: foundEpisode.subtitles
-				}, getEng).createReadStream().pipe(file);
-			
-			
-			function getEng(){
-				s3.getObject({
-			      Bucket: 'studiari',
-			      Key: foundEpisode.englishSub
-			    }, getEsp).createReadStream().pipe(fileEng);
-			}
-			
-			function getEsp(){
-				s3.getObject({
-				Bucket: 'studiari',
-				Key: foundEpisode.spanishSub
-			    }, mergeAndRedirect).createReadStream().pipe(fileEsp);
-			}
-			
-			function mergeAndRedirect(){
+					
+					async function work(){
+						
+						var eng,esp;
+						var result = [];
+						
+					
+						var getSubsResolved = await getSubs(foundEpisode);
+						var resolvedEng = await getEng(foundEpisode);
+						var resolvedEsp = await getEsp(foundEpisode);
 
-		    var eng,esp;
-			var result=[];
-			fs.readFile("./public/subs/eng.txt", "utf-8", (err, data) => {
-				if (err) { console.log(err) }
-				eng = data.toString().replace(/\r/g,"").split("\n");
-				getEsp();
-			});	
-
-			function getEsp() {
-				fs.readFile("./public/subs/esp.txt", "utf-8", (err, data) => {
-				if (err) { console.log(err) }
-				esp = data.toString().replace(/\r/g,"").split("\n");
-				getRes();
-			});
-			}
-
-			function getRes() {
-				if(eng != undefined){
-				for(var i=0; i<eng.length; i++){
-					var obj = {en: eng[i], es: esp[i]};
-					result.push(obj);
-				}
-				console.log(result);
-				res.render("movie",{res: result, episode: foundEpisode});
-				}
-			}
-	        }	
-				}
+						var eng = await getEngFile();
+						var esp = await getEspFile();
+						var result = await getRes(eng,esp);
+						
+						res.render("movie",{res: result, episode: foundEpisode});
+	
+					}
+					
+					work();
+					
+				}	
+				
 			});	
 		}catch(e){
 			console.log("error", e);
@@ -155,10 +204,11 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 app.get('/cancel', (req, res) => res.send('Cancelled'));
 
 function pay(req,res,next){
-	if(req.isAuthenticated() && (req.user.isAdmin || req.user.paid) ){
+	var d = new Date();
+	if(req.isAuthenticated() && (req.user.isAdmin || (d.getTime() < req.user.expirationDate.getTime())) ){
 		return next();
 	}
-	res.redirect("/blogs");
+	res.redirect("/profile");
 }
 
 function isLoggedIn(req, res, next){

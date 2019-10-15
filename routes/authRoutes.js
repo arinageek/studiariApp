@@ -13,8 +13,11 @@ router.get("/register", function(req,res){
 });
 
 router.post("/register", function(req,res){
+	var d = new Date();
+	d.setDate(d.getDate()+3);
 	var newUser = new User({
-        username: req.body.username
+        username: req.body.username,
+		expirationDate: d
       });
     User.register(newUser, req.body.password, function(err,user){
         if(err){
@@ -23,7 +26,7 @@ router.post("/register", function(req,res){
             res.redirect("/register");
         }else{
             passport.authenticate("local")(req,res, function(){
-                req.flash("success", "Вы зарегистрировались!");
+                req.flash("success", "Your 3 DAY TRIAL starts now!");
                 res.redirect("/blogs");
             });
         }
@@ -46,7 +49,6 @@ router.post("/login", passport.authenticate("local",
 
 router.get("/logout", function(req, res){
    req.logout();
-   req.flash("success", "Вы вышли!");
    res.redirect("/blogs");
 });
 
@@ -88,15 +90,15 @@ router.post('/forgot', function(req, res, next) {
       var mailOptions = {
         to: user.username,
         from: 'studiariweb@gmail.com',
-        subject: 'Сброс пароля',
-        text: 'Вы получили это письмо, потому что запросили сброс пароля для своего аккаунта на StudiAri\n\n' +
-          'Пожалуйста, нажмите на следующую ссылку или скопируйте ее в браузер, чтобы продолжить:\n\n' +
+        subject: 'Password reset',
+        text: 'You received this email because you requested a password reset for your account on StudiAri\n\n' +
+          'Please click on the following link or copy it to your browser to continue:\n\n' +
           'http://' + req.headers.host + '/reset/' + token + '\n\n' +
-          'Если вы не запрашивали сброс пароля от вашего аккаунта, проигнорийте этот запрос, и пароль останется неизменным.\n'
+          'If you did not request a password reset from your account, ignore this request and the password will remain unchanged.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
         console.log('mail sent');
-        req.flash('success', 'На почту ' + user.username + ' было отправлено письмо с последующими инструкциями.');
+        req.flash('success', 'An email was sent to ' + user.username + ' with following instructions.');
         done(err, 'done');
       });
     }
@@ -136,7 +138,7 @@ router.post('/reset/:token', function(req, res) {
             });
           });
         } else {
-            req.flash("error", "Пароли не совпадают!");
+            req.flash("error", "Passwords don't match!");
             return res.redirect('back');
         }
       });
@@ -152,12 +154,12 @@ router.post('/reset/:token', function(req, res) {
       var mailOptions = {
         to: user.username,
         from: 'studiariweb@mail.com',
-        subject: 'Ваш пароль был изменен',
-        text: 'Здравствуйте,\n\n' +
-          'Это подтверждение о том, что пароль от аккаунта ' + user.username + ' был изменен.\n'
+        subject: 'Your password has been changed',
+        text: 'Hello,\n\n' +
+          'This is a confirmation that the password for the account ' + user.username + ' has been changed.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
-        req.flash('success', 'Ваш пароль был успешно изменен!');
+        req.flash('success', 'Your password has been successfully changed!');
         done(err);
       });
     }

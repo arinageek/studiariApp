@@ -2,10 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Raleway:200i&display=swap');
 
-.blackBack{
-	background-color:black;
-	
-}
+
 
 .bg-dark{
 	background-color: #a044ff !important;
@@ -15,6 +12,7 @@ i .icon{
     font-size: 2em;
 }
 pre{
+	color:white;
 	white-space: pre-line;
 	font-family: 'Roboto', sans-serif;
 }
@@ -24,11 +22,12 @@ em{
 }
 
 h1{
+	color:white;
 	font-family: 'Russo One', sans-serif;
 }
 
 .white{
-	background: white;
+	background: rgba(0,0,0,.95);
 }
 
 .charge{
@@ -46,8 +45,11 @@ h1{
 
 
 .forma{
-	background: white;
 	padding: 2rem;
+}
+body{
+	background: rgba(0,0,0,.95);
+	color:white;
 }
 
 @media screen and (max-width: 1000px) {

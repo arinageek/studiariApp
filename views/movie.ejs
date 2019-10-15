@@ -9,9 +9,10 @@
 <body>
 
 	<!-- exit button -->
-<a href="/blogs"><i class="exit fas fa-times-circle"></i></a>
+<!-- <a href="/blogs"><i class="exit fas fa-times-circle"></i></a> -->
+	<a href="/blogs" class="exit">X</a>
 <div class="player">
-    <video id="video-active" class="player-video" src="<%= episode.link %>" type="video/mp4" autoplay>
+    <video id="video-active" class="player-video" src="<%= episode.link %>" type="video/webm" autoplay>
         <track kind="subtitles" src="/subs/subtitles.vtt" srclang="en" label="English" data-state="active">
     </video>
 
@@ -68,23 +69,20 @@
 		});
 		m.querySelector('.tooltiptext').style.setProperty('visibility', 'visible', 'important');
 		var orig = m.childNodes[0].nodeValue.toString();
-		console.log(orig);
+		console.log("w"+orig+"w");
 		for(var i=0; i<result.length; i++){
-			var f=" "+result[i].en.toString();
-			var s=" "+result[i].en.toString()+" ";
-			var e=result[i].en.toString()+" ";
+			var f=" "+result[i].es.toString();
+			var s=" "+result[i].es.toString()+" ";
+			var e=result[i].es.toString()+" ";
 			if((orig === f) || (orig === s) || (orig === e)){
-				console.log("Got it!! esp= "+result[i].es);
-				m.querySelector('.tooltiptext').textContent = result[i].es;
+				console.log("Got it!! eng= "+result[i].en);
+				m.querySelector('.tooltiptext').textContent = result[i].en;
 			}
 		}
 	}
 	
 	//hide tip when mouse is out of span
 	function hideTip() {
-		var player = document.querySelector('.player');
-		var video = player.querySelector('.player-video');
-		video.play();
 		var tooltipTexts = document.querySelectorAll('.tooltiptext');
 		tooltipTexts.forEach(function(item) {
 			item.style.setProperty('visibility', 'hidden', 'important');
@@ -152,11 +150,7 @@ window.addEventListener('DOMContentLoaded', function(){
     function(event){
       onTrackedVideoFrame(Math.floor(this.currentTime), Math.floor(this.duration));
     });
-
-	// txt.addEventListener('mouseover', function () {
-	// 	video.pause();
-	// });
-
+	
 	//change subtitle text when cue changes
 	track.addEventListener('cuechange', function () {
 
@@ -166,10 +160,10 @@ window.addEventListener('DOMContentLoaded', function(){
 		if(cue){
 			txt.style.visibility = "visible";
 			txt.textContent = vidCues[0].text;
-			var words = txt.textContent.split(" ");
+			var words = txt.textContent.split(/\s+/);
 			txt.textContent = "";
 			for(var i=0; i<words.length; i++){
-				txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words[i]+" <span class=\"tooltiptext\">Empty</span> </span> ";
+				txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words[i]+" <span class=\"tooltiptext\">-</span> </span> ";
 			}
 
 		}else{
