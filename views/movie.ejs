@@ -8,8 +8,6 @@
 </head>
 <body>
 
-	<!-- exit button -->
-<!-- <a href="/blogs"><i class="exit fas fa-times-circle"></i></a> -->
 	<a href="/blogs" class="exit">X</a>
 <div class="player">
     <video id="video-active" class="player-video" src="<%= episode.link %>" type="video/webm" autoplay>
@@ -69,14 +67,13 @@
 		});
 		m.querySelector('.tooltiptext').style.setProperty('visibility', 'visible', 'important');
 		var orig = m.childNodes[0].nodeValue.toString();
-		console.log("w"+orig+"w");
 		for(var i=0; i<result.length; i++){
-			var f=" "+result[i].es.toString();
-			var s=" "+result[i].es.toString()+" ";
-			var e=result[i].es.toString()+" ";
+			var f=" "+result[i].<%= movie.language %>.toString();
+			var s=" "+result[i].<%= movie.language %>.toString()+" ";
+			var e=result[i].<%= movie.language %>.toString()+" ";
 			if((orig === f) || (orig === s) || (orig === e)){
-				console.log("Got it!! eng= "+result[i].en);
-				m.querySelector('.tooltiptext').textContent = result[i].en;
+				console.log("Got it!! "+result[i].<%= currentUser.language %>);
+				m.querySelector('.tooltiptext').textContent = result[i].<%= currentUser.language %>;
 			}
 		}
 	}

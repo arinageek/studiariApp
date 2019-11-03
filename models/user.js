@@ -7,6 +7,7 @@ var UserSchema = new mongoose.Schema({
    resetPasswordToken: String,
    resetPasswordExpires: Date,
    password: String,
+   language: {type: String, default: "en"},
    isAdmin: {type: Boolean, default: false},
    expirationDate: Date
 });

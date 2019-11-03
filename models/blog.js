@@ -3,6 +3,7 @@ var blogSchema = new mongoose.Schema({
     title: String,
     image: String,
     description: String,
+	language: String,
     seasons: [
         {
             type: mongoose.Schema.Types.ObjectId,

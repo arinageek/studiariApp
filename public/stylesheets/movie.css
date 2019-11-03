@@ -53,6 +53,9 @@ body {
 .play-btn {
   flex: 1;
 }
+.ply-btn svg{
+	background-color: white;
+}
 #timeline{
 	display: inline-flex;
 	flex:1;

@@ -37,7 +37,7 @@ router.post("/blogs",isAdmin, function(req, res){
     });
 });
 
-//router.get("/blogs/:id",pay, function(req,res){
+
 router.get("/blogs/:id", function(req,res){
     Blog.findById(req.params.id).populate("seasons").exec(function(err,foundBlog){
 		Season.populate(foundBlog.seasons, {path: 'episodes'}, function (err, doc) {

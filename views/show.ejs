@@ -43,17 +43,19 @@
 					
 				</div>
 				<% blog.seasons.forEach(function(season,ind){ %>
-				  
+				  <% var i = 1; %>
 					<% if(ind==0){ %>
 						<div class="ui bottom attached tab segment active" data-tab="<%=season.name%>">
 							<% season.episodes.forEach(function(episode){ %>
-								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=episode.name%></a><br>
+								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=i%>. <%=episode.name%></a><br>
+							<% i++ %>
 							<% }); %>
 						</div>
 				    <% }else{ %>
 				        <div class="ui bottom attached tab segment" data-tab="<%=season.name%>">
 							<% season.episodes.forEach(function(episode){ %>
-								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=episode.name%></a><br>
+								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=i%>. <%=episode.name%></a><br>
+							<% i++ %>
 							<% }); %>
 						</div>
 				    <% } %>
