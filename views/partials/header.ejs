@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html>
     <head>
-        <title>BlogApp</title>
+        <title>StudiAri</title>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
@@ -22,12 +22,19 @@
 					<li class="nav-item">
 						<a class="nav-link" href="/">Series <span class="sr-only">(current)</span></a>
 					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/movies">Movies <span class="sr-only">(current)</span></a>
+					</li>
 					<% if(currentUser && currentUser.isAdmin){ %>
 						<li class="nav-item">
-							<a class="nav-link" href="/blogs/new">New article</a>
+							<a class="nav-link" href="/blogs/new">New serie</a>
 						</li>
 					<% } %>
-					
+					<% if(currentUser && currentUser.isAdmin){ %>
+						<li class="nav-item">
+							<a class="nav-link" href="/movies/new">New movie</a>
+						</li>
+					<% } %>
 
 				</ul>
 				<ul class="navbar-nav ml-auto">

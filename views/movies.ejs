@@ -2,18 +2,18 @@
 
 <div class="main index space">
 	<h1 class="headerText">
-		All series available on StudiAri
+		All movies available on StudiAri
 	</h1><br><br>
       <div class="row" style="margin: 0% 10%">
-		<% blogs.forEach(function(blog){ %>
+		<% movies.forEach(function(movie){ %>
 		  <div class="col-6 col-lg-4 col-xl-3">
 			<div class="card card-link">
 				<div class="card-img-top">
-					<img style="width: 100%" class="img-fluid ui centered image" src="<%= blog.image %>">
+					<img style="width: 100%" class="img-fluid ui centered image" src="<%= movie.image %>">
 				</div>
 				<div class="card-body">
 					<img class="card-img" src="https://studiari.s3.eu-west-2.amazonaws.com/spain-flag.png">
-					<a class="card-title" href="/blogs/<%= blog._id %>"><%= blog.title %></a>
+					<a class="card-title" href="/movies/<%= movie._id %>"><%= movie.title %></a>
 				</div>
 			</div>
 			 

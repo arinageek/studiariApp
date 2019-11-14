@@ -1,2430 +1,1144 @@
-"Aquella
-"Así
-"Atención,
-"Comisario
-"Como
-"El
-"En
-"Ese
-"Hay
-"Hija,
-"Hola,
-"Incluso
-"Le
-"Llevan
-"Mira,
-"Ni
-"No
-"Ofrezco
-"Por
-"Puedes
-"Sale
-"Si
-"Solicito
-"Tengo
-"kilates"?
-"piza".
-"que
-"selfie".
-"tengo
-"y
-"¿Una
-#
-(ALISON)
-(ARTURO)
-(BERLÍN)
-(DENVER)
-(GRITAN)
-(Golpe
-(HABLA
-(HABLAN
-(HELSINKI)
-(HOMBRE)
-(HUSMEA)
-(LLORA)
-(Llanto)
-(MOSCÚ)
-(MUJER)
-(Mensaje)
-(Móvil)
-(Música
-(NAIROBI)
-(POLICÍA)
-(PRIETO)
-(Pitido)
-(RADIO)
-(RAQUEL)
-(RÍE)
-(RÍEN)
-(RÍO)
-(SISEA)
-(TELEVISIÓN)
-(TODOS)
-(TOSE)
+(HOMBRE) ¡Quieto o disparo!
+(Disparo)
+(MUJER) ¡No!
+"Me llamo Tokio.
+Pero cuando comenzó esta historia, no me llamaba así.
+Esta era yo.
+Y este, el amor de mi vida.
+La última vez que lo vi lo dejé en un charco de sangre
+con los ojos abiertos.
+Hicimos 15 atracos limpios,
+pero mezclar amor y trabajo nunca funciona.
+Así que, cuando el segurata disparó, tuve que cambiar de profesión.
+De ladrona a asesina.
+Y así fue como empecé a huir.
+De alguna manera, yo también estaba muerta.
+O casi muerta.
+Llevaba 11 días escondida
+y mi foto empapelaba las comisarías de toda España.
+Me caerían 30 años.
+Y, la verdad, no soy ni llegar a viejecita
+en la celda de un penal.
+Soy más bien de huir.
+En cuerpo y alma.
+Y si no puedo llevar mi cuerpo,
+al menos que escape mi alma".
+(Tono de llamada)
+"No me quedaba tiempo y había cosas importantes que debía hacer.
+En realidad, solo una".
 (Teléfono)
-(Tono
-(ÁNGEL)
--"Como
--"El
--"Hace
--"Hay
--"Me
--"Objetivo
--"Quiero
--->
--A
--Ahora
--Atiende.
--Berlín,
--Claro.
--Coronel
--Cree
--Da
--De
--Di
--Eh...
--El
--Enséñale
--Enséñamela.
--Entró
--Es
--Escucha.
--Espera.
--Estamos
--Fantástico.
--Graba.
--Gracias,
--Ha
--Habla
--Hackéalo.
--Han
--Hola,
--Joder,
--Le
--Lo
--Los
--Maravilloso,
--Me
--Mejor
--Muy
--No
--No,
--No.
--Pablo.
--Parece
--Perdone,
--Pero
--Ponme
--Por
--Porque
--Puedes
--Pues
--Páralo
--Que
--Quiero
--Quietos,
--Raquel,
--Rebobina.
--Solicito
--Sonsoles,
--Sonsoles.
--Sé
--Sí
--Sí,
--Sí.
--Te
--Tiene
--Tienes
--Todo
--Tírale,
--Un
--Uy,
--Vamos,
--Vamos.
--Vas
--Venga,
--Venga.
--Voy
--Y
--Ya
--Yo
--Yo.
--¡Me
--¡No,
--¡Un
--¿Alguien
--¿Cómo
--¿Dónde
--¿El
--¿En
--¿Estás
--¿Hace
--¿Haces
--¿Iba
--¿Identidad?
--¿Qué
--¿Qué?
--¿Tiene
--¿Una
-...contará
-A
-Activaremos
-Acuérdate
-Además,
-Ahora
-Ahí
-Aitana.
-Al
-Alguno
-Alison
-Alison.
-Amplía.
-Anda
-Antonio,
-Aníbal
-Aprender
-Arturito.
-Arturo
-Así
-Así,
-Aun
-Aunque
-Ay,
-B.
-Bajad
-Belfast,
-Berlín
-Berlín,
-Berlín.
-Bertín
-Bien,
-Bien.
-Bravo.
-Buenas
-Bueno,
-Buenos
-Buscad
-C.
-CNI...
-Cada
-Canta,
-Casa
-Civil
-Claro
-Claro,
-Como
-Con
-Cortés,
-Cuando
-Cállate
-Da
-Dad,
-Dalí
-Dalí,
-Dame
-De
-Dejad
-Dejen
-Denver,
-Denver.
-Denver?
-Descansarás
-Desnúdalo.
-Dije
-Dime,
-Dimites
-Disculpe.
-Disculpen,
-Dos
-Duplica
-Déjalo,
-Dígame,
-EN
-Echa
-Eh,
-Eh.
-El
-En
-Enhorabuena,
-Entonces
-Entre
-Eras
-Eres
-Es
-Esa
-Escucha,
-Escuchadme
-Escóndete
-Escúchame
-Escúchame,
-Escúcheme,
-Eso
-Espera.
-Estaba
-Estamos
-Este
-Esto
-Estoy
-Estuvo
-Está
-Estáis
-Están
-Estás
-Experto
-Exteriores,
-Francamente,
-Fábrica
-Gandía,
-Gaztambide.
-Getafe.
-Ginebra,
-Gracias.
-Gran
-Ha
-Habla
-Habrá
-Hacíamos
-Hay
-He
-Helsin,
-Helsin.
-Helsinki,
-Helsinki.
-Hermano,
-Hola,
-Hombre.
-Hoy
-I'm
-Iba
-Imagino
-India
-Inspectora,
-Inteligencia
-Internet
-Internet.
-Interpol.
-Joder,
-Judicial,
-LA
-La
-Lamentan
-Las
-Le
-Les
-Lis.
-Lo
-Los
-M-16,
-Makarov.
-Mamá,
-Mariví.
-Martí,
-María,
-Maserati,
-Me
-Mejor
-Mi
-Mientras
-Mira
-Mire,
-Mom,
-Moneda
-Moneda..".
-Muchas
-Murillo.
-Más
-Mátala.
-Mónica
-Mónica.
-Nacional
-Nacional,
-Nairobi,
-Navidad,
-Necesitas
-Ni
-No
-No,
-No.
-Nos
-O
-Osborne,
-Oye,
-PERPOL.
-Para
-Para,
-Parece
-Parker.
-Pasa
-Paula
-Perdona
-Perdone,
-Perdón,
-Perdón.
-Permiso.
-Pero
-Pero...
-Piensa
-Piensa,
-Pienso
-Pilates...
-Piénselo
-Policía.
-Policía?
-Poned
-Ponte
-Por
-Porque
-Prieto
-Prieto.
-Profesor
-Profesor?
-Protección
-Provenza.
-Pudiendo
-Puedo
-Pues
-Pum,
-Páralo.
-Que
-Queremos
-Querían
-Quiero
-Quietos.
-Qué
-Quítate
-RUSO)
-Raquel.
-Repártelas.
-Retirad
-Rocambolesco
-Román,
-Río
-Sabéis
-Sal
-Salva?
-Salvador
-Se
-Segunda
-Seguridad
-Será
-Si
-Siempre
-Simplemente
-Siéntate.
-Solo
-Son
-Son...
-Sonsoles,
-Soy
-Strizh
-Subinspector,
-Sánchez,
-Sé
-Sí,
 Sí.
-TODOS
-También
-Tan
-Te
-Teléfonos.
-Tendrá
-Tengo
-Tiene
-Tienen
-Tienes
-Timbre.
-Todo
-Todos
-Tokio
-Tokio,
-Tokio.
-Toledo
-Toledo".
-Trae.
-Tres
-Tu
-Tuvo
-Tú
-Tú,
-UCI,
-Un
-Usted
-Ustedes
-VEZ)
-Va,
-Vais
-Vale,
-Vale.
-Vamos
-Vamos,
-Vamos.
-Van
-Varón,
-Ve
-Venga,
-Venga.
-Vente
-Volvemos
-Voy
-Y
-Y...
-Ya
-Ya,
-Yo
-Yo.
-a
-a...
-abajo
-abajo.
-abandono
-abortar.
-abortar?
-abortarme.
-abortes
-abortiva
-abortiva.
-abortiva?
-aborto
-aborto.
-abras
-abre
-abriendo
-abrigo
-abrigo".
-abrigo.
-acabamos
-acabo
-academia
-accesos
-aceptadas
-acepte
-acompañaba
-acompañado.
-acompaño?
-aconsejo
-activo.
-acuerdo.
-acuerdo?
-acá!
-adelante
-adentro.
-adolescentes
-afuera.
-agradables
-agradecidas
-agradezco
-agradezco,
-agua.
-agua?
-ahora
-ahora,
-ahora.
-ahora?
-ahí
-ahí,
-ahí.
-ahí?
-al
-alarma.
-alarmas,
-albuterol,
-alegro
-alegría.
-alejamiento,
-alerta".
-algo
-algo.
-alguien
-alguna
-algunas
-algunos
-algún
-allá.
-allí
-allí.
-altavoces
-amanecer
-amigas?
-amor
-amor,
-amor.
-anoche,
-ansiolítico?
-ansiolíticos.
-antelación.
-antes
-antes.
-aplicó
-aportar
-apuntaban,
-aquellos
-aquí
-aquí.
-aquí?
-archipiélago.
-arma.
-armados
-armados,
-armas
-armas.
-arreglar
-arte.
-artes
-artista".
-asaltantes
-asaltantes,
-asalto
-asalto.
-asedio
-aseguro
-asignar
-asume
-asuntillo
-así
-así".
-así,
-así.
-atención
-atención?
-atendidos.
-atentos
-atleta.
-atletismo
-atletismo.
-atracador".
-atracador.
-atracador...
-atracadores
-atracadores".
-atracadores,
-atracadores.
-atraco
-atraco,
-aunque
-autoridad
-auténtico
-aventajado.
-aventura
-avisar
-avión.
-ayer
-ayer,
-ayuda.
-azul
-año.
-años
-años,
-años.
-aún
-baja
-bajarme
-bajarte
-bajo
-balas,
-balazo
-balazos
-balconcito
-banda".
-banda.
-bar,
-barricas
-bastante
-baño
-baños
-beber
-bebé
-bien
-bien,
-bien.
-bien?
-billetes
-bloque
-bloqueamos
-boca
-bodega
-bodega?
-bolsas
-borrar
-botella
-bragas
-bragas.
-braguitas
-brazo
-brazos,
-bricolaje?
-brindis
-brío
-buena
-bueno,
-buenorro.
-buenos".
-buscando
-buscar
-busqué
-caballo
-cabeza
-cabeza,
-cabo
-cacarea,
-cacareos.
-cachorrito,
-cada
-café?
-cagalera?
-cago
-calles
-calma
-calor
-cama
-cama,
-cambia
-cambiado
-cambiaron
-camiseta.
-campamento.
-campo
-campo?
-cansado.
-cansados,
-canta
-canta.
-cantar?
-capitán
-capitán.
-capitán?
-captaron
-cara
-cara,
-cara.
-caras
-careta.
-caretas
-careto.
-cargador
-cariño
-cariño?
-carnes
-caro,
-caro.
-carpa
-carrera.
-carroña?
-carta
-cartera.
-casa
-casa,
-casado.
-cascos
-caso
-caso.
-castigarlo.
-castigo
-castigo?
-casualidad
-cavando
-cavar,
-cavar.
-cayó
-celosa.
-cemento
-cenar
-centro
-centímetro
-cerca
-cerraron,
-chapa
-chaval
-chica
-chicas!
-chicas.
-chicha
-chico
-chicos
-chino
-cháchara
-cielo
-cierto
-cigarrito
-cinco
-claro
-clases
-clásica)
-cobardía
-coge
-coger
-cojones
-cojones?
-colector.
-colegio.
-colgado
-colgados
-color
-comento
-comer
-comida
-comisario.
-comisaría
-comisarías
-como
-compañeras
-compañero
-compañeros.
-completo.
-compramos
-comprar
-comunicación
-comunicado
-comunicado.
-comunicarse
-con
-condiciones
-conducirlo
-conejillo
-conexión
-confidentes
-conflicto
-confuso
-conmigo,
-conocernos.
-conocerte
-conozco
-conozco,
-conseguido
-conseguido,
-conseguiré
-construyendo.
-contactar
-contando
-contar
-contestador
-conteste,
-contigo
-contra
-control
-controlaba
-controlen
-conversación.
-copas,
-copas.
-corazón
-corre.
-correr
-corrido,
-corridos,
-corridos.
-cortábamos
-cosa
-cosas
-costar
-coño
-coño!
-coño.
-cree
-cree?
-crees
-creo
-creído
-crisis.
-crío
-crío,
-crío.
-críos.
-cuadran
-cualquier
-cuando
-cuanto
-cuatro
-cubro,
-cuenta
-cuenta".
-cuenta,
-cuente
-cuerpos
-cuestión
-cuidado
-cuidado.
-cuidan,
-cuidar
-culo.
-culpa.
-cultivar
-cumpleaños".
-cumpleaños.
-cumplen
-curro
-cuánto
-cuánto?
-cuántos
-cuñado,
-cámara
-cámaras
-cámaras,
-cárcel,
-cómo
-da
-da?
-dado
-dame
-dan
-dando
-dar
-darle
-darme
-das
-dato:
-daño
-de
-debajo
-debajo.
-debe
-deber".
-debería
-deberíamos
-decaiga,
-deciden,
-decir
-decir.
-decir?
-decirle
-decirle:
-dedos.
-defender.
-definitivamente
-deja
-dejad
-dejado
-dejar
-dejar.
-dejara
-dejarme?
-dejarnos
-dejaré
-dejas
-deje
-dejes
-del
-delante
-delito
-demasiada
-demás
-demás.
-dentro
-dentro,
-dentro.
-denuncia
-deporte?
-depriman.
-des
-desastre.
-descafeinado,
-descangallar.
-descansa.
-descanso.
-desconectado.
-desde
-deseos.
-desesperado
-desgraciados
-desnuda.
-desnúdale.
-despabilamiento.
-despacho
-despacho,
-despacio.
-despedida
-despejado,
-despertado
-despeñarse
-despierta".
-despiste,
-despisté
-después
-destino
-detrás
-devuelves
-di
-diabética,
-dice
-dicen
-dices,
-dicho
-dicho.
-diciendo
-diciendo?
-dictada
-dientes
-diferencia
-diferenciar
-diferente.
-diga
-diga.
-digamos
-digas
-digo
-digo.
-dije
-dijiste
-dimitir.
-dinero
-dinero,
-dinero.
-dios
-dios,
-diplomáticos,
-directo
-diré
-disco,
-discos
-disculpe.
-disfruta,
-dispare,
-dispare.
-disparen.
-disposición.
-distinguirnos
-distinto".
-donde
-dormida,
-dormido
-dormido?
-dos
-dos,
-dos.
-doy
-droga
-droga?
-duele
-duerma
-durante
-durar
-duros
-dé
-déficit
-déjalo
-día
-días
-días".
-días.
-dígame,
-dímelo
-dónde
-ecuador,
-edad
-eh,
-ejecución,
-ejemplar.
-ejemplo?
-el
-ella
-ella".
-ella,
-ella.
-ello,
-ellos
-elástica
-embarazo
-embarazo,
-emitió
-emocionante
-emocionante.
-empalmada
-empezado
-empezar
-empeñado
-empleo
-empotrara
-empresa
-empresas
-en
-enamorar
-encanta.
-encantaría
-encendido
-encerrados
-encima
-encima,
-encontrado
-encoñado,
-encoñado.
-encuentra
-encuéntralo
-enfades.
-enfermo
-engañado,
-engañarme...
-engañarme?
-engañó
-enorme,
-enrollan
-enseñas
-entera
-entiendo.
-entonces
-entra
-entrado
-entran
-entrando".
-entrando,
-entrar
-entre
-entrega,
-entregarme
-entregó
-entren
-entren,
-entren.
-enviado
-enviaremos.
-epicentro
-equipo
-era
-eran
-eras
-eres
-eres?
-es
-es?
-esa
-esas
-escabechina.
-escapa
-escapado
-escapar
-escayolaran
-escribir
-escuchar
-escupido
-ese
-eso
-eso,
-eso.
-esos
-esos.
-español,
-especial?
-esperado
-esperan
-esperando
-esperar
-espero.
-esposa
-esta
-esta,
-esta...
-estaba
-establecer
-estado
-estafa,
-estamos
-estar
-estaremos
-estarán
-estarás
-estaría
-estas
-este
-esternón,
-estirar
-esto
-esto,
-esto?
-estos
-estoy
-estrategia
-estreché
-estudiar
-estuvo
-está
-está.
-estáis
-están
-estás
-esté
-estés
-estómago,
-estúpida
-etiquetas?
-euros,
-euros.
-evitar
-experiencia
-explicado.
-explosivo
-exterior,
-eyacular
-facial
-fallado
-fallen".
-falsas
-falta
-familia
-familiar
-familias.
-farol,
-fatalidad
-favor
-favor,
-favor.
-favor?
-feas.
-fiesta.
-fila
-fin
-fin,
-fine.
-fingido
-fingido.
-fiscalía".
-fluida
-formando
-formas
-formemos
-foto
-foto,
-foto.
-fracción
-francés
-frase
-frente,
-frente.
-fronteras.
-fue
-fuera
-fuera,
-fuerte
-fueseis
-fuga,
-fui
-funcionando
-funcionando,
-fusiles
-fácil
-fármacos:
-gana
-ganando
-ganar
-ganábamos
-garitazo,
-garrafas
-garrafas.
-gasolina.
-gastar,
-gente
-gente,
-gigoló,
-gigoló.
-gilipollas
-gilipollas.
-gimnasio
-gorilas
-grabado
-grabadora?
-grabamos
-grabando.
-grabar
-grabaría
-gracias.
-grande,
-grande.
-grifo
-gritaba,
-guiada".
-guiarles
-gusta
-gustaría
-gustas
-guste.
-ha
-haber
-habido
-hablando
-hablando?
-hablar
-hablarme
-hablas
-hablo
-habrá
-habría
-habéis
-había
-habían
-hace
-hacen
-hacer
-hacerte,
-haces
-haces,
-haces?
-hacia
-haciendo
-haciendo,
-haciendo?
-haciéndome
-haciéndose
-haga
-hala.
-han
-haré.
-haría
-has
-hasta
-hay
-haya
-he
-hecho
-hecho.
-hechos
-hectáreas
-hemos
-herido
-heridos.
-heroica,
-heroína,
-heroína.
-hicieron
-hija
-hijo
-hijo.
-hilo,
-historia
-historia.
-historias
-hizo
-hombre
-hombre!
-hombre.
-hombre...
-hombres
-honrada,
-hora
-hora!
-hora,
-horas
-horas,
-horas.
-horita
-hormigón
-horror,
-hostia
-hoy.
-hoy?
-hubiera
-hubiéramos
-huevos,
-huevos.
-héroe...
-héroes,
-héroes.
-iba
-iban
-ibas?
-idea
-idea.
-identidad
-idioma
-igual
-igual,
-imagen
-imagen.
-importa.
-importa?
-importancia
-imposible
-imprimir
-imprimíamos
-improbable
-imágenes
-incluso
-india,
-indigesto,
-infantil.
-información
-inmediatamente.
-inocente
-inocentes".
-inquietud
-inspectora
-inspectora".
-inspectora,
-inspectora.
-inspectora...
-instante.
-instinto
-instrucciones".
-insulina
-insulina,
-inteligente.
-intención
-intentamos
-intentando
-intenten
-intento
-intereses
-interfiera
-interior
-internacional.
-interroguen
-intervención
-intuirlo,
-ir
-irá
-irían
-isla.
-islita
-izquierda
-jamás
-joda
-jode
-joder
-joder,
-joder.
-jodernos,
-jodidas?
-jodido
-jodidos.
-joven
-joven,
-judicial,
-jugando
-juntaletras
-juro
-justo
-justo,
-juventud
-kilos
-la
-labios
-lado.
-langostinos
-las
-le
-lección
-leer
-lejano)
-lengua
-les
-levantado
-levante
-liando,
-libertad,
-licencia
-llama
-llama?
-llamaba
-llamada)
-llamadas.
-llamarla
-llamarme?
-llamas
-llamas?
-llamo
-llegado
-llegando
-llegar
-lleva
-llevado
-llevar
-llevarse
-llevaré
-llevas
-llevo.
-llorando
-lloré
-lo
-loco
-lona.
-lonas,
-los
-luego
-lugar,
-lujo,
-luto
-luz
-lárgate
-línea
-machotes,
-madre
-madre!
-maduras
-maldije
-malentendido,
-malos
-malos...
-mamá.
-manchado
-mandado
-mandamos
-mando,
-manejado
-manera,
-mano
-mano,
-mano.
-manos
-mansión
-mantener
-manuales
-mar.
-marciales.
-margen".
-mariposas.
-martillo.
-matar
-matar.
-maten
-mato?
-mayor
-mañana
-mañana,
-me
-me...
-mea
-medicación?
-medicinas.
-medio
-megáfono
-megáfono,
-mejor
-mejor,
-melón.
-menor
-menos
-menos,
-mensaje
-mensaje".
-mensaje,
-mensajes
-mentira.
-mercado
-meses
-meses,
-metan
-metas
-metieran
-meto
-metros
-metía
-mi
-miembro
-mienta,
-mienta.
-miento
-mientras
-mierda
-millones
-millón
-mina.
-minuto?
-minutos
-minutos,
-minutos.
-mira
-mira,
-miradas
-mirarla,
-mire
-mires
-mires.
-mis
-misma
-mismo
-mismo,
-mm,
-mola
-mom,
-momento
-momento!
-momento,
-moneda
-montarme
-montarte
-montón
-morir,
-movimiento,
-muchas
-mucho
-mucho,
-muchísimo
-muerte.
-muerto.
-muertos
-mueven
-mujer
-mujer,
-mujer.
-mujeres
-multitud
-mundo
-mundo,
-mundo.
-munición.
-munipa.
-museo".
-museo,
-museo.
-muy
-mágicas,
-máquina
-máquina,
-máquina?
-más
-más,
-más.
-más?
-mí
-mí,
-mí.
-mí?
-mía.
-mínimo
-mío?
-móvil
-móvil?
-móviles
-nací
-nada
-nada,
-nada.
-nadie
-nadie!
-nadie.
-nadie?
-narcotraficantes,
-natural
-naturaleza
-necesita
-necesitamos
-necesitaría
-negociación
-negociación,
-negociadora
-negocian
-negro.
-nerviosa
-nerviosa.
-ni
-ninguna
-ningún
-niña
-niña,
-niño
-niño?
-niños
-niños.
-no
-no!
-no,
-no.
-no...
-noches.
-nombre
-nos
-nosotros
-nosotros,
-nosotros.
-notaba
-novio,
-nuestra
-nuestro
-nuestro.
-nuevo.
-nunca
-o
-o...
-o...?
-obligación...
-ocho
-ocultación
-ocupar".
-ocupar.
-olvidara
-olviden.
-oportunidad
-oportunidad,
-oportunidad.
-orden
-orden.
-organizaremos,
-orgasmo
-orgasmo?
-original.
-os
-otra
-otra,
-otra.
-otras
-otro
-otro,
-otros?
-oía
-oído.
-oído?
-oídos.
-padre
-padre.
-padres
-padres,
-pagar
-pairo.
-paja
-paja,
-palabra
-palabras,
-pam
-pam,
-paparazzi".
-papel
-papá.
-paquetes
-par
-para
-para,
-para.
-para...
-parece
-parece,
-parece...
-parece?
-parecer
-parecía
-parecías
-pared,
-pared.
-pared?
-paredes,
-parió.
-parte
-partida.
-partir
-parto
-paráis
-pasa
-pasa,
-pasa?
-pasado
-pasado.
-pasar
-pasar.
-pasaron
-pasaría
-pasatiempo
-paso
-pasta
-pasta,
-pasta.
-pasta?
-pastilla
-patio,
-pavos,
-paz
-pañales
-pecho
-pedida.
-pedir
-pedirte
-pedías
-pegado
-pegados
-pegan
-pelear
-peligro
-peligrosos.
-película?
-penas
-pendiente
-pensando
-pensar
-pensábamos
-pequeña
-perchero.
-perder
-perdida,
-perdido.
-perdiendo.
-perdone,
-perdérselo,
-perdí,
-perdóneme,
-perdóneme.
-perfectas
-perfecto
-perfil.
-periodista
-periodista,
-periódicos,
-permitir
-pero
-pero...
-persona
-personales,
-personas
-peticiones
-peticiones.
-petición.
-pi,
-piden
-pido
-pido,
-pie
-pie!
-piedras
-piensa
-piensa...
-pienso
-pierde
-piernas,
-piernas.
-pillando
-pillar
-pillarle
-pillas,
-pilló
-piloto
-pim
-pincho
-pintamos
-pintoresco.
-pisos,
-pisotearme
-pista
-pistola
-pistola,
-pistolas
-placa.
-placa?
-placer
-plan
-planchas
-plaquita.
-playa,
-playa.
-plácido
-plástico
-plástico,
-poco
-poco.
-podemos
-podrán
-policía
-policía.
-policías".
-pollito.
-pollos.
-polígrafo
-pompas
-pondrá
-pone
-poner
-ponerla
-ponerle
-ponga
-poniendo
-ponte
-poquito
-poquito,
-por
-porque
-portada
-posible.
-posible;
-posición.
-precede
-precio
-precio...
-preciso
-preferido
-pregunta?
-preguntan
-preguntitas.
-prensa
-prensa,
-preocupa
-presenciar,
-presumir
-prevenido,
-prevenidos
-primer
-primera
-primero
-privada,
-problema.
-problemas
-problemas,
-producción.
-profesora
-profesores,
-programado
-pronto.
-propio
-propuesta.
-próxima
-pudimos
-puedan
-puedas
-puede
-pueden
-puedes
-puedo
-puedo,
-puedo.
-puerta".
-puertas.
-pues
-puesto
-pulmones,
-pulmones?
-pum,
-pum.
-punto
-puntos?
-puta
-puta.
-putada,
-puto
-puñetera
-puñetero
-pánico
-píldora
-píxeles.
-que
-que...
-queda
-quedado
-quedar
-quedará
-quedó
-quemó
-querer?
-quererte,
-quererte.
-queriendo
-quería
-querían
-quien
-quieras
-quieren
-quieres
-quiero
-quiero,
-quiero.
-quieto
-quise
-quisiera
-quita
-quién
-quiénes
-qué
-qué,
-qué...?
-qué?
-qué?"
-radio
-rancheras,
-raro
-ratonera.
-razón
-razón,
-razón.
-realidad
-realmente
-rebajar
-recibiendo
-reclama
-reconocerlos?
-reconocimiento
-recordarán
-recortable
-recuerda,
-recuerdas
-recupere.
-recuérdalo
-reduce
-regalo
-rehenes
-rehenes,
-rehenes.
-rehenes?
-rehén.
-relaciona
-relación.
-relaja
-repente
-repetir
-repetirlo
-repito,
-resolver
-resolverlo
-respirar.
-resto
-retrocedan
-reventar
-revolcones.
-rindan
-riñones?
-robar
-roble...
-robo
-rodillas
-rodillas,
-rodillas.
-romper
-ropa
-rosario
-rotativas
-rueda,
-ruedas.
-rugby?
-rusa.
-rápido.
-sabe
-sabemos
-saber
-saberlo.
-sabes
-sabes?
-saborean
-sabríamos
-sabía
-sacado
-sacando
-sacar
-sacara
-saco,
-sal
-sala
-saldremos
-saldré,
-sale
-salen
-sales
-salga
-salgamos
-salgan
-salimos
-salir
-saliros
-salud
-salvación
-salvar
-sangren
-santos
-se
-sea
-sean
-secuestradores
-secuestro
-secuestro,
-secuestro.
-seguir
-seguirán
-seguiría
-segundo
-segundos.
-segundos...
-seguridad,
-seguridad.
-seguro
-seguía
-seis
-selección.
-sellando
-semántica
-sentarme.
-sentido
-sentimental.
-sentirías
-sentía
-sepa,
-ser
-ser?
-serie
-serio,
-serio.
-sertralina,
-sertralina.
-serán
-serás
-señor
-señor".
-señor,
-señor.
-señoras,
-si
-sido
-sido.
-siempre
-siempre:
-sienten
-siento,
-siento.
-siete
-siete.
-sigas
-sigo
-siguen
-siguiente
-siguiente:
-simple
-simplemente
-sin
-singular
-sintiendo
-siquiera
-sistemas
-sitios
-situación
-situación.
-sobra.
-sobrando
-sobre
-sois.
-sol
-solo
-solo...
-solo?
-soltera?
-somos
-son
-son?
-sonado
-soportal
-soy
-soñad
-su
-subió
-sublima.
-subnormal.
-subí
-sueldo.
-suelo
-suelo!
-suene
-suerte
-suerte,
-suficiente
-supe
-supermercado
-supone
-supongo
-supuesto
-sus
-suspendido
-sé
-sé,
-sé.
-sí
-sí,
-sí.
-tajo.
-tal
-taladro?
-también
-también,
-tampoco
-tan
-tanta
-tanto
-tanto.
-tarados,
-tarde,
-tarde.
-tareas
-te
-telediarios,
-telediarios.
-teléfono
-teléfono,
-teléfono.
-teléfonos
-teléfonos,
-teléfonos.
-templar
-tendrá
-tendrá.
-tendríamos
-tenemos
-tenemos.
-tener
-tenga
-tengo
-tenido
-teniendo
-tenía
-tenías
-terminado".
-terminar,
-terminar.
-termine
-termino
-terminéis
-teta
-ti
-ti.
-tiempo
-tiempo.
-tiene
-tiene,
-tienen
-tienen.
-tienes
-tienes.
-tienes?
-tipo
-tipos
-tira
-tirachinas,
-tirados
-tirando
-tiro
-tiro,
-tiro.
-titulares
-toda
-todas
-todo
-todo.
-todos
-todos".
-todos,
-todos.
-tomando
-tomar
-tomarse
-tomas
-tonto
-tope!
-topless
-toque.
-tormenta,
-torre
-trabajo.
-trabajó
-trae
-traemos
-trajo
-tramando
-tranquila,
-tranquilamente,
-tranquilas.
-tranquilicen,
-tras
-trasera.
-trasparentes
-traspasaba
-trato
-tratos?
-tres
-tres.
-trullo,
-tu
-turno
-turnos
-tus
-tuvimos
-tía,
-tías
-tío
-tío,
-tío.
-tío?
-tú
-tú,
-tú.
-túnel
-túnel.
-un
-una
-unas
-unidades
-uno
-unos
-usar
-usted
-usted,
-usted...
-ustedes
-ustedes.
-uy.
-va
-va.
-vacilar
-vale,
-vale.
-valiente,
-vamos
-vamos!
-vamos,
-vamos.
-van
-vas
-vas?
-vaya
-vayamos
-ve
-vea
-veces
-veces,
-veces.
-vecino
-veis,
-velcro
-ven
-venda
-vende
-vender
-venga,
-venga.
-vengan
-vengo
-vente
-veo
-veo.
-ver
-ver,
-ver.
-verano
-verdad
-verdad,
-verdad.
-verde
-verde,
-verlas
-verme.
-vestidos
-vete
-vez
-vez!
-vez,
-vez.
-veía
-vi
-vida
-vida,
-vida.
-vida...
-vida?
-viendo.
-viene
-viene.
-viernes
-vigilar
-vino,
-violencia".
-violencia.
-vis
-vis,
-visita
-visitar
-visto
-viñedo
-volvemos.
-volver
-volverás
-volváis
-vomitado
-vosotros
-vosotros,
-voy
-vuelen
-vuelo.
-vuelta
-vuelta?
-vuelvas
-vuelve
-vuelvo
-vuestro
-víctimas
-vídeo
-vídeo,
-y
-y...
-ya
-ya,
-ya.
-yo
-yo,
-yo.
-zanja
-¡A
-¡Ah!
-¡En
-¡Esto
-¡Habla
-¡Que
-¡Quiero
-¡Quietos!
-¡Río,
-¡Siéntate!
-¡Sé
-¡Sí!
-¡Todo
-¡Tokio!
-¡Una
-¡Venga,
-¡Y
-¿A
-¿Alguien
-¿Alguna
-¿Como
-¿Crees
-¿Cómo
-¿Cómo?
-¿De
-¿Dónde
-¿Eh?
-¿Entonces
-¿Eso
-¿Esto
-¿Estás
-¿Existe
-¿Irte
-¿La
-¿Lista
-¿Me
-¿No
-¿O
-¿Para
-¿Pero
-¿Preparados?
-¿Puede
+"¿Mamá?".
+Ay, mi niña.
+"¿Cómo estás, cariño?".
+¿Qué está pasando?
+"¿No viste las noticias?".
+Todas esas cosas que dicen de mí.
+Sí, claro que las he visto.
+¿Sabes qué?
+Estoy pensando en irme de viaje.
+"A lo mejor me enrolo en un barco chino.
+De cocinera.
+¿No decías que no sabía hacer una tortilla?
+Así aprendo. ¿Qué te parece?".
+No sé, cariño.
+¿Y si comen todo chino, qué?
+¿Ese viaje qué significa,
+"que no voy a volver a verte más?".
+Qué tonterías dices.
+Pues claro que me verás.
+"Te compraré un billete para que vengas a visitarme".
+¿Visitarte dónde?
+¿Al cementerio?
+¿Estás sola?
+Mamá, ¿estás sola?
+Sí.
+"Pues baja a la calle, como si fueses al mercado.
+Yo te encontraré".
+"Y ese día, el día que iba al matadero,
+apareció mi ángel de la guarda.
+Pero una nunca sabe a ciencia cierta cómo es un ángel de la guarda
+y lo que menos te puedes imaginar es que aparezca en un Seat Ibiza
+del 92".
+Perdona, ¿tienes un minuto?
+No.
+Lo de cocinar en un barco chino solo tiene una ventaja,
+que no tienes que fregar los platos.
+"Por un momento pensé en los chinos
+y en que odio a la gente que escupe".
+¿Quién eres, policía? Espera, espera.
+Vas de camino al matadero, tienes a un equipo esperándote
+y tienen un coche desde hace seis días...
+¿Por qué te voy a creer?
+"Y así conocí al Profesor,
+apuntándole con una pistola en las pelotas".
 ¿Puedo?
-¿Que
-¿Quiere
-¿Quieres
-¿Qué
-¿Qué?
-¿Sabes
-¿Se
-¿Seguro?
-¿Su
-¿Sí,
-¿Sí?
-¿Te
-¿Todavía
-¿Tú
-¿Veis
-¿Vienes
-¿Y
-¿Ya
-¿cuando
-¿de
-¿eh?
-¿me
-¿no
-¿no?
-¿para
-¿qué
-¿sabes?
-¿se
-¿será
-¿vale?
-¿verdad?
-Última
-ánimos
-élite.
-íbamos
-órdenes,
-última
-últimas
-única
-única.
+"Lo bueno de las relaciones
+es que uno termina olvidándose de cómo empezaron".
+¿Puedo?
+Están ya en casa de tu madre.
+Por eso he venido a ayudarte.
+Quiero proponerte un negocio,
+un atraco, un atraco...
+singular.
+Estoy buscando a gente que...
+Bueno, que no tenga mucho que perder.
+¿Cómo te suenan...
+"Nadie había dado un palo así,
+ni en Nueva York, ni en Londres, ni en Montecarlo;
+así que si mi foto volvía a los periódicos,
+al menos que fuera por el atraco más grande de la historia".
+Os doy la bienvenida...
+y... las gracias por haber aceptado esta...
+Esta oferta de trabajo.
+(Risas)
+Viviremos aquí, alejados del mundanal ruido.
+Cinco meses, los cinco meses que pasaremos estudiando
+cómo dar el golpe. ¿Cómo que cinco meses?
+¿Estamos locos o qué?
+Mira, la gente pasa años estudiando
+para tener un sueldo, un sueldo que, en el mejor de los casos,
+no deja de ser un sueldo, un sueldo de mierda.
+¿Qué son cinco meses?
+Yo llevo pensando en esto... mucho más tiempo.
+Para no volver a trabajar en mi vida.
+Ni vosotros...
+ni vuestros hijos.
+Bien.
+De momento no os conocéis y quiero que siga siendo así.
+No quiero nada de nombres, ni preguntas personales,
+ni, por supuesto, relaciones personales.
+Quiero que cada uno elija un nombre, algo sencillo.
+Puede ser números, planetas, ciudades...
+-Rollo "Señor 17, la señorita 23". -Ya empezamos mal. Yo no sé
+recordar mi número de teléfono. -Por eso te lo digo.
+-¿Y planetas? Yo puedo ser Marte, este Urano.
+-Yo Urano no seré, así que te olvidas.
+-¿Qué le pasa a Urano? -Que tiene mala rima.
+Van a ser ciudades, ciudades. Quedamos con ciudades.
+Bien.
+"Y así terminé llamándome Tokio.
+Ese que me mira el culo es el señor Berlín.
+En busca y captura.
+casas de subastas y furgones.
+Su mayor golpe, los Campos Elíseos, en París.
+Es como un tiburón en una piscina.
+Puedes bañarte con él, pero nunca estás tranquila.
+Y era el jefe al mando del asalto".
+(Tosidos)
+"El que tose es el señor Moscú.
+Lo primero que cavó fue una mina, en Asturias.
+Después comprendió que cavando hacia arriba llegaría más lejos.
+Seis peleterías, tres relojerías y la Caja Rural de Avilés.
+Maneja lanza térmica y cualquier herramienta industrial.
+El que está sentado tras Moscú es Denver, su hijo.
+Drogas, dientes, costillas rotas.
+Es el rey de las peleas de discoteca.
+Pura sangre caliente.
+En un plan perfecto, una bomba de relojería.
+Río. Es mi debilidad.
+Es como un Mozart, pero con los ordenadores.
+Programa desde los 6 años y lo sabe todo de alarmas y electrónica.
+Para el resto de cosas de la vida es como si hubiera nacido ayer.
+Y ahí están los siameses, Helsinki y Oslo.
+Hasta en el plan más sofisticado hacen falta soldados
+y qué mejor que dos serbios.
+Puede que piensen, pero, francamente, nunca lo sabremos.
+Nairobi,
+optimista empedernida.
+Ha falsificado billetes desde los 13 años.
+Y ahora es nuestra encargada de calidad.
+Es posible que esté loca, pero tiene tanta gracia la 'jodía'".
+Pensad que cada día los telediarios estarán hablando de nosotros,
+que cada familia de este país se estará preguntando
+qué estamos haciendo.
+¿Y sabéis lo que van a pensar?
+Van a pensar: "Qué cabrones, ojalá se me hubiera ocurrido a mí".
+"El Profesor, sin antecedentes, sin registro.
+La última vez que renovó el DNI fue con 19 años.
+A todos los efectos, un fantasma, pero un fantasma muy inteligente".
+No vamos a robar... el dinero de nadie,
+porque les vamos a caer hasta simpáticos.
+Y eso es fundamental, es fundamental que tengamos la opinión pública
+de nuestra parte.
+Vamos a ser los puñeteros héroes de toda esta gente.
+Pero mucho cuidado, porque en el momento en que haya
+una sola gota de sangre, esto es muy importante,
+como haya una sola víctima,
+dejaremos de ser unos Robin Hood
+para convertirnos simplemente en unos hijos de puta.
+Profesor.
+Señorita Tokio.
+¿Qué vamos a robar?
+La Fábrica Nacional de Moneda y Timbre.
+¿Quién eligió la careta?
+(BERLÍN) ¿Qué le pasa a la careta? -Que no da miedo.
+Tú ves las pelis de atracadores y las caretas dan miedo.
+Son zombis, esqueletos, la muerte, yo qué sé, sientes...
+(BERLÍN) Con un arma en la mano
+te aseguro que da más miedo un loco que un esqueleto.
+-Venga ya. -¿Quién era el payo este del bigote?
+-Dalí, hijo, un pintor español. Era muy bueno.
+-Un pintor. -Sí.
+-Un pintor de pintar. -Sí.
+-(RESOPLA)
+¿Tú sabes lo que da miedo de cojones? Los muñecos de los críos.
+Eso sí que da miedo.
+-¿Qué muñecos?
+-El Goofy, el Pluto, el Mickey Mouse, todos estos.
+-¿Un ratón con orejas da más miedo, eso me dices?
+-Pues sí, gilipollas. ¿Quieres que te dé un guantazo?
+-¡Eh! -Que tengo razón. Vamos a ver.
+Si un payo a punta de pistola entra con una careta de Mickey Mouse
+a cualquier lado, le peña pensará que está colgado,
+que liará una carnicería. ¿Sabes por qué?
+Porque las armas y los niños
+son una cosa que no se juntan nunca, papa.
+¿Sí o no? -Visto así, sería más peligroso,
+más retorcido.
+-Entonces una careta de Jesucristo acojonaría más, es más inocente.
+-Por eso dice que pega menos que a un Cristo dos pistolas.
+-Como a un santo dos pistolas. (MOSCÚ) ¿Qué más da?
+"Era evidente que en la banda faltaban mujeres".
+(Frenazo)
+"Una mujer puede tirarse dos días eligiendo zapatos para una boda,
+pero jamás emplearía un minuto en elegir caretas para un atraco.
+Todo lo que habíamos planeado empezaba ahora
+y en esas décimas de segundo pensé en toda la gente inocente
+a la que detendríamos en seco su vida.
+El Profesor sabía que solo había una manera de entrar
+en la Fábrica de Moneda y Timbre con tres toneladas
+de artefactos de arsenal. Iba a hacerlo dentro del camión
+que entraba cada semana en el edificio
+con las nuevas bobinas de papel moneda listas para imprimir.
+Y eso era lo que íbamos a hacer,
+entrar hasta la cocina y escoltados por la mismísima Policía Nacional.
+En España, cualquier cosa custodiada por dos zetas
+es algo fuertemente protegido".
+(Sirenas)
+"Pero si inhibes cualquier posibilidad
+de que se comuniquen por radio o telefonía
+y si apuntas a unos chavales de 26 años
+con cinco fusiles de asalto a la cabeza,
+por más armados que vayan,
+les ocurre lo mismo que nos pasaría a cualquiera de nosotros".
+¡He dicho que bajes, coño, del puto coche!
+"Que se cagan de miedo". ¡Vas a hacer lo que te digo!
+"El valor y el heroísmo tienen un precio
+y es mayor que los 1.600 euros al mes
+que cobra un chaval con uniforme..." Abre la puerta del camión, ¿me oyes?
+"...o un camionero".
+¡Venga, coño, abre!
+"Si esos hombres hubieran tenido a su hija
+en la trasera del camión, nunca hubieran abierto,
+pero ¿a quién le importan
+unas bobinas de papel moneda con marca de agua?".
+¡Deprisa, deprisa!
+¡Joder, macho! ¡Venga!
+(NAIROBI) ¡Tira, tira, tira!
+Ahí sentado. Y ahora tranquilitos los tres;
+si no, culatazo en la cabeza.
+(BERLÍN) Conduciréis con una pistola en los riñones.
+Cuando llamen por radio para saber qué tal va todo,
+contestareis con tranquilidad, como si todo fuera sobre ruedas.
+¿Está claro?
+"Y en mitad de aquel caos con pistolas
+recordé que la noche anterior me habían pedido matrimonio
+y que hubiera preferido otros planes.
+Pero si lo piensas,
+nunca encuentras un buen día para un atraco".
+Ahora ya sabes lo que tienes que hacer.
+No le quites ojo a la niña.
+No puede haber errores, ¿estamos?
+Tiene 17 años.
+Creo que podré con ella.
+(Voces a lo lejos)
+(Risas)
+(Mensaje de móvil)
+Hola.
+-Hola.
+-¿Quieres salir conmigo?
+Vale. Te dejo.
+-No, no, no.
+Que no me lo tengo que pensar. O sea, que sí.
+(MUJER) Bueno, chicos, ya hemos llegado.
+Vamos a ir directamente al vestíbulo del museo, donde...
+Pedro, haz el favor, no hagas como en clase.
+Vamos a salir ordenadamente por las dos puertas...
+Y esta es la fachada de la Fábrica de la Moneda y Timbre.
+El corderito está entrando.
+Perfecto.
+Berlín, tu turno.
+(Sirena)
+(BERLÍN) Y ahora, mucho cuidadito con lo que haces.
+-¿Qué tal, Javi? ¿Dónde está Rafita?
+-Cambio de turno. (TOSE)
+(ESTORNUDA)
+-Eso está muy bien. Tranquilo.
+(PROFESORA) Vale, chicos, vamos entrando.
+Despacito.
+(HABLA SIN QUE APENAS SE OIGA)
+Esto es importante. En cuanto nos den las acreditaciones...
+Las acreditaciones colgadas del cuello.
+Tienen que estar visibles durante toda la visita, ¿vale?
+No te vuelvas.
+Cuando estás cerca, a mí me cuesta hasta respirar.
+Pues respira,
+porque dentro de nueve meses sí que se te va a cortar la respiración.
+Adelante.
+(PROFESORA) Bien visible durante toda la visita, chicos.
+Acreditación colgada al cuello. Bajad la voz.
+Berlín, la primera cámara, a tu izquierda.
+¿No me vas a decir nada? ¿Te digo
+que estoy embarazada y te quedas tan tranquilo?
+¿Qué hago, llamo a mi mujer, le digo que recoja a los niños
+y nos vamos todos a celebrarlo? Por amor de Dios.
+(POLICÍA) Tira, tira. Dale, dale.
+(RÍO) Entrando.
+Atenta, Tokio.
+¡Bien!
+"Alarmas desconectadas". Ahora.
+Sigue, dale, dale.
+Eras tú ayer el que decías que estabais mal,
+que no la aguantas, que tenéis problemas.
+Problemas como cualquier pareja, Mónica,
+como cualquier matrimonio que tiene tres hijos,
+no que me fuera a separar.
+Mónica, he tenido tres hijos, los tres por fecundación in vitro,
+llevo más de 20 años manteniendo relaciones estériles con mi mujer
+y ahora vienes a contarme esto.
+Tú debes de ser Shiva, la diosa de la fertilidad.
+"¿Qué estás insinuando?".
+Yo no he venido aquí a por una pensión, ¿sabes?
+Ni a por un divorcio,
+y mucho menos a por una prueba de paternidad.
+Creía que tú me querías.
+Y...
+Y me parece una idea bonita.
+Difícil de encajar en nuestras vidas, pero...
+Pero una idea maravillosa.
+¡Escucha!
+¿Qué, quieres saber qué voy a hacer con tu niño?
+Eso es lo que quieres, ¿no? Escúchame, no te precipites.
+(GRITA)
+¡Quietos!
+(BERLÍN) Quieto.
+¡Quieto! ¡No te muevas o te reviento!
+¿Qué pasa? ¡Haz algo! -¡Arriba, arriba!
+-¡Salgan!
+(GRITAN)
+(Gritos)
+"¡Vamos, vamos!".
+¡Rápido! ¡Quietos!
+¡Vamos, vamos!
+¡Vamos!
+¡Sí, sí!
+Mierda.
+Vamos, vamos.
+Por aquí. Vamos.
+Y esta escalera maravillosa, de mármol y granito...
+-¡Quietos!
+(GRITAN)
+¡Quietos!
+(GRITAN)
+¡Quietos, quietos! ¡Vamos!
+¡Atrás!
+-¡Por favor, no! Profesor, tenemos un problema.
+¡Ah! No veo al corderito.
+¡No lo veo, coño!
+Señorita Parker, ¿adónde se ha metido?
+(Gritos)
+Espera.
+¡Por favor! -¡Vámonos! ¡Para allá!
+Para, para. Para.
+-Vale.
+Vale, vale.
+Estoy yendo muy deprisa. Lo sé.
+(Voces y sollozos)
+Vamos a inmortalizar esto, ¿no?
+Vamos a hacer una foto con tu móvil.
+Joder...
+¿Aquí? Es un poco cutre, ¿no?
+-Es nuestro primer día.
+Estás muy guapa.
+No veo a la niña. No la veo, joder.
+Ábrete. Ábrete y ponte un poco sexi.
+Que es tu móvil. Que si quieres, la borras.
+Que esto es para nosotros, para ti y para mí.
+Va, va, va.
+Con esta foto lo vas a petar en Internet.
+-¡Dame el móvil! ¡Que me des el móvil!
+¡Dame el móvil!
+¡Dámelo!
+¡Que me des el móvil, joder! ¡Que me des el móvil!
+¡Dame el móvil!
+¡Que me des el móvil!
+¡Ah!
+(Llantos)
+Lo primero...
+Buenos días.
+Soy la persona que está al mando.
+Y, antes de nada, quiero...
+presentarles mis disculpas.
+Realmente, no son formas de terminar la semana.
+(DENVER) Móvil.
+-Pero ustedes están aquí en calidad de rehenes.
+(DENVER) Móvil.
+-Si obedecen, les garantizo que saldrán con vida.
+(DENVER) Nombre. -Alison Parker.
+(DENVER) PIN. (ALISON) 2078.
+-Móvil.
+-Tranquila, tranquila.
+Tranquila.
+-PIN.
+¿Para qué necesita el PIN?
+O me das el puñetero PIN o te lo saco a culatazos. Tú verás.
+-¿De cuánto estás?
+-(ATERRADA) De ocho meses.
+-De ocho meses.
+-PIN.
+Con toda la cara de listo que tienes
+y pones esa mierda de PIN. Menudo gilipollas. Tu nombre.
+Arturo. -¿Arturo qué?
+Arturo Román. -Arturo Román, muy bien. Arturito.
+(BERLÍN) Ustedes son nuestro salvoconducto aquí,
+así que yo les voy a proteger.
+-Eh...
+Dame las manos. Suelta.
+Suelta. Suelta.
+¿Cómo te llamas?
+-Ariadna.
+-Ariadna.
+Ven conmigo. Ven.
+Tranquila.
+Siente mis manos.
+¿Son las manos de un monstruo? -No, no.
+-Porque no soy un monstruo.
+Sé perfectamente cómo te sientes.
+La boca seca, sensación de ahogo...
+Tienes que intentar tranquilizarte. Inspira.
+Inspira.
+Inspira.
+Eso es. Por favor, respiren todos conmigo.
+Inspiren.
+Suave, suave.
+Hazte responsable de tu respiración. Espira.
+Eso es. Eso es.
+(Teléfono)
+¿La señorita Mónica Gaztambide, por favor?
+(SUSURRA) No te muevas. Por favor, no te muevas.
+Calla. Que no te muevas.
+Calla.
+La señorita Mónica Gaztambide,
+¿sería tan amable de dar un paso al frente?
+Soy yo.
+(Pieza de metal cayendo)
+(DENVER) Eres un crack, papa.
+Eres "mu" grande.
+(GRITA ENLOQUECIDO)
+Aquí se tiene que dormir muy bien, papa.
+Aquí se tiene que dormir de lujo.
+¡Oh! ¡Papa, papa, papa, papa!
+Follar. Aquí, pum.
+Pum, pum...
+-Venga, déjate de hacer el tonto y a trabajar. Venga, coño.
+-Esto huele de puta madre.
+Huele mejor que el cordero asado, papa, que el cordero asado.
+Túmbate aquí, cojones. -Venga, coño.
+-¿Cuándo has tenido tú una cama como esta?
+En el talego no la tenías.
+¿Has visto dónde estamos, papa? Que somos muy grandes.
+Que somos muy grandes.
+-Chaval, no te equivoques.
+Somos pequeños.
+¿Tú sabes hacer algo?
+¿Has trabajado alguna vez?
+¿Has presentado el currículum en algún sitio?
+Ah. Venga, coño.
+-El currículum.
+¿El currículum para qué?
+¿Para sacarte a ti de Alcalá Meco?
+-¿Crees que me siento orgulloso de eso?
+entrando y saliendo de la cárcel.
+¿Y sabes por qué?
+-¿Por qué?
+-Porque no soy muy listo, hijo.
+Y tú tampoco.
+Pero en este golpe el cerebro lo pone otro.
+Y si tenemos suerte y no haces mucho el gilipollas,
+saldrás de aquí con la vida resuelta.
+-No voy a hacer el gilipollas. -Venga, coño.
+Llena esto.
+(Teléfono)
+Quiero que conteste al teléfono
+y convenza a quien sea de que estamos cerrados
+por un problema técnico. ¿Entendido?
+Sí.
+No me va a quedar más remedio que apuntarle con una pistola.
+¿La siente? Sí.
+Bien.
+(Teléfono)
+Ahora.
+Fábrica Nacional de Moneda y Timbre, dígame.
+No, lo siento, no le puedo pasar con don Arturo en este momento.
+Se ha caído el sistema.
+No, no puedo hacerle que suba.
+No, no puede subir a coger el teléfono, no.
+No, no va a poder ser.
+No, por...
+¡Pues porque no, porque no sé dónde está ahora mismo,
+porque no sé si está en la fábrica, en el museo, en la cafetería
+o donde esté! ¡Y, además, no es mi trabajo, señorita!
+Esa ha sido una interpretación de Oscar,
+señorita Gaztambide.
+(RESPIRA ENTRECORTADAMENTE)
+"A los 20 minutos de entrar, comenzamos a cablear el sistema
+de comunicación analógica para hablar con el Profesor".
+(CANTA EN SU IDIOMA)
+"Sin móviles, sin radiofrecuencia, sin que nadie pudiera oírnos.
+Habíamos sellado las puertas y las alarmas no habían saltado.
+Estábamos como en un limbo del tiempo, sin que nadie supiera
+que habíamos tomado la Fábrica de Moneda y Timbre.
+Y en esa dulce paz, antes de la tormenta,
+parecía, sencillamente, un día corriente".
+Estás guapo tú, ¿eh?
+(Puerta)
+¿Quién es?
+(RÍO) Soy yo, déjame pasar.
+Río, tío, nos pilla el Profesor y nos mata, ¿lo sabes?
+Lo sé, lo sé, lo sé. Tengo que hablar contigo. Siéntate.
+¿Qué pasa? Siéntate, coño.
+(RESOPLA)
+¿Qué pasa?
+Mañana es el atraco.
+Y no tenemos ni puta idea de lo que va a pasar.
+Por eso quiero que sepas que voy en serio contigo
+y entiendo perfectamente que, bueno,
+que tú ya tienes una edad y...
+y que puede que busques un... un compromiso más serio.
+Por eso quiero darte algo.
+No te he comprado un anillo porque estamos encerrados,
+pero, en cuanto salga, te voy a regalar un pedruscazo
+que vas a tener que llevar la mano en una puta carretilla.
+¿Qué es esto?
+¿Una chapa de pedida?
+Ahora por lo menos sabrás mi nombre de verdad.
+Ya, pero es que está prohibido saber nuestros nombres.
+Bueno, pues no lo mires.
+Pero es tuyo.
+A ver cómo te cuento esto.
+Lo nuestro ha estado muy bien, ¿vale? Genial.
+Nos hemos enrollado algunas noches...
+¿Cómo que algunas? Joder, todas, todas. Menos cuatro o cinco...
+Sinceramente, no creo que seamos la pareja ideal.
+¿No follamos bien? Sí, sí follamos bien, fantástico.
+Por algo se empieza, ¿no?
+Pero hace falta algo más que follar bien
+para ser una pareja, ¿no?
+¿Lo dices porque soy
+Voy a tener
+No soy ningún chaval, tengo la vida resuelta.
+De verdad, Río, ojalá hubiéramos... Eh, ¿cómo que hubiéramos?
+Amor había. Amor había, que estaba yo ahí.
+Hay otro, ¿no?
+Ya no.
+Mira, Río,
+cuando todo esto termine, igual tú y yo nos vamos a Tahití
+y vemos si funciona, pero mañana yo solo quiero pensar en una cosa:
+que no me maten.
+Río.
+Río, no.
+No, no.
+Te has dejado un móvil encendido.
+Pues apágalo.
+-Cámara acorazada abierta.
+-Poneos los chalecos y preparaos para salir.
+En cuanto estéis, activaremos la alarma.
+Berlín, preparados para abrir las puertas.
+¡Rehenes, por su seguridad, todos tres pasos para atrás!
+Un poquito más por aquí. Eso es.
+Ahí estamos. Todo va a salir bien.
+Un poquito más juntos.
+Chist. Tranquilos.
+Tranquilos. Estoy viendo las bolsas.
+Las tienen llenas de dinero.
+Ahora se largarán y aquí no ha pasado nada.
+(Radio)
+(Alarma)
+(EMISORA) "Tenemos un 10-33
+en la Fábrica Nacional de Moneda y Timbre.
+-Z24 en camino. Estamos allí en dos minutos".
+Dos minutos.
+-Dos minutos.
+(Alarma)
+¿Por qué ha saltado la alarma? No lo sé.
+Están parados sin hacer nada, no lo entiendo.
+¿Por qué me cogen el dinero y se van?
+¡No lo sé!
+Un minuto, 40 segundos.
+-Un minuto...
+¿Cómo te llamas?
+Arturo.
+Arturo, ¿verdad?
+Sí. ¡No, no he visto nada!
+¡No he visto nada, lo juro, no he visto nada, no he visto nada!
+Mírame. No he visto nada.
+Ven, Arturo, mírame.
+Mírame, mírame.
+Eh, eh, venga, va.
+(LLORA)
+Eh.
+¿Te gusta el cine?
+¿Te gusta?
+(SOLLOZANDO) Soy... Soy muy aficionado.
+¿Y tú te has dado cuenta que en las películas de miedo
+siempre sale uno al principio, así, majete como tú,
+que tú dices: "Este huele a muerto",
+y luego no falla? No...
+Siempre cae.
+Arturo, créeme, hueles a muerto.
+(LLORA)
+(EMISORA) "Z24 a central, estamos en 30 segundos".
+"Es fundamental que la policía"
+no tenga ni la más mínima idea de lo que estamos haciendo.
+Vamos a hacerles creer que entramos a robar,
+que nos sorprendieron huyendo con el dinero y que todo se jodió,
+que sacamos las armas, disparamos a bocajarro
+y no tuvimos más remedio... que recular.
+"Y entonces, sin haber herido"
+a nadie,
+nos metemos dentro.
+"Que piensen que estamos acorralados como ratas".
+(Sirena)
+"Que piensen que estamos improvisando".
+¡Ahora!
+-¡Tokio! ¡Tokio, espera, joder, vas antes!
+¡Tokio!
+(Sirena)
+"Salir, tirar el dinero, disparar al suelo y volver".
+(GRITAN)
+"Lo había escuchado más de 30 veces".
+(Disparos)
+"Pero lo que no nos dijo el Profesor
+es que ellos también dispararían a bocajarro".
+¡Río, Río!
+(Disparos)
+¡Cago en la puta, tío!
+(Disparos)
+(Disparos)
+(HABLA ENTRE SOLLOZOS)
+¡Me cago en la puta!
+¡La primera en la frente, tío, la puta primera en la frente!
+¡Joder!
+(RADIO) "Apoyo urgente. Solicito apoyo urgente.
+En la Fábrica de Moneda y Timbre.
+Hemos recibido fuego hostil. Agente herido.
+Repito, agente herido".
+"La bala de un M16 sale disparada a 3.510 km/h.
+Vuela más rápido que la velocidad del sonido.
+Así que si te disparan al corazón
+ni siquiera oirás la bala que te ha matado.
+De esa manera supe que lo había jodido todo,
+en una milésima de segundo
+y de la misma forma que siempre".
+(Trueno)
+Paula, te falta una flor morada ahí.
+Paula.
+Paula.
+-Es que no entiendo por qué papá no puede venir mañana
+a mi cumpleaños. -Pues ya te lo he explicado, Paula.
+Un juez le ha quitado la custodia y ahora voy a ser yo
+la que te va a cuidar. -No ha sido un juez.
+-Ah, ¿no? -No.
+-¿Y quién ha sido?
+-Has sido tú, que no quieres que venga a mi cumpleaños.
+¿A que sí, abuela?
+-Eh... Bueno, verás, papá y mamá ahora están regañados.
+Ya verás como se arreglan. -Mamá, por favor.
+(Teléfono)
+Comisario.
+-"Raquel, sé que es tu día libre, pero tenemos un atraco con rehenes.
+Los atracadores han intentado salir con el dinero y no han podido.
+Han herido a dos policías.
+Es en la Fábrica Nacional de Moneda y Timbre.
+Quiero que lleves tú la negociación".
+-Mándame un coche. -"Lo tienes en la puerta".
+(DENVER) ¡Explícame qué puta mierda ha sido eso!
+¡Explícame qué cojones ha sido eso! ¡Se te va la cabeza!
+¡Has acribillado a dos policías! -Tranquilízate.
+Apareció un puto policía disparándome.
+¿Qué hubieras hecho tú, escupirle?
+Mira, ¡me cago en mi vida! -Pues qué vas a hacer, tía,
+qué vas a hacer, seguir el puto plan, joder,
+que lo hemos repasado
+No íbamos a disparar a nadie.
+-Caí bloqueado con los impactos... -¡Cállate!
+Que también te cubrimos, pero disparando al suelo,
+no a los cuerpos a quemarropa.
+(Puerta)
+(BERLÍN) Ya se están llevando a los policías heridos.
+¿Están conectados los teléfonos?
+Fuera cualquier señal inalámbrica o de radio.
+Pasamos a analógico.
+Llama al Profesor.
+¿Qué lleva puesto?
+¿Qué lleva puesto?
+¿Qué lleva puesto?
+(Teléfono)
+¿Qué ha pasado? (BERLÍN) "Dos policías heridos".
+¿Quién ha disparado?
+"Tokio".
+Conecta las cámaras al Profesor.
+"Rozaron a Río y Tokio disparó".
+Al parecer, tienen una relación.
+Pásamela.
+"¿Qué?". ¿Es cierto eso,
+que tienes una relación con Río? ¿Qué coño estás diciendo?
+No.
+El amor de mi vida murió por mi culpa,
+en lo último que pienso es en tener una relación con un crío.
+"Disparé para protegerme; a mí y a mi compañero".
+Y, señor Profesor, por mucho que lo haya pensado, las cosas
+no siempre salen como las tiene previstas.
+¿Qué ha pasado? -Han reventado una cámara
+de la Fábrica de Moneda para llevarse las últimas planchas.
+-¿Por qué no saltaron las alarmas? -Ha saltado una alarma manual,
+suponemos que fue algún trabajador. -¿Cuántos rehenes?
+-Imposible saberlo, el museo estaba abierto.
+-Dame un número.
+-Confirmados: 35 trabajadores,
+y 17 chavales del Colegio Británico.
+-¿Qué coño hacían ahí? -Estaban de excursión.
+-¿Ha trascendido a la prensa? -No, no, aún no.
+-¿Atracadores? -No lo sabemos aún,
+estamos recopilando imágenes de los comercios cercanos.
+(MÉDICO) Ha perdido mucha sangre. -¿Cuántos puede haber?
+-Han salido cuatro, creemos que no menos de seis.
+-¿Armas?
+-Sabemos que tienen al menos tres M16.
+Y son extremadamente agresivos. -Ya están aquí los GEO.
+-Sí, han sido los primeros en llegar.
+-Por favor, dame alguna buena noticia.
+-Los policías a los que han disparado están vivos.
+-Menos mal.
+Vamos.
+¿Qué pasa con las cámaras de dentro del edificio?
+¿Dónde está la señal? -No hay señal.
+-¿Cómo que no? -No hay señal, no sé.
+Deben haberla roto o desviado. Estamos trabajando en ello.
+-¿Qué pasa con la red?
+-Han tumbado la fibra óptica, no podemos hackearlos.
+-Escuchadme bien todos, Policía, Protección Civil,
+quiero todos los teléfonos desconectados.
+Vamos a liberar el repetidor situado en el tejado del edificio
+por si hacen alguna llamada.
+Cualquier señal de móvil de todo el perímetro
+quiero que entre directamente por aquí.
+-Vale, quiero a los analistas de escucha ya aquí,
+en dos segundos. ¿De acuerdo?
+-¿Tenemos los planos de dentro del edificio?
+-Estudio una posible intervención.
+"Volluto" intenso.
+Luego dicen que el funcionariado no se cuida.
+-¿Qué coño haces?
+(BERLÍN) Es nuestro ratito libre.
+Tienen que montar el campamento, enviarnos un dron,
+buscar los planos del edificio;
+hay que darles un poquito de tiempo para que se organicen.
+Oye, ¿por qué Tokio habrá dicho que no estáis juntos?
+-Porque no lo estamos.
+-¿Y por qué habré escuchado cada noche el cabecero de su cama
+como un martillo percutor? ¿Estará aprendiendo a bailar samba
+a las cinco de la mañana? -Pues no lo sé,
+no tengo ni puta idea. No sé si baila samba o duerme nerviosa.
+-Dime, ¿yo te parezco un mamón al que se pueda mentir
+como si le estuvieran escupiendo en la cara?
+Estoy de coña.
+Si yo también me la hubiese zumbado.
+De hecho, puede que lo intente.
+-Me parece que te estás equivocando, ¿eh?
+Voy muy en serio con ella.
+-¿Muy en serio?
+Pero ¿en serio de tener un jardín y dedicarte al bricolaje
+los domingos? -Eso es.
+Y llenarlo de niños.
+-Siéntate.
+Mira, chico, las mujeres te darán sexo y diversión
+porque... están programadas para doblegarte y que las fecundes.
+Después dejarás de existir.
+En el parto te vas a dar cuenta de eso.
+-El parto tiene que ser lo más emocionante en la vida de un padre.
+-En el parto lo que va a salir entre sus piernas
+es una cabeza nuclear que lo va a arrasar todo.
+En primer lugar, la maravillosa cueva en la que tú metías tu picha
+ya nunca volverá a su ser.
+Y mientras maldice tu nombre y pide la epidural,
+se hará de vientre encima.
+¿Sabes lo que te está diciendo con eso?
+Que ya nunca volverá a ser una mujer sexy.
+Y que a partir de ahora ese cebón se va a convertir
+en el centro del universo.
+Todas son así.
+Te lo digo yo, que he tenido cinco divorcios.
+¿Sabes lo que son cinco divorcios?
+Cinco veces que creí en el amor.
+-¿Tú qué puta mierda tienes en la cabeza?
+¿Eh?
+¿Cómo coño te ha puesto el Profesor al mando de esto?
+-Por mi sensibilidad para tratar a las personas.
+Ahora saca al corderito del grupo y llévalo a un despacho.
+Y no te separes de ella.
+Si se va a cambiar la compresa, tú a su lado.
+-Vale.
+Vamos.
+Tranquila, voy a llevarte a otro lugar para que descanses, nada más.
+¿Vale?
+-Raquel, todas las comunicaciones que hagamos desde dentro
+deben hacerse desde este teléfono o la radio, nada de móviles, ¿vale?
+-Ponme con el interior, quiero hablar con los atracadores.
+Ángel, ¿qué coño hace el coronel Prieto aquí?
+-No lo sé. No lo sé.
+-Hay unos individuos pegando tiros en el sitio
+donde se hace el dinero,
+¿no cree que Inteligencia debe estar al tanto?
+-Llamando a la Fábrica de Moneda y Timbre, Raquel.
+-Jefe, llamada al interior en curso.
+(Tono de llamada)
+(Timbre)
+(Tono de llamada)
+(Timbre)
+(Teléfono)
+(RAQUEL) "Hola".
+Buenas tardes. -"Soy Raquel Murillo,"
+inspectora al mando de la gestión del atraco. ¿Con quién hablo?
+(DISTORSIONADO) "Con el atracador al mando del asalto".
+-Tiene modificador de voz. -Limpiando la señal.
+¿Cómo se encuentran sus compañeros?
+(RAQUEL) Por el momento no tenemos que lamentar ninguna baja.
+"Me alegro".
+De verdad, sinceramente.
+Perdone, le oigo un poco raro.
+Sí, le pido disculpas por esta odiosa voz metálica,
+"pero comprenderá que debo salvaguardar mi identidad,"
+por si algún día nos ponen un helicóptero y nos vamos a Brasil.
+¿Eso es lo que quiere, un helicóptero?
+"De momento lo que quiero es negociar con alguien"
+que no me esté dando largas, que no tenga que preguntar
+a un superior, a Inteligencia o su mamá para decirme un sí o un no.
+Entonces debería hablar con el presidente,
+pero puesto que está ocupado dirigiendo el país,
+intentaré sustituirle,
+"si no le parece mal".
+¿Alguna pregunta más? "Sí".
+¿Qué lleva puesto?
+¿Cómo? "¿Cómo va vestida?
+¿No le parece que nuestra ropa"
+habla mucho de nuestra personalidad?
+Mire, no tengo inconveniente en contestar a su pregunta,
+pero creo que debería informarle
+"que esta conversación está siendo escuchada por varios miembros
+de la UDEF, de la UIT, el CNI"
+y su gabinete de enlace, el jefe de los GEO y varios oficiales más.
+En ese caso, creo que lo cortés es saludarles y presentarnos.
+Señores, un placer.
+"Disculpen que no les dé mi nombre, pero pueden llamarme"
+Profesor, es como me llama todo el mundo.
+Hola. Soy Ángel, subinspector de Policía.
+Encantado, Ángel. ¿Qué tal, cómo está?
+-"Hola, buenos días". Buenos días.
+-Hola, ¿qué tal?
+Muy bien. Yo muy bien, muchas gracias. ¿Y usted?
+Y después de este motivo momento, dígame,
+¿qué es lo que quiere? Tiempo...
+"para intentar aclarar las cosas.
+Escúcheme, inspectora.
+No hemos podido salir por cuestión de segundos, pero estamos"
+perfectamente preparados para defendernos,
+"así que intente evitar cualquier tipo de intervención".
+¿Puedo confiar en usted? Por supuesto.
+Pero para que yo confíe en usted debe tener un gesto conmigo.
+Libere a esos chavales del colegio, son menores.
+Todo irá mucho mejor así.
+Pero, inspectora, usted todavía no me ha respondido cómo va vestida.
+Con un traje de chaqueta gris, una camisa azul,
+"unas botas de tacón negras y...".
+Bueno, creo que por el momento es suficiente, ¿no?
+Así puedo imaginármela muchísimo mejor.
+Pero, inspectora, un traje de chaqueta para mujeres
+puede ser de falda o de pantalón,
+"así que le pediría que la próxima vez fuera usted"
+un poquito más concreta.
+Déjeme pensar en su petición.
+A ver, ¿qué clase de zumbado con 60 rehenes
+se pone a vacilar a su negociadora?
+-No, está demasiado tranquilo para ser un zumbado.
+¡Quiero helicópteros volando todo el día encima de su cabeza!
+Nada de comida, agua o cualquier otro tipo de petición. ¿Está claro?
+-Disculpe, inspectora.
+Pero porque los deje sin postre no creo que vayan a entregarse.
+Tanto el jefe de los GEO aquí presente como yo
+creemos que es necesaria una intervención inmediata.
+-Si hubieran querido una carnicería como la de la ópera de Moscú,
+le hubieran llamado directamente a usted,
+pero desgraciadamente solo está aquí para opinar y joder.
+-Por favor, inspectora, no se ponga a la defensiva.
+Estoy aquí para ayudarla.
+Sé que no está pasando por su mejor momento.
+-Si se refiere usted a la menstruación, no es el caso,
+pero gracias por preguntar.
+-Me refiero a la denuncia por malos tratos
+que ha interpuesto a su exmarido.
+(Murmuraciones)
+-Vaya, qué bien hace los deberes Inteligencia.
+No queda una sola alcoba donde no metan sus narices.
+-Asuntos Internos también lo hace.
+Cree que usted ha interpuesto una denuncia falsa.
+Su exmarido ha rehecho su vida
+tanto personal como profesionalmente dentro del Cuerpo,
+pero hay mujeres que no siempre pasan página.
+-Mire, no sé si es usted un miserable
+o... simplemente un necio.
+Por si a alguien le interesa mi vida personal,
+he de decir que es un asunto ampliamente superado
+y está en manos de un juez.
+Gracias por su sensibilidad, coronel.
+(Alarma)
+-Está entrando una llamada en el repetidor del museo.
+-Graba. -Sí, estamos grabando.
+-Sube el volumen. ¡Silencio, por favor!
+-"¿Cómo que no vienes a cenar? -Estoy trabajando.
+Discúlpame delante de tu madre y tu hermana.
+-¿Cómo que no vienes?".
+-Se ha liado una buena. Discúlpame delante de ellas, pero créetelo.
+No me chilles, bonita, por favor. -¿Qué pasa?
+-Bueno, te dejo, ¿vale, cosita?
+Venga, que te quiero un montón. Adiós, adiós.
+-Corta.
+Es Almansa.
+(Helicópteros)
+¿Por qué me has traído aquí?
+-No, tranquila,
+me han traído aquí para que te proteja.
+Solo eso.
+Cuando te desnudes, por favor, ponte el mono rojo.
+-Vale.
+(Helicóptero)
+(BERLÍN) En pie.
+Vamos, vamos.
+Quítense los antifaces.
+¡Quítense los antifaces!
+-¿Qué pasa?
+-Vamos a ser buenos.
+Hemos tenido algún imprevisto,
+pero, a pesar de los helicópteros,
+me consta que nos van a dar algunas horas de tregua
+y podrán descansar.
+En unos minutos os vamos a repartir sacos de dormir,
+agua y un sándwich. Ah, y les voy a pedir un favor:
+quiero que se desnuden.
+(MURMURAN)
+-Quiero repartirles un mono rojo como el nuestro
+para que se sientan más cómodos.
+Perdón, señor, sin ánimo de molestar.
+Entre esta gente hay enfermos con dolencias cardíacas,
+mujeres embarazadas, diabéticos, adolescentes...
+Yo les ruego que, por favor,
+dejen marchar a los más vulnerables.
+No creo que pudieran aguantar esta angustia toda la noche.
+-¿Quién te piensas que eres, Gandhi? (BERLÍN) Tranquilo.
+Es un amigo mío. Compartimos una gran afición por el cine.
+(Gritos y sollozos)
+-Coge la pistola.
+No te pregunto que si quieres,
+te digo que cojas la pistola. Coge la pistola. Coge la pistola.
+Y ahora me apuntas. No, por favor.
+Te estoy diciendo que me apuntes.
+Una puta orden. Apúntame, coño. Aquí. Bien.
+Y ahora me disparas.
+¿Cómo? Que me dispares.
+Dispárame. Por favor.
+¡Por favor, no! O me disparas tú
+o te disparo yo. Te regalo diez segundos.
+Uno, dos, tres, cuatro, cinco,
+seis, siete, ocho, nueve...
+(GRITAN)
+(Percutor)
+-Son falsas, Arturito, pero lo has hecho muy bien.
+Lo has hecho muy bien. Te la regalo, te la puedes quedar.
+-Ahora les vamos a repartir algunas armas falsas.
+En unas horas precisaremos de su colaboración.
+Como han visto, lo único que tienen que hacer es obedecer.
+Confiar en nosotros... y obedecer.
+Venga, desnúdense.
+Vamos.
+"¿Qué lleva puesto?".
+Raquel, ni "walkies", ni móviles, ni aparatos electrónicos.
+No hemos rastreado dentro ninguna radiofrecuencia.
+-¿Me estás diciendo que se comunican con un vaso de yogur y un hilo
+para que no los detectemos? -No sé si es de yogur
+o son una banda de sordomudos, pero no encontramos frecuencias.
+(Helicópteros)
+¿Qué cojones hacen aquí esos blindados?
+-Vamos a entrar con todo.
+-Eso será si yo doy la orden.
+Estoy al mando y todavía no lo he hecho.
+-Son órdenes de arriba.
+-¿Alguien me va a decir qué coño está pasando aquí
+o tengo que llamar al ministro de Interior personalmente?
+Que qué cojones está pasando.
+-Ahí dentro hay una persona de prioridad 1.
+¿Sabe usted lo que es "prioridad 1"? -No.
+No soy de su pandilla de inteligencia, no sé qué significa.
+Entrarán. Entrarán porque tenemos a nuestro corderito.
+Alison Parker.
+(PRIETO) "Hija de 'sir' Benjamin Parker, embajador del Reino Unido"
+y amigo íntimo de la reina de Inglaterra.
+Por eso no tenemos más remedio que entrar,
+porque si no lo hacemos ahora, mañana lo sabrá todo el país.
+Creerán que no lo sabemos. Creerán que han conseguido ocultar
+toda esta información a la opinión pública.
+(PRIETO) Y hoy es un rehén más, pero mañana será su principal diana
+y todas las pistolas apuntarán a su cabeza.
+¿Es eso lo que quiere? ¿Eh?
+Por eso entrarán la primera noche.
+Y lo harán antes de las 04:15.
+Porque a las 06:30 se hace de día.
+¿Se imagina usted lo que sería para España una crisis con rehenes
+gestionada por el Reino Unido?
+Y más nos vale que entren sin pensárselo mucho
+porque así tendremos más posibilidades...
+de ganar la primera batalla.
+Inspectora Murillo,
+vamos a entrar ahora y vamos a sacar viva a esa chica.
+Tengo que hablar contigo...
+Cállate, que nos van a matar a todos por tu culpa.
+Parece que tu jefe no te cae muy bien, ¿no?
+¿Cómo sabes que es mi jefe?
+Porque lo sé todo de vosotros.
+Lo he estudiado.
+También he visto el Predictor que está en tu mesa.
+Y ahora me imagino quién puede ser el padre.
+No le ha gustado el regalito.
+¿Qué te ha dicho?
+¿Que no se quiere hacer cargo?
+No es fácil decirle adiós a un bebé.
+¿Qué piensas hacer?
+Abortar.
+Unidades de intervención 1, 2 y 3, preparadas.
+-Vamos a entrar. -¡Vamos!
+-¡Vamos, vamos, vamos! -"Equipos 1, 2 y 3, preparados".
+-Ahora.
+(Sirenas)
+Equipo 1, parapetados en la puerta principal.
+Vigilad la azotea y los flancos altos.
+(Teléfono)
+Sí.
+Berlín, van a entrar.
+Allá vamos.
+¡Señores, es la hora!
+¡Ha llegado el momento de seguir mis órdenes!
+Con nosotros.
+"Y así fue como las Fuerzas de Seguridad del Estado
+hicieron exactamente lo que el Profesor
+nos había dicho que harían,
+solo que aquella tarde, cuando lo dijo,
+estábamos en el campo y no teníamos la sensación
+de que nos iban a meter un tiro en la sien".
+Entrarán por los cuatro sitios por lo que se puede acceder:
+la puerta principal, la zona de carga,
+la salida de emergencia y la azotea.
+Vigilad la retaguardia de las puertas rebasadas.
+Que no salga nadie.
+Pero van a esperar. Van a esperar a que los de intervención técnica
+hagan un reconocimiento del terreno.
+Eso lo van a hacer desde el acceso de carga.
+Vamos, vamos, vamos.
+Vamos, que ya están en la puerta.
+-¿OK?
+-Introduzcan periscopio.
+-Vamos.
+-Raquel, está entrando una llamada desde el móvil de una rehén,
+Alison Parker.
+(RADIO) "Como saben, un grupo de secuestradores..."
+-Súbelo.
+(RADIO) "Tenemos otra oyente al teléfono para dar su opinión.
+-No soy una oyente. Soy una rehén y estoy secuestrada".
+Me llamo Alison Parker.
+Soy la hija del embajador del Reino Unido.
+-En directo, en Onda Cero. -"Les llama"
+desde el interior de la Fábrica de Moneda y Timbre.
+-¡Que corten esta llamada inmediatamente!
+¡Ya! ¡Que la corten ya! -¡Corta la llamada!
+-Nos han vestido igual que los secuestradores.
+-Coronel, tenemos visión interior.
+-¿Qué cojones es eso?
+-Nos han armado y nos han puesto las mismas caretas.
+-Amplíe. Páralo. -Nadie sabe quién es quién.
+-Tiene una ametralladora Browning de suelo.
+-Hijos de puta.
+-Si entra la Policía, mataría a inocentes.
+-Atrincherados con los rehenes, todos vestidos iguales.
+Es imposible saber a quién van a dispar.
+-No entren. (RAQUEL) Pare esto, Suárez.
+¡Párelo!
+-No entren, por Dios. (RAQUEL) Párelo.
+-Abandonen posiciones. Abortamos operativo.
+-Inspectora...
+-Termine usted lo que ha empezado, coronel.
+Yo no quiero tener nada que ver con esto.
+"Y así fue como ganamos nuestra primera batalla
+en nuestra primera noche,
+sin entrar en combate y por sentido común.
+Y 20 minutos después...
+empezamos a hacer lo que habíamos venido a hacer".
+("Novena sinfonía", Beethoven)
+Ahora toca lo más bonito, ahora vamos a trabajar.
+Conmigo:
+Torres, Sánchez, Biedma,
+"Lennon,
+Guatsani,
+Molina, García,
+Domingo, De Gorza, Mateo".
+Venga, tira por ahí. "Rodrigo, Molla.
+Pérez". -Venga.
+(NAIROBI) A ver, quiero las máquinas funcionando
+las 24 horas, como si esto fuera una red de pocholos.
+Sabéis, ¿no? "Chiqui pun, chiqui pun, chiqui pun".
+"Cada vez que paramos perdemos medio millón, así que no vamos a parar".
+Vamos a hacer las correcciones técnicas cada tres horas,
+"tanto de tinta como de 'offset'".
+Así que ya sabéis, alegría, fiesta e ilusión.
+"El trabajo mejor pagado de la historia:
+tal vez más.
+Todo dependía del tiempo que pudiéramos aguantar dentro".
+(NAIROBI) ¡Oh, Dios mío, qué maravilla, colega!
+¡Qué maravilla, "coquinoqui"!
+¡Nuestro dinero, tío!
+¡Joder!
+(Nairobi grita y ríe a lo lejos)
+¡Estamos haciendo nuestra propia pasta, troncos!
+(Acaba la música)
+¿Me pone un descafeinado, por favor?
+-"Hola. Este es el contestador de Marví.
+Cuando suene el 'pi' puedes dejar un mensaje".
+(Pitido)
+Mamá, acabo de terminar, son las seis...
+Perdone, ¿no tendrá un cargador de móvil por ahí?
+-No.
+¿Quiere usar el mío?
+-¿De verdad? ¿No le importa?
+No. ¿Seguro?
+Gracias.
+Tengo que hacer un par de llamadas. No pasa nada.
+Muchas gracias.
+"¿Qué coño vamos a hacer con tanta pasta?".
+Si vamos a robar a lo grande, soñad a lo grande.
+(BERLÍN) Yo me grabaría un disco, de corrido.
+Así, en la portada todo mi careto.
+"¿Tú no eres el capitán del equipo de rugby?".
+No. De atletismo. Pues corre.
+Joder.
+(BERLÍN) "Piensa bien lo que dices, tengo"
+un puñetero polígrafo aquí.
+(ÁNGEL) "Todo el mundo prevenido. Atentos a mi orden.
+-Es una rehén".

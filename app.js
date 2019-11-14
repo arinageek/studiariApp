@@ -7,7 +7,8 @@ var express               = require("express"),
     expressSanitizer      = require("express-sanitizer"),
     Blog                  = require("./models/blog.js"),
     User                  = require("./models/user"),
-    Season               = require("./models/season.js"),
+    Season                = require("./models/season.js"),
+	Movie                 = require("./models/movie.js"),
 	Episode               = require("./models/episode.js"),
     flash                 = require("connect-flash"),
     mongoose              = require("mongoose");
@@ -17,6 +18,7 @@ const aws = require("aws-sdk");
     
 var seasonRoutes = require("./routes/seasonRoutes.js"),
 	episodeRoutes = require("./routes/episodeRoutes.js"),
+	movieRoutes = require("./routes/movieRoutes.js"),
     blogRoutes = require("./routes/blogRoutes.js"),
     authRoutes = require("./routes/authRoutes.js");
 
@@ -53,6 +55,7 @@ app.use("/blogs/:id",seasonRoutes);
 app.use("/seasons/:id",episodeRoutes);
 app.use(blogRoutes);
 app.use(authRoutes);
+app.use(movieRoutes);
 mongoose.connect("mongodb+srv://arina:pass435@cluster0-dagh6.mongodb.net/test?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useCreateIndex: true
@@ -73,7 +76,7 @@ app.get("/profile",isLoggedIn, (req,res) => {
 	res.render("profile");
 });
 
-app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
+app.get("/movie/:movieId",pay, (req,res) => {
 	
 	(async function(){
 		try{
@@ -121,7 +124,7 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 							if (err) console.log(err);
 							
 							var rus = [];
-							rus = data.toString().replace(/\r/g,"").split("\n"); 
+							rus = data.toString().replace(/\r/g,"").split("\n");
 							resolve(rus);						
 					});
 				});
@@ -175,17 +178,169 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 				});
 			}
 			
-			function getRes(eng,esp,rus){
-				return new Promise(resolve => {
-					var result = [];
-						for(var i=0; i<eng.length; i++){
-							var obj = {en: eng[i], es: esp[i], ru: rus[i]};
-							result.push(obj);
+			Movie.findById(req.params.movieId, function(err, foundMovie){
+			
+				if(err){
+					console.log("Error in finding the movie!");
+					console.log(err);
+				}else{
+					
+					async function work(){
+
+						var getSubsResolved = await getSubs(foundMovie);
+						var resolvedEng = await getEng(foundMovie);
+						if(foundMovie.spanishSub){
+							var resolvedEsp = await getEsp(foundMovie);
 						}
-						console.log(result);
-						resolve(result);
+						if(foundMovie.russianSub){
+							var resolvedRus = await getRus(foundMovie);
+						}
+						
+						var eng = await getEngFile();
+						var esp,rus;
+						if(foundMovie.spanishSub){
+							esp = await getEspFile();
+						}
+						if(foundMovie.russianSub){
+							rus = await getRusFile();
+						}
+						
+						function getRes(){
+							var resultArray = [];
+							for(var i=0; i<eng.length; i++){
+								var obj = {en: eng[i]};
+								if(esp){
+									obj["es"] = esp[i];
+								}
+								if(rus){
+									obj["ru"] = rus[i];
+								}
+								resultArray.push(obj);
+							}
+							return resultArray;
+						}
+						
+						var result = await getRes();
+						
+						res.render("movie",{res: result, episode: foundMovie, movie: foundMovie});
+	
+					}
+					
+					work();
+					
+				}	
+				
+			});	
+				
+		}catch(e){
+			console.log("error", e);
+		}
+	})();
+	
+});
+
+app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
+	
+	(async function(){
+		try{
+			aws.config.setPromisesDependency();
+			aws.config.update({
+				accessKeyId: process.env.aws_access_key_id,
+				secretAccessKey: process.env.aws_secret_access_key,
+				region: 'eu-west-2'
+			});
+			
+			const s3 = new aws.S3();
+			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
+			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
+			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
+			var fileRus = fs.createWriteStream('./public/subs/rus.txt');
+
+			function getEngFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/eng.txt", "utf-8", (err, data) => {
+						if (err) console.log(err); 
+						
+						var eng = [];
+						eng = data.toString().replace(/\r/g,"").split("\n");
+						resolve(eng);
+					
+					});	
 				});
 			}
+			
+			function getEspFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/esp.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var esp = [];
+							esp = data.toString().replace(/\r/g,"").split("\n"); 
+							resolve(esp);						
+					});
+				});
+			}
+			
+			function getRusFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/rus.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var rus = [];
+							rus = data.toString().replace(/\r/g,"").split("\n");
+							resolve(rus);						
+					});
+				});
+			}
+			
+			function getSubs(foundEpisode){
+				return new Promise(resolve => {
+					s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.subtitles
+					}, resolve(1)).createReadStream().pipe(file);
+				});
+			}
+			
+			function getEng(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.englishSub
+					}).createReadStream();
+					stream.pipe(fileEng);
+					stream.on("end", () => {
+						resolve(1);
+					});
+				});
+			}
+			
+			function getEsp(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.spanishSub
+					}).createReadStream();
+					stream.pipe(fileEsp);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
+			
+			function getRus(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.russianSub
+					}).createReadStream();
+					stream.pipe(fileRus);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
+			
 			Blog.findById(req.params.movieId, function(err, foundMovie){
 			
 			Episode.findById(req.params.episodeId, function(err, foundEpisode){
@@ -196,19 +351,39 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 					
 					async function work(){
 						
-						var eng,esp;
-						var result = [];
-						
-					
 						var getSubsResolved = await getSubs(foundEpisode);
 						var resolvedEng = await getEng(foundEpisode);
-						var resolvedEsp = await getEsp(foundEpisode);
-						var resolvedRus = await getRus(foundEpisode);
+						if(foundEpisode.spanishSub){
+							var resolvedEsp = await getEsp(foundEpisode);
+						}
+						if(foundEpisode.russianSub){
+							var resolvedRus = await getRus(foundEpisode);
+						}
 						
 						var eng = await getEngFile();
-						var esp = await getEspFile();
-						var rus = await getRusFile();
-						var result = await getRes(eng,esp, rus);
+						if(foundEpisode.spanishSub){
+							var esp = await getEspFile();
+						}
+						if(foundEpisode.russianSub){
+							var rus = await getRusFile();
+						}
+						
+						function getRes(){
+							var resultArray = [];
+							for(var i=0; i<eng.length; i++){
+								var obj = {en: eng[i]};
+								if(esp){
+									obj["es"] = esp[i];
+								}
+								if(rus){
+									obj["ru"] = rus[i];
+								}
+								resultArray.push(obj);
+							}
+							return resultArray;
+						}
+						
+						var result = await getRes();
 						
 						res.render("movie",{res: result, episode: foundEpisode, movie: foundMovie});
 	
@@ -226,17 +401,6 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 		}
 	})();
 	
-});
-
-app.put('/changeLanguage', isLoggedIn, (req, res) => {
-	var newvalues = { $set: { language: req.body.language } };
-	User.findByIdAndUpdate(req.user._id, newvalues, function(err, updatedUser){
-        if(err){
-            res.redirect("/blogs");
-        }else{
-            res.redirect("/profile");
-        }
-    });
 });
 
 function pay(req,res,next){

@@ -218,7 +218,6 @@ input[type=range]::-moz-range-thumb {
 .tooltip .tooltiptext {
 	font-family: 'Raleway', sans-serif;
   visibility: hidden;
-  width: 120px;
   background-color: black;
   color: #fff;
   text-align: center;
@@ -226,8 +225,45 @@ input[type=range]::-moz-range-thumb {
   padding: 5px 0;
   position: absolute;
   bottom: 150%;
-  left: 50%;
-  margin-left: -60px;
+  left: 0;
+  right:0;
+}
+
+.dropbtn {
+  border: none;
+}
+
+.dropup {
+  position: relative;
+  display: inline-block;
+}
+
+.dropup-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  
+  bottom: 17px;
+  z-index: 1;
+}
+
+.dropup-content a {
+  color: black;
+  
+  padding: 8px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropup-content a:hover {background-color: #ccc}
+
+.dropup:hover .dropup-content {
+  display: block;
+}
+
+.dropup:hover .dropbtn {
+  background-color: #2980B9;
 }
 
 .tooltip .tooltiptext::after {

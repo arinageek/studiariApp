@@ -32,9 +32,6 @@ h1{
 	color: gray;
 	font-size: 1.8rem;
 }
-.white{
-	background: rgba(0,0,0,.95);
-}
 
 .charge{
 	text-align: center;
@@ -159,8 +156,8 @@ body{
 		padding-top: 6rem !important;
 	}
 	.land{
-		padding: 2em 5em 0em 2em;
-		margin-top: 6em;
+		padding: 3em 5em 0em 2em;
+		margin-top: 3em;
     }
 	.showCol:nth-child(1){
 		text-align: center;
@@ -188,6 +185,10 @@ hr{
 	border:2px solid #a044ff;
     box-shadow: 0 0 5px #a044ff;
 	transition: all .2s ease-in-out;
+}
+.card-img{
+	height: 1em;
+	width: 1em;
 }
 
 .card-body{

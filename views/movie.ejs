@@ -47,6 +47,28 @@
         <button data-skip="-10" class="player-btn">« 10s</button>
 
         <button data-skip="10" class="player-btn">10s »</button>
+		
+		
+			<div class="dropup">
+		  <button class="dropbtn">en</button>
+		  <div class="dropup-content">
+			  <% if(episode.englishSub){ %>
+			  	<a class="en">en</a>
+			  <% }
+			  if(episode.spanishSub){ %>
+			  	<a class="es">es</a>
+			  <% }
+			  if(episode.russianSub){ %>
+			  	<a class="ru">ru</a>
+			  <% }
+			  if(episode.germanSub){ %>
+			  	<a class="ge">ge</a>
+			  <%}
+			  if(episode.frenchSub){ %>
+			  	<a class="fr">fr</a>
+			  <% } %>
+		  </div>
+		</div>
 
         <button class="player-btn" id="subtitles" type="button" data-state="subtitles">CC</button>
 
@@ -58,6 +80,7 @@
 	//show tip with translation when a span is clicked
 	function showTip(m) {
 		var player = document.querySelector('.player');
+		var dropbtn = document.querySelector('.dropbtn');
 		var video = player.querySelector('.player-video');
 		video.pause();
 		var result = <%-JSON.stringify(res)%>;
@@ -66,14 +89,16 @@
 			item.style.setProperty('visibility', 'hidden', 'important');
 		});
 		m.querySelector('.tooltiptext').style.setProperty('visibility', 'visible', 'important');
-		var orig = m.childNodes[0].nodeValue.toString();
+		var orig = m.childNodes[0].nodeValue.toString().replace(/\n/g, " ");
+		console.log("ss"+orig+"ss");
 		for(var i=0; i<result.length; i++){
 			var f=" "+result[i].<%= movie.language %>.toString();
 			var s=" "+result[i].<%= movie.language %>.toString()+" ";
 			var e=result[i].<%= movie.language %>.toString()+" ";
-			if((orig === f) || (orig === s) || (orig === e)){
-				console.log("Got it!! "+result[i].<%= currentUser.language %>);
-				m.querySelector('.tooltiptext').textContent = result[i].<%= currentUser.language %>;
+			var y = result[i].<%= movie.language %>.toString();
+			if((orig === f) || (orig === s) || (orig === e) || (orig === y)){
+				console.log("Got it!! "+result[i][dropbtn.textContent]);
+				m.querySelector('.tooltiptext').textContent = result[i][dropbtn.textContent];
 			}
 		}
 	}
@@ -115,7 +140,14 @@
 	
 	//when page is loaded, do this
 window.addEventListener('DOMContentLoaded', function(){
+	
 	const player = document.querySelector('.player');
+	const en = document.querySelector('.en');
+	const es = document.querySelector('.es');
+	const ru = document.querySelector('.ru');
+	const ge = document.querySelector('.ge');
+	const fr = document.querySelector('.fr');
+	const dropbtn = document.querySelector('.dropbtn');
 	const video = player.querySelector('.player-video');
 	const progress = player.querySelector('.progress');
 	const progressFilled = player.querySelector('.filled-progress');
@@ -124,13 +156,42 @@ window.addEventListener('DOMContentLoaded', function(){
 	const ranges = player.querySelectorAll('.player-slider');
 	const subtitles = player.querySelector('#subtitles');
 	
+	
 	// const loadProgressFilled = player.querySelector('.load-progress');
+	
+	if(en){
+		en.addEventListener('click', function () {
+			dropbtn.textContent = "en";
+		});
+	}
+	if(es){
+		es.addEventListener('click', function () {
+			dropbtn.textContent = "es";
+		});
+	}
+	if(ru){
+		ru.addEventListener('click', function () {
+			dropbtn.textContent = "ru";
+		});
+	}
+	if(ge){
+		ge.addEventListener('click', function () {
+			dropbtn.textContent = "ge";
+		});
+	}
+	if(fr){
+		fr.addEventListener('click', function () {
+			dropbtn.textContent = "fr";
+		});
+	}
+	
 
 	//set up subtitle variables
 	var texts = document.getElementsByClassName("subs");
 	var txt = texts[0];
 	var track = video.textTracks[0];
 	track.mode = 'hidden';
+
 	
 	subtitles.addEventListener('click', function () {
 		if(track.mode=='hidden'){
@@ -156,12 +217,15 @@ window.addEventListener('DOMContentLoaded', function(){
 		track.mode = 'hidden';
 		if(cue){
 			txt.style.visibility = "visible";
-			txt.textContent = vidCues[0].text;
-			var words = txt.textContent.split(/\s+/);
+			// txt.textContent = vidCues[0].text;
+			// var words = txt.textContent.split(/\s+/);
 			txt.textContent = "";
-			for(var i=0; i<words.length; i++){
-				txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words[i]+" <span class=\"tooltiptext\">-</span> </span> ";
-			}
+			var words = vidCues[0].text;
+			txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words+" <span class=\"tooltiptext\">-</span> </span> ";
+			
+			// for(var i=0; i<words.length; i++){
+			// 	txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words[i]+" <span class=\"tooltiptext\">-</span> </span> ";
+			// }
 
 		}else{
 			//hide subtitles when there is no cue

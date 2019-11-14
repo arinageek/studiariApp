@@ -1,0 +1,34 @@
+<% include ./partials/header %>
+
+<div class="main show">
+	<div class="white land" >
+		<div class="row">
+			<div class="col-12 col-lg-6 showCol">
+				
+				<img style="border:2px solid gray" src="<%=movie.image%>">
+				<br>
+				<!-- <% if(currentUser && currentUser.isAdmin){ %>
+				<br><br>
+					<a class="btn btn-warning btn-lg" href="/blogs/<%= movie._id %>/edit">Edit</a>
+					<form id="delete" class="inlineButton" action="/blogs/<%= movie._id %>?_method=DELETE" method="POST">
+						<button class="btn btn-danger btn-lg">Delete</button>
+					</form>
+				<br><br>
+				<% } %> -->
+			</div>
+			<div class="col-12 col-lg-6 showCol">
+				<h1>
+					<%= movie.title %>
+				</h1>
+				<br>
+				<pre><%=movie.description%></pre>
+				<br>
+				<a href="/movie/<%= movie._id %>">Watch now</a>
+			</div>
+		</div>
+    </div>
+</div>
+	<script>
+		$('.menu .item').tab();
+	</script>
+<% include ./partials/footer %>

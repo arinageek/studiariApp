@@ -5,18 +5,6 @@
       <div class="col-12 col-lg-3">
           <h1>Profile</h1>
           <p>Email: <%= currentUser.username %></p>
-		  <br>
-		  <h2>
-			  Language of translation:
-		  </h2>
-		  <form action="/changeLanguage?_method=PUT" method="POST">
-		    <select name="language" class="dropdown">
-			  <option class="option" value="en">English</option>
-			  <option class="option" value="es">Spanish</option>
-				<option class="option" value="ru">Russian</option>
-			</select> 
-			  <input class="ui violet basic button" type="submit">
-		  </form>
 		  <br><br>
       </div>
       <div class="col-12 col-lg-9">

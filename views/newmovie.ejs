@@ -1,0 +1,55 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment space">
+    <div class="ui huge header">New Movie</div>
+    <form class="ui form" action="/movies" method="POST">
+        <div class="field">
+            <label>Title</label>
+            <input type="text" name="movie[title]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Language</label>
+            <input type="text" name="movie[language]" placeholder="title">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="text" name="movie[image]" placeholder="image">
+        </div>
+        
+        <div class="field">
+            <label>Description</label>
+            <textarea name="movie[description]" ></textarea>
+        </div>
+		<div class="field">
+            <label>Link to video</label>
+            <input type="text" name="movie[link]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to subs</label>
+            <input type="text" name="movie[subtitles]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to English subs</label>
+            <input type="text" name="movie[englishSub]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to Spanish subs</label>
+            <input type="text" name="movie[spanishSub]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to Russian subs</label>
+            <input type="text" name="movie[russianSub]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to German subs</label>
+            <input type="text" name="movie[germanSub]" placeholder="text">
+        </div>
+		<div class="field">
+            <label>Link to French subs</label>
+            <input type="text" name="movie[frenchSub]" placeholder="text">
+        </div>
+        <input class="ui violet basic button" type="submit">
+    </form>
+</div>
+
+<% include ./partials/footer %>
