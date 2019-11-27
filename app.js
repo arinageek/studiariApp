@@ -92,7 +92,9 @@ app.get("/movie/:movieId",pay, (req,res) => {
 			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
 			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
 			var fileRus = fs.createWriteStream('./public/subs/rus.txt');
-
+			var fileFre = fs.createWriteStream('./public/subs/fre.txt');
+			var fileGer = fs.createWriteStream('./public/subs/ger.txt');
+			
 			function getEngFile(){
 				return new Promise(resolve => {
 					fs.readFile("./public/subs/eng.txt", "utf-8", (err, data) => {
@@ -126,6 +128,30 @@ app.get("/movie/:movieId",pay, (req,res) => {
 							var rus = [];
 							rus = data.toString().replace(/\r/g,"").split("\n");
 							resolve(rus);						
+					});
+				});
+			}
+			
+			function getFreFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/fre.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var fre = [];
+							fre = data.toString().replace(/\r/g,"").split("\n");
+							resolve(fre);						
+					});
+				});
+			}
+			
+			function getGerFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/ger.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var ger = [];
+							ger = data.toString().replace(/\r/g,"").split("\n");
+							resolve(ger);						
 					});
 				});
 			}
@@ -178,6 +204,32 @@ app.get("/movie/:movieId",pay, (req,res) => {
 				});
 			}
 			
+			function getFre(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.frenchSub
+					}).createReadStream();
+					stream.pipe(fileFre);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
+			
+			function getGer(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.germanSub
+					}).createReadStream();
+					stream.pipe(fileGer);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
+			
 			Movie.findById(req.params.movieId, function(err, foundMovie){
 			
 				if(err){
@@ -195,14 +247,26 @@ app.get("/movie/:movieId",pay, (req,res) => {
 						if(foundMovie.russianSub){
 							var resolvedRus = await getRus(foundMovie);
 						}
+						if(foundMovie.frenchSub){
+							var resolvedFre = await getFre(foundMovie);
+						}
+						if(foundMovie.germanSub){
+							var resolvedGer = await getGer(foundMovie);
+						}
 						
 						var eng = await getEngFile();
-						var esp,rus;
+						var esp,rus,fre,ger;
 						if(foundMovie.spanishSub){
 							esp = await getEspFile();
 						}
 						if(foundMovie.russianSub){
 							rus = await getRusFile();
+						}
+						if(foundMovie.frenchSub){
+							fre = await getFreFile();
+						}
+						if(foundMovie.germanSub){
+							ger = await getGerFile();
 						}
 						
 						function getRes(){
@@ -214,6 +278,12 @@ app.get("/movie/:movieId",pay, (req,res) => {
 								}
 								if(rus){
 									obj["ru"] = rus[i];
+								}
+								if(fre){
+									obj["fr"] = fre[i];
+								}
+								if(ger){
+									obj["ge"] = ger[i];
 								}
 								resultArray.push(obj);
 							}
@@ -255,6 +325,8 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
 			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
 			var fileRus = fs.createWriteStream('./public/subs/rus.txt');
+			var fileFre = fs.createWriteStream('./public/subs/fre.txt');
+			var fileGer = fs.createWriteStream('./public/subs/ger.txt');
 
 			function getEngFile(){
 				return new Promise(resolve => {
@@ -289,6 +361,30 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 							var rus = [];
 							rus = data.toString().replace(/\r/g,"").split("\n");
 							resolve(rus);						
+					});
+				});
+			}
+			
+			function getFreFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/fre.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var fre = [];
+							fre = data.toString().replace(/\r/g,"").split("\n");
+							resolve(fre);						
+					});
+				});
+			}
+			
+			function getGerFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/ger.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var ger = [];
+							ger = data.toString().replace(/\r/g,"").split("\n");
+							resolve(ger);						
 					});
 				});
 			}
@@ -341,6 +437,32 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 				});
 			}
 			
+			function getFre(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.frenchSub
+					}).createReadStream();
+					stream.pipe(fileFre);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
+			
+			function getGer(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.germanSub
+					}).createReadStream();
+					stream.pipe(fileGer);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
+			
 			Blog.findById(req.params.movieId, function(err, foundMovie){
 			
 			Episode.findById(req.params.episodeId, function(err, foundEpisode){
@@ -359,6 +481,12 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 						if(foundEpisode.russianSub){
 							var resolvedRus = await getRus(foundEpisode);
 						}
+						if(foundEpisode.frenchSub){
+							var resolvedFre = await getFre(foundEpisode);
+						}
+						if(foundEpisode.germanSub){
+							var resolvedGer = await getGer(foundEpisode);
+						}
 						
 						var eng = await getEngFile();
 						if(foundEpisode.spanishSub){
@@ -366,6 +494,12 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 						}
 						if(foundEpisode.russianSub){
 							var rus = await getRusFile();
+						}
+						if(foundEpisode.frenchSub){
+							var fre = await getFreFile();
+						}
+						if(foundEpisode.germanSub){
+							var ger = await getGerFile();
 						}
 						
 						function getRes(){
@@ -377,6 +511,12 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 								}
 								if(rus){
 									obj["ru"] = rus[i];
+								}
+								if(fre){
+									obj["fr"] = fre[i];
+								}
+								if(ger){
+									obj["ge"] = ger[i];
 								}
 								resultArray.push(obj);
 							}
