@@ -8,6 +8,9 @@
   },
   "author": "Arina Kalaidjan",
   "license": "ISC",
+  "engines": {
+    "node": "10.15.3"
+  },
   "dependencies": {
     "async": "^3.1.0",
     "aws-sdk": "^2.532.0",
