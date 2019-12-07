@@ -76,6 +76,10 @@ app.get("/profile",isLoggedIn, (req,res) => {
 	res.render("profile");
 });
 
+app.get("/about", (req,res) => {
+	res.render("about");
+});
+
 app.get("/movie/:movieId",pay, (req,res) => {
 	
 	(async function(){

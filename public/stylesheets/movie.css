@@ -27,16 +27,21 @@ body {
 	color: white;
 	z-index: 4;
 }
+ @media (min-width:1200px){
+	 .player{
+		 height:100%;
+	 }
+    }
 
 .player {
   width: 100%;
-	height: 100%;
   border: 6px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
 
 }
+
 	.player:hover .progress{
 		height: 10px;
 	}

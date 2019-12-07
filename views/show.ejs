@@ -47,14 +47,22 @@
 					<% if(ind==0){ %>
 						<div class="ui bottom attached tab segment active" data-tab="<%=season.name%>">
 							<% season.episodes.forEach(function(episode){ %>
-								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=i%>. <%=episode.name%></a> <a href="/seasons/<%= season._id %>/episodes/<%= episode._id %>/edit"> edit</a><br>
+								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=i%>. <%=episode.name%></a>
+							<% if(currentUser && currentUser.isAdmin){ %>
+								<a href="/seasons/<%= season._id %>/episodes/<%= episode._id %>/edit"> edit</a>
+							<% } %>
+							<br>
 							<% i++ %>
 							<% }); %>
 						</div>
 				    <% }else{ %>
 				        <div class="ui bottom attached tab segment" data-tab="<%=season.name%>">
 							<% season.episodes.forEach(function(episode){ %>
-								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=i%>. <%=episode.name%></a> <a href="/seasons/<%= season._id %>/episodes/<%= episode._id %>/edit"> edit</a><br>
+								<a href="/movie/<%= blog._id %>/<%= season._id %>/<%= episode._id %>"><%=i%>. <%=episode.name%></a>
+							<% if(currentUser && currentUser.isAdmin){ %>
+								<a href="/seasons/<%= season._id %>/episodes/<%= episode._id %>/edit"> edit</a>
+							<% } %>
+							<br>
 							<% i++ %>
 							<% }); %>
 						</div>
@@ -68,5 +76,6 @@
 </div>
 	<script>
 		$('.menu .item').tab();
+		
 	</script>
 <% include ./partials/footer %>

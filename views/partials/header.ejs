@@ -13,7 +13,7 @@
         
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="#"><i class="fas fa-fire-alt"></i>StudiAri</a>
+			<a class="navbar-brand logo" href="#"><img class="logo-img" src="https://img.icons8.com/clouds/100/000000/starred-ticket.png"> StudiAri</a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -23,7 +23,10 @@
 						<a class="nav-link" href="/">Series <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/movies">Movies <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="/movies">Movies <span class="sr-only"></span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/about">About <span class="sr-only"></span></a>
 					</li>
 					<% if(currentUser && currentUser.isAdmin){ %>
 						<li class="nav-item">
