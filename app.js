@@ -11,7 +11,9 @@ var express               = require("express"),
 	Movie                 = require("./models/movie.js"),
 	Episode               = require("./models/episode.js"),
     flash                 = require("connect-flash"),
-    mongoose              = require("mongoose");
+    mongoose              = require("mongoose"),
+    async                 = require("async"),
+	nodeMailer            = require("nodemailer");
 
 const fs = require("fs");
 const aws = require("aws-sdk");
@@ -76,9 +78,44 @@ app.get("/profile",isLoggedIn, (req,res) => {
 	res.render("profile");
 });
 
+app.get("/terms", (req,res) =>{
+	res.render("terms");
+});
+
+app.get("/contacts", (req,res) => {
+	res.render("contact");
+});
+
 app.get("/about", (req,res) => {
 	res.render("about");
 });
+
+app.post('/emailus', function(req, res) {
+	let transporter = nodeMailer.createTransport({
+          service: 'Gmail', 
+          auth: {
+			  user: 'studiariweb@gmail.com',
+			  pass: process.env.GMAILPW
+        }
+      });
+      let mailOptions = {
+          from: 'studiariweb@gmail.com', // sender address
+          to: 'studiariweb@gmail.com', // list of receivers
+          subject: 'A question from studiari', // Subject line
+          text: 'Sender email: '+req.body.email+'\n'+
+		  'Sender name: '+req.body.name+'\n'+
+		  'Message: '+req.body.message+'\n'
+      };
+
+      transporter.sendMail(mailOptions, (error, info) => {
+          if (error) {
+              return console.log(error);
+          }
+		  req.flash('success', 'Your message has been sent!');
+              res.redirect("/blogs");
+          });
+});
+
 
 app.get("/movie/:movieId",pay, (req,res) => {
 	

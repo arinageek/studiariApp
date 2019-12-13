@@ -1,0 +1,51 @@
+<% include ./partials/header %>
+<div class="topMargin">
+	<!-- <h1 class="headerText">
+		Still have questions?
+	</h1><br> -->
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-12 col-lg-5">
+			<br>
+			<h1 class="headerText" style="text-align:left">
+		Still have questions?
+	</h1><br>
+			<h1>
+				Contacts
+			</h1><br>
+			<p class="contacts">
+			  <i class="material-icons">phone</i>
+				 Phone: +7 (985) 994-17-45<br>
+				<i class="material-icons">email</i>
+		         Email: studiariweb@gmail.com<br>
+				<i class="material-icons">location_on</i>
+				 Address: Moscow, Russia
+			</p>
+			<br>
+		</div>
+		<div class="col-12 col-lg-5">
+			<div class="container-fluid">
+            <form class="contact-form" action="/emailus" method="POST">
+				<h1>
+					Write to us
+				</h1>
+			  <div class="form-group">
+				<label for="email1">Your email</label>
+				<input name="email" type="email" class="form-control" id="email1" aria-describedby="emailHelp">			  </div>
+			  <div class="form-group">
+				<label for="name">Your name</label>
+				<input name="name" type="text" class="form-control" id="name">
+			  </div>
+			  <div class="form-group">
+				<label for="textarea">Your message</label>
+				<textarea name="message" class="form-control" id="textarea" rows="8"></textarea>
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+      </div>
+				
+		</div>
+		<div class="col-lg-1"></div>
+	</div>
+</div>
+<% include ./partials/footer %>

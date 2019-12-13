@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Raleway:200i&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Nunito:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
 .logo{
 	font-family: 'Nunito', sans-serif;
 	font-size: 1.2em;
@@ -13,6 +14,26 @@
 	height: 2em;
 	width:2em;
 }
+.material-icons{
+	font-size: 2em;
+}
+.accentWords{
+	font-size: 1.5em;
+	color:#b300b3;
+}
+.contact-form{
+	padding: 3em;
+	border-radius: 10px;
+	background: #C33764;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #1D2671, #C33764);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #1D2671, #C33764); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.contactIcon{
+	color:white;
+	font-size: 2em;
+}
+
 .navbar{
 	padding-left:10px;
 }
@@ -60,25 +81,6 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
-/* 
-.footer .icons {
-  margin-top: 25px;
-}
-
-.footer .icons a {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  cursor: pointer;
-  background-color: #33383b;
-  border-radius: 2px;
-  font-size: 20px;
-  color: #ffffff;
-  text-align: center;
-  line-height: 35px;
-  margin-right: 3px;
-  margin-bottom: 5px;
-} */
 
 
 /* footer center*/
@@ -185,7 +187,8 @@ em{
 
 h1{
 	color:white;
-	font-family: 'Russo One', sans-serif;
+	font-family: 'Comfortaa', cursive;
+	/* font-family: 'Russo One', sans-serif; */
 }
 .accent{
 	font-size:2.5rem;
@@ -234,8 +237,11 @@ body{
   body {
     font-size: 4rem;
   }
-	.cont{
-		margin: 10rem 2.5rem;
+	.contacts{
+		font-size: 0.7em;
+	}
+	.topMargin{
+		margin: 12rem 2.5rem;
 	}
 	.charge{
 		margin-top: 5rem;
@@ -296,7 +302,7 @@ body{
   body {
     font-size: 17px;
   }
-	.cont{
+	.topMargin{
 		margin: 6rem 3rem;
 	}
 	.card:hover{
