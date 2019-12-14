@@ -19,7 +19,7 @@ var express               = require("express"),
 
 const fs = require("fs");
 const aws = require("aws-sdk");
-    
+
 var seasonRoutes = require("./routes/seasonRoutes.js"),
 	episodeRoutes = require("./routes/episodeRoutes.js"),
 	movieRoutes = require("./routes/movieRoutes.js"),
@@ -363,8 +363,10 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 			aws.config.update({
 				accessKeyId: process.env.aws_access_key_id,
 				secretAccessKey: process.env.aws_secret_access_key,
-				region: 'eu-west-2'
+				region: 'eu-west-2',
+				http_open_timeout: 10
 			});
+			//change up there - timeout set!!!!!!!!!!
 			
 			const s3 = new aws.S3();
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
