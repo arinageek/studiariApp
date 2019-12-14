@@ -78,6 +78,16 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
 
+aws.config.setPromisesDependency();
+			aws.config.update({
+				accessKeyId: process.env.aws_access_key_id,
+				secretAccessKey: process.env.aws_secret_access_key,
+				region: 'eu-west-2',
+				http_open_timeout: 10,
+				http_read_timeout: 10
+			});
+			
+			const s3 = new aws.S3();
 
 app.get("/profile",isLoggedIn, (req,res) => {
 	res.render("profile");
@@ -126,16 +136,16 @@ app.get("/movie/:movieId",pay, (req,res) => {
 	
 	(async function(){
 		try{
-			aws.config.setPromisesDependency();
-			aws.config.update({
-				accessKeyId: process.env.aws_access_key_id,
-				secretAccessKey: process.env.aws_secret_access_key,
-				region: 'eu-west-2',
-				http_open_timeout: 10,
-				http_read_timeout: 10
-			});
+			// aws.config.setPromisesDependency();
+			// aws.config.update({
+			// 	accessKeyId: process.env.aws_access_key_id,
+			// 	secretAccessKey: process.env.aws_secret_access_key,
+			// 	region: 'eu-west-2',
+			// 	http_open_timeout: 10,
+			// 	http_read_timeout: 10
+			// });
 			
-			const s3 = new aws.S3();
+			// const s3 = new aws.S3();
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
 			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
 			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
@@ -361,17 +371,16 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 	
 	(async function(){
 		try{
-			aws.config.setPromisesDependency();
-			aws.config.update({
-				accessKeyId: process.env.aws_access_key_id,
-				secretAccessKey: process.env.aws_secret_access_key,
-				region: 'eu-west-2',
-				http_open_timeout: 10,
-				http_read_timeout: 10
-			});
-			//change up there - timeout set!!!!!!!!!!
+			// aws.config.setPromisesDependency();
+			// aws.config.update({
+			// 	accessKeyId: process.env.aws_access_key_id,
+			// 	secretAccessKey: process.env.aws_secret_access_key,
+			// 	region: 'eu-west-2',
+			// 	http_open_timeout: 10,
+			// 	http_read_timeout: 10
+			// });			
+			// const s3 = new aws.S3();
 			
-			const s3 = new aws.S3();
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
 			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
 			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
