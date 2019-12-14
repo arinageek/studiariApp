@@ -12,8 +12,10 @@ var express               = require("express"),
 	Episode               = require("./models/episode.js"),
     flash                 = require("connect-flash"),
     mongoose              = require("mongoose"),
-    async                 = require("async"),
-	nodeMailer            = require("nodemailer");
+	session               = require("express-session"),
+	nodeMailer            = require("nodemailer"),
+	MongoStore            = require('connect-mongo')(session),
+	async                 = require("async");
 
 const fs = require("fs");
 const aws = require("aws-sdk");
@@ -32,12 +34,14 @@ const keyPublishable = process.env.PUBLISHABLE_KEY;
 const keySecret = process.env.SECRET_KEY;
 const stripe = require("stripe")(keySecret);
 
-
-app.use(require("express-session")({
+app.use(session({
     secret: "This is a study blog!",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+	store: new MongoStore({mongooseConnection: mongoose.connection,
+						  ttl: 1 * 5 * 60 * 60})
 }));
+
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -52,12 +56,12 @@ app.use(function(req, res, next){
    next();
 });
 
-
 app.use("/blogs/:id",seasonRoutes);
 app.use("/seasons/:id",episodeRoutes);
 app.use(blogRoutes);
 app.use(authRoutes);
 app.use(movieRoutes);
+
 mongoose.connect("mongodb+srv://arina:pass435@cluster0-dagh6.mongodb.net/test?retryWrites=true&w=majority", {
 	useNewUrlParser: true,
 	useCreateIndex: true
@@ -73,6 +77,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressSanitizer());
 app.use(methodOverride("_method"));
+
 
 app.get("/profile",isLoggedIn, (req,res) => {
 	res.render("profile");
