@@ -87,7 +87,7 @@ aws.config.setPromisesDependency();
 				http_read_timeout: 10
 			});
 			
-			const s3 = new aws.S3();
+// const s3 = new aws.S3();
 
 app.get("/profile",isLoggedIn, (req,res) => {
 	res.render("profile");
@@ -145,7 +145,7 @@ app.get("/movie/:movieId",pay, (req,res) => {
 			// 	http_read_timeout: 10
 			// });
 			
-			// const s3 = new aws.S3();
+			const s3 = new aws.S3();
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
 			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
 			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
@@ -379,7 +379,7 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 			// 	http_open_timeout: 10,
 			// 	http_read_timeout: 10
 			// });			
-			// const s3 = new aws.S3();
+			const s3 = new aws.S3();
 			
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
 			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
