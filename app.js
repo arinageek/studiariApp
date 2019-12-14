@@ -130,7 +130,9 @@ app.get("/movie/:movieId",pay, (req,res) => {
 			aws.config.update({
 				accessKeyId: process.env.aws_access_key_id,
 				secretAccessKey: process.env.aws_secret_access_key,
-				region: 'eu-west-2'
+				region: 'eu-west-2',
+				http_open_timeout: 10,
+				http_read_timeout: 10
 			});
 			
 			const s3 = new aws.S3();
@@ -364,7 +366,8 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 				accessKeyId: process.env.aws_access_key_id,
 				secretAccessKey: process.env.aws_secret_access_key,
 				region: 'eu-west-2',
-				http_open_timeout: 10
+				http_open_timeout: 10,
+				http_read_timeout: 10
 			});
 			//change up there - timeout set!!!!!!!!!!
 			
