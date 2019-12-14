@@ -80,8 +80,8 @@ app.use(methodOverride("_method"));
 
 aws.config.setPromisesDependency();
 			aws.config.update({
-				accessKeyId: process.env.aws_access_key_id,
-				secretAccessKey: process.env.aws_secret_access_key,
+				accessKeyId: "AKIAT2GZ6CC2MBQ2EDG3",
+				secretAccessKey: "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",
 				region: 'eu-west-2',
 				http_open_timeout: 10,
 				http_read_timeout: 10
