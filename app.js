@@ -89,6 +89,17 @@ aws.config.setPromisesDependency();
 			
 // const s3 = new aws.S3();
 
+app.post("/success/:user", (req,res) =>{
+	User.findOne({ username: req.params.user }, function(err, user) {
+		if(err){
+			res.send("An error has occured! Write to us if you have a question!");
+		}
+		var d = new Date();
+		user.expirationDate.setDate(d.getDate()+30);
+		res.redirect("/blogs");
+    });
+});
+
 app.get("/profile",isLoggedIn, (req,res) => {
 	res.render("profile");
 });
