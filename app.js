@@ -94,10 +94,11 @@ app.post("/success", async (req,res) =>{
 	var d = new Date();
 	try{
 		User.findOneAndUpdate({ username: req.body.email }, { $set: { expirationDate: d.getDate()+30 }} );
+		res.status(200).send();
 	} catch(e){
 		console.log(e);
 	}
-	res.redirect("/blogs");
+	
 });
 
 app.get("/profile",isLoggedIn, (req,res) => {
