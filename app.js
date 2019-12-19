@@ -89,17 +89,15 @@ aws.config.setPromisesDependency();
 			
 // const s3 = new aws.S3();
 
-app.post("/success", (req,res) =>{
-	console.log("Success route!!!");
+app.post("/success", async (req,res) =>{
 	console.log(req);
-	// User.findOne({ username: req.body.email }, function(err, user) {
-	// 	if(err){
-	// 		res.send("An error has occured! Write to us if you have a question!");
-	// 	}
-	// 	var d = new Date();
-	// 	user.expirationDate = d.getDate()+30;
-	// 	res.redirect("/blogs");
-	// });
+	var d = new Date();
+	try{
+		User.findOneAndUpdate({ username: req.body.email }, { $set: { expirationDate: d.getDate()+30 }} );
+	} catch(e){
+		console.log(e);
+	}
+
 });
 
 app.get("/profile",isLoggedIn, (req,res) => {
