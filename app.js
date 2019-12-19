@@ -90,16 +90,16 @@ aws.config.setPromisesDependency();
 // const s3 = new aws.S3();
 
 app.post("/success", (req,res) =>{
-	User.findOne({ username: req.body.email }, function(err, user) {
-		if(err){
-			console.log("success route error!");
-			res.send("An error has occured! Write to us if you have a question!");
-		}
-		var d = new Date();
-		user.expirationDate = d.getDate()+30;
-		console.log("success route all is good!");
-		res.redirect("/blogs");
-    });
+	console.log("Success route!!!");
+	console.log(req);
+	// User.findOne({ username: req.body.email }, function(err, user) {
+	// 	if(err){
+	// 		res.send("An error has occured! Write to us if you have a question!");
+	// 	}
+	// 	var d = new Date();
+	// 	user.expirationDate = d.getDate()+30;
+	// 	res.redirect("/blogs");
+	// });
 });
 
 app.get("/profile",isLoggedIn, (req,res) => {
