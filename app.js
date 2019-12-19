@@ -90,7 +90,7 @@ aws.config.setPromisesDependency();
 // const s3 = new aws.S3();
 
 app.post("/success", (req,res) =>{
-	User.findOne({ username: req.params.email }, function(err, user) {
+	User.findOne({ username: req.body.email }, function(err, user) {
 		if(err){
 			console.log("success route error!");
 			res.send("An error has occured! Write to us if you have a question!");
