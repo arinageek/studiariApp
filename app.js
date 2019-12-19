@@ -92,8 +92,10 @@ aws.config.setPromisesDependency();
 app.post("/success", async (req,res) =>{
 	console.log(req);
 	var d = new Date();
+	d.setDate(d.getDate()+30);
 	try{
-		User.findOneAndUpdate({ username: req.body.email }, { $set: { expirationDate: d.getDate()+30 }} );
+		const user = await User.findOneAndUpdate({ username: req.body.email }, { $set: { expirationDate: d }} );
+		console.log("Username i found: "+user.username);
 		res.status(200).send();
 	} catch(e){
 		console.log(e);
