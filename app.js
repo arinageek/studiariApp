@@ -96,7 +96,7 @@ app.post("/success", (req,res) =>{
 			res.send("An error has occured! Write to us if you have a question!");
 		}
 		var d = new Date();
-		user.expirationDate.setDate(d.getDate()+30);
+		user.expirationDate = d.getDate()+30;
 		console.log("success route all is good!");
 		res.redirect("/blogs");
     });
