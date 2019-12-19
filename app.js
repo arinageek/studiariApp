@@ -92,10 +92,12 @@ aws.config.setPromisesDependency();
 app.post("/success", (req,res) =>{
 	User.findOne({ username: req.params.email }, function(err, user) {
 		if(err){
+			console.log("success route error!");
 			res.send("An error has occured! Write to us if you have a question!");
 		}
 		var d = new Date();
 		user.expirationDate.setDate(d.getDate()+30);
+		console.log("success route all is good!");
 		res.redirect("/blogs");
     });
 });
