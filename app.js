@@ -97,7 +97,7 @@ app.post("/success", async (req,res) =>{
 	} catch(e){
 		console.log(e);
 	}
-
+	res.redirect("/blogs");
 });
 
 app.get("/profile",isLoggedIn, (req,res) => {
