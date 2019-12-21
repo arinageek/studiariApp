@@ -1,0 +1,43 @@
+<% include ./partials/header %>
+
+<div class="row topMargin">
+	<div class="col-12">
+		<div class="container" style="text-align:center">
+			<h1>
+				Warning! Внимание!
+			</h1>
+			<br>
+			<p>
+			    After being redirected to Yandex Money to complete the payment you will be asked to provide your email address. Please make sure that you type <i class="accentWords">the same email</i> that is specified in your account on StudiAri, otherwise after completing the payment your subscription will not activate, because we wouldn't be able to link the payment to your account!
+			</p>
+			<br>
+			<p>
+				После того, как вы будете перенаправлены на Яндекс Деньги для завершения платежа, вам будет предложено указать свой адрес электронной почты. Убедитесь, что вы вводите <i class="accentWords">тот же адрес электронной почты</i>, который указан в вашей учетной записи на StudiAri, в противном случае после завершения платежа ваша подписка не будет активирована, поскольку мы не сможем связать платеж с вашей учетной записью!
+			</p>
+			<br>
+			<input id="check" class="readWarning" type="checkbox" required>
+			<label for="check">
+				I have read the warning / Я прочитал предупреждение
+			</label>
+			<br>
+			<div class="yandexButton">
+				<iframe src="https://money.yandex.ru/quickpay/button-widget?targets=Subscription&default-sum=5&button-text=11&any-card-payment-type=on&button-size=m&button-color=orange&mail=on&successURL=&quickpay=small&account=4100110730728483&" width="184" height="36" frameborder="0" allowtransparency="true" scrolling="no"></iframe>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	 $().ready(function(){
+		$(".yandexButton").hide();
+		$(".readWarning").click(function() {
+			if($(this).is(":checked")) {
+				$(".yandexButton").show(300);
+			} else {
+				$(".yandexButton").hide(200);
+			}
+		});
+    });
+	
+</script>
+<% include ./partials/footer %>
