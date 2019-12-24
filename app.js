@@ -100,9 +100,9 @@ app.get("/warning3", (req,res) =>{
 app.post("/success", async (req,res) =>{
 	console.log(req);
 	var d = new Date();
-	if(req.body.amount == "3"){
+	if(req.body.amount == "350"){
 		d.setDate(d.getDate()+30);
-	}else if(req.body.amount == "4"){
+	}else if(req.body.amount == "990"){
 		d.setDate(d.getDate()+90);
 	}else{
 		d.setDate(d.getDate()+180);

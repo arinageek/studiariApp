@@ -16,7 +16,7 @@
 		    if(d.getTime() < currentUser.expirationDate.getTime()) {
 		  %>
 		  	<p>Status: Active</p>
-			<p>Expiration Date: <%= currentUser.expirationDate.getDate() %>/<%= currentUser.expirationDate.getMonth() %>/<%= currentUser.expirationDate.getFullYear() %></p>
+			<p>Expiration Date: <%= currentUser.expirationDate.getDate() %>/<%= currentUser.expirationDate.getMonth() %>/<%= currentUser.expirationDate.getFullYear() %></p> 
 		  <%
 			} else {
 			%>
@@ -30,7 +30,8 @@
                 <h5 class="card-title accent">Bronze</h5>
                 <h6 class="card-subtitle mb-2 text-muted">subscription</h6>
                 <p class="card-text">Gain access for 1 month </p>
-                <p class="accent">350 RUB<span class="gray">/month</span></p><br>
+                <p class="accent">350 ₽<span class="gray">/month</span></p><br>
+				  <p class="card-text">Total: 350 ₽</p><br>
 				<form action="/warning1" method="GET">
 					<button class="card-link buyBtn" type="submit">Buy</button>
 				</form>
@@ -44,7 +45,8 @@
                 <h5 class="card-title accent">Silver</h5>
                 <h6 class="card-subtitle mb-2 text-muted">subscription</h6>
                 <p class="card-text">Gain access for 3 months</p>
-                <p class="accent">330 RUB<span class="gray">/month</span></p><br>
+                <p class="accent">330 ₽<span class="gray">/month</span></p><br>
+				  <p class="card-text">Total: 990 ₽</p><br>
                 <form action="/warning2" method="GET">
 					<button class="card-link buyBtn" type="submit">Buy</button>
 				</form>
@@ -58,7 +60,8 @@
                 <h5 class="card-title accent">Gold</h5>
                 <h6 class="card-subtitle mb-2 text-muted">subscription</h6>
                 <p class="card-text">Gain access for 6 months</p>
-                <p class="accent">230 RUB<span class="gray">/month</span></p><br>
+                <p class="accent">230 ₽<span class="gray">/month</span></p><br>
+				  <p class="card-text">Total: 1380 ₽</p><br>
                 <form action="/warning3" method="GET">
 					<button class="card-link buyBtn" type="submit">Buy</button>
 				</form>
