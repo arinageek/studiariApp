@@ -87,13 +87,13 @@ aws.config.setPromisesDependency();
 				http_read_timeout: 10
 			});
 			
-app.get("/warning1", (req,res) =>{
+app.get("/warning1", isLoggedIn, (req,res) =>{
 	res.render("warning1");
 });
-app.get("/warning2", (req,res) =>{
+app.get("/warning2", isLoggedIn, (req,res) =>{
 	res.render("warning2");
 });
-app.get("/warning3", (req,res) =>{
+app.get("/warning3", isLoggedIn, (req,res) =>{
 	res.render("warning3");
 });
 
