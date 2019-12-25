@@ -14,7 +14,7 @@ router.get("/register", function(req,res){
 
 router.post("/register", function(req,res){
 	var d = new Date();
-	d.setDate(d.getDate()+3);
+	d.setDate(d.getDate()+1);
 	var newUser = new User({
         username: req.body.username,
 		expirationDate: d
@@ -26,7 +26,7 @@ router.post("/register", function(req,res){
             res.redirect("/register");
         }else{
             passport.authenticate("local")(req,res, function(){
-                req.flash("success", "Your 3 DAY TRIAL starts now!");
+                req.flash("success", "Your 24 HOUR FREE TRIAL starts now!");
                 res.redirect("/blogs");
             });
         }
