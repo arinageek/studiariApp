@@ -273,6 +273,10 @@ body{
 		margin-top: 4rem;
 		margin-bottom: 4rem;
 	}
+	input[type=checkbox]{
+		height: 1em;
+		width: 1em;
+	}
 	input[type=text]{
 		border-radius: 10px;
 		padding: 3rem 1rem;
