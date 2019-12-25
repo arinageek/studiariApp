@@ -100,7 +100,7 @@ app.get("/warning3", (req,res) =>{
 app.post("/success", async (req,res) =>{
 	console.log(req);
 	var d = new Date();
-	if(req.body.withdraw_amount == "350.00"){
+	if(req.body.withdraw_amount == "10.00"){
 		d.setDate(d.getDate()+30);
 	}else if(req.body.withdraw_amount == "990.00"){
 		d.setDate(d.getDate()+90);
