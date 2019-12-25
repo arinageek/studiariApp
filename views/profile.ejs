@@ -16,7 +16,7 @@
 		    if(d.getTime() < currentUser.expirationDate.getTime()) {
 		  %>
 		  	<p>Status: Active</p>
-			<p>Expiration Date: <%= currentUser.expirationDate.getDate() %>/<%= currentUser.expirationDate.getMonth() %>/<%= currentUser.expirationDate.getFullYear() %></p> 
+			<p>Expiration Date: <%= currentUser.expirationDate.getDate() %>/<%= (currentUser.expirationDate.getMonth()+1) %>/<%= currentUser.expirationDate.getFullYear() %></p> 
 		  <%
 			} else {
 			%>
