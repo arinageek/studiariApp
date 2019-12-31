@@ -15,8 +15,10 @@ var express               = require("express"),
 	session               = require("express-session"),
 	nodeMailer            = require("nodemailer"),
 	MongoStore            = require('connect-mongo')(session),
+	request               = require("request"),
 	async                 = require("async");
 
+const cheerio = require('cheerio');
 const fs = require("fs");
 const aws = require("aws-sdk");
 
@@ -86,7 +88,7 @@ aws.config.setPromisesDependency();
 				http_open_timeout: 10,
 				http_read_timeout: 10
 			});
-			
+	
 app.get("/warning1", isLoggedIn, (req,res) =>{
 	res.render("warning1");
 });
@@ -167,72 +169,7 @@ app.get("/movie/:movieId",pay, (req,res) => {
 			
 			const s3 = new aws.S3();
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
-			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
-			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
-			var fileRus = fs.createWriteStream('./public/subs/rus.txt');
-			var fileFre = fs.createWriteStream('./public/subs/fre.txt');
-			var fileGer = fs.createWriteStream('./public/subs/ger.txt');
-			
-			function getEngFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/eng.txt", "utf-8", (err, data) => {
-						if (err) console.log(err); 
-						
-						var eng = [];
-						eng = data.toString().replace(/\r/g,"").split("\n");
-						resolve(eng);
-					
-					});	
-				});
-			}
-			
-			function getEspFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/esp.txt", "utf-8", (err, data) => {
-							if (err) console.log(err);
-							
-							var esp = [];
-							esp = data.toString().replace(/\r/g,"").split("\n"); 
-							resolve(esp);						
-					});
-				});
-			}
-			
-			function getRusFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/rus.txt", "utf-8", (err, data) => {
-							if (err) console.log(err);
-							
-							var rus = [];
-							rus = data.toString().replace(/\r/g,"").split("\n");
-							resolve(rus);						
-					});
-				});
-			}
-			
-			function getFreFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/fre.txt", "utf-8", (err, data) => {
-							if (err) console.log(err);
-							
-							var fre = [];
-							fre = data.toString().replace(/\r/g,"").split("\n");
-							resolve(fre);						
-					});
-				});
-			}
-			
-			function getGerFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/ger.txt", "utf-8", (err, data) => {
-							if (err) console.log(err);
-							
-							var ger = [];
-							ger = data.toString().replace(/\r/g,"").split("\n");
-							resolve(ger);						
-					});
-				});
-			}
+			var fileRus = fs.createWriteStream('./public/subs/rus.vtt');
 			
 			function getSubs(foundEpisode){
 				return new Promise(resolve => {
@@ -240,32 +177,6 @@ app.get("/movie/:movieId",pay, (req,res) => {
 						Bucket: 'studiari',
 						Key: foundEpisode.subtitles
 					}, resolve(1)).createReadStream().pipe(file);
-				});
-			}
-			
-			function getEng(foundEpisode){
-				return new Promise(resolve => {
-					var stream = s3.getObject({
-						Bucket: 'studiari',
-						Key: foundEpisode.englishSub
-					}).createReadStream();
-					stream.pipe(fileEng);
-					stream.on("end", () => {
-						resolve(1);
-					});
-				});
-			}
-			
-			function getEsp(foundEpisode){
-				return new Promise(resolve => {
-					var stream = s3.getObject({
-						Bucket: 'studiari',
-						Key: foundEpisode.spanishSub
-					}).createReadStream();
-					stream.pipe(fileEsp);
-					stream.on('end', () => {
-					  resolve(1);
-					});
 				});
 			}
 			
@@ -282,31 +193,6 @@ app.get("/movie/:movieId",pay, (req,res) => {
 				});
 			}
 			
-			function getFre(foundEpisode){
-				return new Promise(resolve => {
-					var stream = s3.getObject({
-						Bucket: 'studiari',
-						Key: foundEpisode.frenchSub
-					}).createReadStream();
-					stream.pipe(fileFre);
-					stream.on('end', () => {
-					  resolve(1);
-					});
-				});
-			}
-			
-			function getGer(foundEpisode){
-				return new Promise(resolve => {
-					var stream = s3.getObject({
-						Bucket: 'studiari',
-						Key: foundEpisode.germanSub
-					}).createReadStream();
-					stream.pipe(fileGer);
-					stream.on('end', () => {
-					  resolve(1);
-					});
-				});
-			}
 			
 			Movie.findById(req.params.movieId, function(err, foundMovie){
 			
@@ -317,60 +203,12 @@ app.get("/movie/:movieId",pay, (req,res) => {
 					
 					async function work(){
 
-						var getSubsResolved = await getSubs(foundMovie);
-						var resolvedEng = await getEng(foundMovie);
-						if(foundMovie.spanishSub){
-							var resolvedEsp = await getEsp(foundMovie);
-						}
+						var getSubsResolved = await getSubs(foundMovie);					
 						if(foundMovie.russianSub){
 							var resolvedRus = await getRus(foundMovie);
 						}
-						if(foundMovie.frenchSub){
-							var resolvedFre = await getFre(foundMovie);
-						}
-						if(foundMovie.germanSub){
-							var resolvedGer = await getGer(foundMovie);
-						}
 						
-						var eng = await getEngFile();
-						var esp,rus,fre,ger;
-						if(foundMovie.spanishSub){
-							esp = await getEspFile();
-						}
-						if(foundMovie.russianSub){
-							rus = await getRusFile();
-						}
-						if(foundMovie.frenchSub){
-							fre = await getFreFile();
-						}
-						if(foundMovie.germanSub){
-							ger = await getGerFile();
-						}
-						
-						function getRes(){
-							var resultArray = [];
-							for(var i=0; i<eng.length; i++){
-								var obj = {en: eng[i]};
-								if(esp){
-									obj["es"] = esp[i];
-								}
-								if(rus){
-									obj["ru"] = rus[i];
-								}
-								if(fre){
-									obj["fr"] = fre[i];
-								}
-								if(ger){
-									obj["ge"] = ger[i];
-								}
-								resultArray.push(obj);
-							}
-							return resultArray;
-						}
-						
-						var result = await getRes();
-						
-						res.render("movie",{res: result, episode: foundMovie, movie: foundMovie});
+						res.render("movie",{episode: foundMovie, movie: foundMovie});
 	
 					}
 					
@@ -395,72 +233,7 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 			const s3 = new aws.S3();
 			
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
-			var fileEng = fs.createWriteStream('./public/subs/eng.txt');
-			var fileEsp = fs.createWriteStream('./public/subs/esp.txt');
-			var fileRus = fs.createWriteStream('./public/subs/rus.txt');
-			var fileFre = fs.createWriteStream('./public/subs/fre.txt');
-			var fileGer = fs.createWriteStream('./public/subs/ger.txt');
-
-			function getEngFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/eng.txt", "utf-8", (err, data) => {
-						if (err) console.log(err); 
-						
-						var eng = [];
-						eng = data.toString().replace(/\r/g,"").split("\n");
-						resolve(eng);
-					
-					});	
-				});
-			}
-			
-			function getEspFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/esp.txt", "utf-8", (err, data) => {
-							if (err) console.log(err);
-							
-							var esp = [];
-							esp = data.toString().replace(/\r/g,"").split("\n"); 
-							resolve(esp);						
-					});
-				});
-			}
-			
-			function getRusFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/rus.txt", "utf-8", (err, data) => {
-							if (err) console.log(err);
-							
-							var rus = [];
-							rus = data.toString().replace(/\r/g,"").split("\n");
-							resolve(rus);						
-					});
-				});
-			}
-			
-			function getFreFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/fre.txt", "utf-8", (err, data) => {
-							if (err) console.log(err);
-							
-							var fre = [];
-							fre = data.toString().replace(/\r/g,"").split("\n");
-							resolve(fre);						
-					});
-				});
-			}
-			
-			function getGerFile(){
-				return new Promise(resolve => {
-					fs.readFile("./public/subs/ger.txt", "utf-8", (err, data) => {
-							if (err) console.log(err);
-							
-							var ger = [];
-							ger = data.toString().replace(/\r/g,"").split("\n");
-							resolve(ger);						
-					});
-				});
-			}
+			var fileRus = fs.createWriteStream('./public/subs/rus.vtt');
 			
 			function getSubs(foundEpisode){
 				return new Promise(resolve => {
@@ -468,32 +241,6 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 						Bucket: 'studiari',
 						Key: foundEpisode.subtitles
 					}, resolve(1)).createReadStream().pipe(file);
-				});
-			}
-			
-			function getEng(foundEpisode){
-				return new Promise(resolve => {
-					var stream = s3.getObject({
-						Bucket: 'studiari',
-						Key: foundEpisode.englishSub
-					}).createReadStream();
-					stream.pipe(fileEng);
-					stream.on("end", () => {
-						resolve(1);
-					});
-				});
-			}
-			
-			function getEsp(foundEpisode){
-				return new Promise(resolve => {
-					var stream = s3.getObject({
-						Bucket: 'studiari',
-						Key: foundEpisode.spanishSub
-					}).createReadStream();
-					stream.pipe(fileEsp);
-					stream.on('end', () => {
-					  resolve(1);
-					});
 				});
 			}
 			
@@ -510,31 +257,6 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 				});
 			}
 			
-			function getFre(foundEpisode){
-				return new Promise(resolve => {
-					var stream = s3.getObject({
-						Bucket: 'studiari',
-						Key: foundEpisode.frenchSub
-					}).createReadStream();
-					stream.pipe(fileFre);
-					stream.on('end', () => {
-					  resolve(1);
-					});
-				});
-			}
-			
-			function getGer(foundEpisode){
-				return new Promise(resolve => {
-					var stream = s3.getObject({
-						Bucket: 'studiari',
-						Key: foundEpisode.germanSub
-					}).createReadStream();
-					stream.pipe(fileGer);
-					stream.on('end', () => {
-					  resolve(1);
-					});
-				});
-			}
 			
 			Blog.findById(req.params.movieId, function(err, foundMovie){
 			
@@ -547,58 +269,12 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 					async function work(){
 						
 						var getSubsResolved = await getSubs(foundEpisode);
-						var resolvedEng = await getEng(foundEpisode);
-						if(foundEpisode.spanishSub){
-							var resolvedEsp = await getEsp(foundEpisode);
-						}
+						
 						if(foundEpisode.russianSub){
 							var resolvedRus = await getRus(foundEpisode);
 						}
-						if(foundEpisode.frenchSub){
-							var resolvedFre = await getFre(foundEpisode);
-						}
-						if(foundEpisode.germanSub){
-							var resolvedGer = await getGer(foundEpisode);
-						}
 						
-						var eng = await getEngFile();
-						if(foundEpisode.spanishSub){
-							var esp = await getEspFile();
-						}
-						if(foundEpisode.russianSub){
-							var rus = await getRusFile();
-						}
-						if(foundEpisode.frenchSub){
-							var fre = await getFreFile();
-						}
-						if(foundEpisode.germanSub){
-							var ger = await getGerFile();
-						}
-						
-						function getRes(){
-							var resultArray = [];
-							for(var i=0; i<eng.length; i++){
-								var obj = {en: eng[i]};
-								if(esp){
-									obj["es"] = esp[i];
-								}
-								if(rus){
-									obj["ru"] = rus[i];
-								}
-								if(fre){
-									obj["fr"] = fre[i];
-								}
-								if(ger){
-									obj["ge"] = ger[i];
-								}
-								resultArray.push(obj);
-							}
-							return resultArray;
-						}
-						
-						var result = await getRes();
-						
-						res.render("movie",{res: result, episode: foundEpisode, movie: foundMovie});
+						res.render("movie",{episode: foundEpisode, movie: foundMovie});
 	
 					}
 					

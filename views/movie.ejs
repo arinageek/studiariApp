@@ -1,4 +1,4 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,8 @@
 	<a href="javascript:history.back()" class="exit">X</a>
 <div class="player">
     <video id="video-active" class="player-video" src="<%= episode.link %>" type="video/webm" autoplay>
-        <track kind="subtitles" src="/subs/subtitles.vtt" srclang="en" label="English" data-state="active">
+        <track id="origTrack" kind="subtitles" src="/subs/subtitles.vtt" srclang="en" label="Original" data-state="active">
+		<track id="rusTrack" kind="subtitles" src="/subs/rus.vtt" srclang="ru" label="Russian" data-state="active">
     </video>
 
     <div class="player-controls">
@@ -50,23 +51,22 @@
 		
 		
 			<div class="dropup">
-		  <button class="dropbtn">en</button>
+		  <button class="dropbtn">sub</button>
 		  <div class="dropup-content">
-			  <% if(episode.englishSub){ %>
-			  	<a class="en">en</a>
-			  <% }
-			  if(episode.spanishSub){ %>
+			  <% 
+			  if(movie.language == "es"){ %>
 			  	<a class="es">es</a>
-			  <% }
-			  if(episode.russianSub){ %>
-			  	<a class="ru">ru</a>
-			  <% }
-			  if(episode.germanSub){ %>
+			  <% }			  
+			  if(movie.language == "ge"){ %>
 			  	<a class="ge">ge</a>
 			  <%}
-			  if(episode.frenchSub){ %>
+			  if(movie.language == "fr"){ %>
 			  	<a class="fr">fr</a>
+			  <% } 
+			  if(movie.russianSub){ %>
+			  	<a class="ru">ru</a>
 			  <% } %>
+			  
 		  </div>
 		</div>
 
@@ -76,41 +76,7 @@
 </div>     
     
 <script>
-	
-	//show tip with translation when a span is clicked
-	function showTip(m) {
-		var player = document.querySelector('.player');
-		var dropbtn = document.querySelector('.dropbtn');
-		var video = player.querySelector('.player-video');
-		video.pause();
-		var result = <%-JSON.stringify(res)%>;
-		var tooltipTexts = document.querySelectorAll('.tooltiptext');
-		tooltipTexts.forEach(function(item) {
-			item.style.setProperty('visibility', 'hidden', 'important');
-		});
-		m.querySelector('.tooltiptext').style.setProperty('visibility', 'visible', 'important');
-		var orig = m.childNodes[0].nodeValue.toString().replace(/\n/g, " ");
-		console.log("ss"+orig+"ss");
-		for(var i=0; i<result.length; i++){
-			var f=" "+result[i].<%= movie.language %>.toString();
-			var s=" "+result[i].<%= movie.language %>.toString()+" ";
-			var e=result[i].<%= movie.language %>.toString()+" ";
-			var y = result[i].<%= movie.language %>.toString();
-			if((orig === f) || (orig === s) || (orig === e) || (orig === y)){
-				console.log("Got it!! "+result[i][dropbtn.textContent]);
-				m.querySelector('.tooltiptext').textContent = result[i][dropbtn.textContent];
-			}
-		}
-	}
-	
-	//hide tip when mouse is out of span
-	function hideTip() {
-		var tooltipTexts = document.querySelectorAll('.tooltiptext');
-		tooltipTexts.forEach(function(item) {
-			item.style.setProperty('visibility', 'hidden', 'important');
-		});
-	}
-	
+
 	function onTrackedVideoFrame(currentTime, duration){
 		
 		//formatting currentTime
@@ -141,14 +107,16 @@
 	//when page is loaded, do this
 window.addEventListener('DOMContentLoaded', function(){
 	
+	
 	const player = document.querySelector('.player');
-	const en = document.querySelector('.en');
 	const es = document.querySelector('.es');
 	const ru = document.querySelector('.ru');
 	const ge = document.querySelector('.ge');
 	const fr = document.querySelector('.fr');
 	const dropbtn = document.querySelector('.dropbtn');
 	const video = player.querySelector('.player-video');
+	const origTrack = video.textTracks[0];
+	const rusTrack = video.textTracks[1];
 	const progress = player.querySelector('.progress');
 	const progressFilled = player.querySelector('.filled-progress');
 	const toggle = player.querySelector('.toggle-play');
@@ -156,35 +124,41 @@ window.addEventListener('DOMContentLoaded', function(){
 	const ranges = player.querySelectorAll('.player-slider');
 	const subtitles = player.querySelector('#subtitles');
 	
+
 	
 	// const loadProgressFilled = player.querySelector('.load-progress');
 	
-	if(en){
-		en.addEventListener('click', function () {
-			dropbtn.textContent = "en";
-		});
-	}
-	if(es){
+	
+		if(es){
 		es.addEventListener('click', function () {
 			dropbtn.textContent = "es";
+			origTrack.mode ="hidden";
+			rusTrack.mode = "disabled";
 		});
 	}
 	if(ru){
 		ru.addEventListener('click', function () {
 			dropbtn.textContent = "ru";
+			origTrack.mode ="disabled";
+			rusTrack.mode = "hidden";
 		});
 	}
 	if(ge){
 		ge.addEventListener('click', function () {
 			dropbtn.textContent = "ge";
+			origTrack.mode ="hidden";
+			rusTrack.mode = "disabled";
 		});
 	}
 	if(fr){
 		fr.addEventListener('click', function () {
 			dropbtn.textContent = "fr";
+			origTrack.mode ="hidden";
+			rusTrack.mode = "disabled";
 		});
 	}
 	
+
 
 	//set up subtitle variables
 	var texts = document.getElementsByClassName("subs");
@@ -194,12 +168,18 @@ window.addEventListener('DOMContentLoaded', function(){
 
 	
 	subtitles.addEventListener('click', function () {
-		if(track.mode=='hidden'){
-			track.mode='disabled';
+		if(origTrack.mode=='hidden' || rusTrack.mode == 'hidden'){
+			origTrack.mode='disabled';
+			rusTrack.mode = "disabled";	
 			txt.style.visibility = "hidden";
 			txt.textContent = "";
 		}else{
-			track.mode='hidden';
+			if(dropbtn.textContent == "ru"){
+				video.textTracks[1].mode='hidden';
+			}else{
+				video.textTracks[0].mode='hidden';
+			}
+			
 		}
 	});
 	
@@ -217,15 +197,11 @@ window.addEventListener('DOMContentLoaded', function(){
 		track.mode = 'hidden';
 		if(cue){
 			txt.style.visibility = "visible";
-			// txt.textContent = vidCues[0].text;
-			// var words = txt.textContent.split(/\s+/);
 			txt.textContent = "";
-			var words = vidCues[0].text;
-			txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words+" <span class=\"tooltiptext\">-</span> </span> ";
+			var words = cue.text;
 			
-			// for(var i=0; i<words.length; i++){
-			// 	txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words[i]+" <span class=\"tooltiptext\">-</span> </span> ";
-			// }
+			txt.textContent = words;
+			
 
 		}else{
 			//hide subtitles when there is no cue
@@ -234,6 +210,26 @@ window.addEventListener('DOMContentLoaded', function(){
 		}
 	});	  
 
+	rusTrack.addEventListener('cuechange', function () {
+
+	   var vidCues = rusTrack.activeCues;  // array of current cues
+		var cue = vidCues[0];
+		rusTrack.mode = 'hidden';
+		if(cue){
+			txt.style.visibility = "visible";
+			txt.textContent = "";
+			var words = cue.text;
+			
+			txt.textContent = words;
+			
+
+		}else{
+			//hide subtitles when there is no cue
+			txt.style.visibility = "hidden";
+			txt.textContent = "";
+		}
+	});	 
+	
 	// Logic
 
 	function togglePlay() {
@@ -295,8 +291,15 @@ window.addEventListener('DOMContentLoaded', function(){
 	progress.addEventListener('mousedown', () => mousedown = true);
 	progress.addEventListener('mouseup', () => mousedown = false);
 });
+	
+
+	
 </script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
