@@ -12,7 +12,7 @@
 <div class="player">
     <video id="video-active" class="player-video" src="<%= episode.link %>" type="video/webm" autoplay>
         <track id="origTrack" kind="subtitles" src="/subs/subtitles.vtt" srclang="en" label="Original" data-state="active">
-		<track id="rusTrack" kind="subtitles" src="/subs/rus.vtt" srclang="ru" label="Russian" data-state="active">
+		<track id="rusTrack" kind="subtitles" src="/subs/rus.vtt" srclang="ru" label="Russian" data-state="active"> 
     </video>
 
     <div class="player-controls">
@@ -130,7 +130,7 @@ window.addEventListener('DOMContentLoaded', function(){
 	// const loadProgressFilled = player.querySelector('.load-progress');
 	
 	
-		if(es){
+	if(es){
 		es.addEventListener('click', function () {
 			dropbtn.textContent = "es";
 			origTrack.mode ="hidden";
@@ -164,23 +164,30 @@ window.addEventListener('DOMContentLoaded', function(){
 	//set up subtitle variables
 	var texts = document.getElementsByClassName("subs");
 	var txt = texts[0];
-	var track = video.textTracks[0];
-	track.mode = 'hidden';
-
+	origTrack.mode = 'hidden';
+	rusTrack.mode = 'disabled';
 	
 	subtitles.addEventListener('click', function () {
-		if(origTrack.mode=='hidden' || rusTrack.mode == 'hidden'){
-			origTrack.mode='disabled';
-			rusTrack.mode = "disabled";	
-			txt.style.visibility = "hidden";
-			txt.textContent = "";
-		}else{
-			if(dropbtn.textContent == "ru"){
-				video.textTracks[1].mode='hidden';
+		
+		if(dropbtn.textContent != "ru"){
+		
+			if(origTrack.mode == "hidden"){
+				origTrack.mode = "disabled";
+				txt.style.visibility = "hidden";
+				txt.textContent = "";
 			}else{
-				video.textTracks[0].mode='hidden';
+				origTrack.mode = "hidden";
 			}
-			
+
+		}else{
+
+			if(rusTrack.mode == "hidden"){
+				rusTrack.mode = "disabled";
+				txt.style.visibility = "hidden";
+				txt.textContent = "";
+			}else{
+				rusTrack.mode = "hidden";
+			}
 		}
 	});
 	
@@ -190,12 +197,13 @@ window.addEventListener('DOMContentLoaded', function(){
       onTrackedVideoFrame(Math.floor(this.currentTime), Math.floor(this.duration));
     });
 	
+	
 	//change subtitle text when cue changes
-	track.addEventListener('cuechange', function () {
+	origTrack.addEventListener('cuechange', function () {
 
-	   var vidCues = track.activeCues;  // array of current cues
+	   var vidCues = origTrack.activeCues;  // array of current cues
 		var cue = vidCues[0];
-		track.mode = 'hidden';
+		origTrack.mode = 'hidden';
 		if(cue){
 			txt.style.visibility = "visible";
 			txt.textContent = "";
@@ -206,14 +214,18 @@ window.addEventListener('DOMContentLoaded', function(){
 
 		}else{
 			//hide subtitles when there is no cue
-			txt.style.visibility = "hidden";
-			txt.textContent = "";
+			if(origTrack.mode == "hidden"){
+				txt.style.visibility = "hidden";
+			    txt.textContent = "";   
+			}
+			
 		}
 	});	  
 
 	rusTrack.addEventListener('cuechange', function () {
+		console.log("Cue change russian!");
 
-	   var vidCues = rusTrack.activeCues;  // array of current cues
+	    var vidCues = rusTrack.activeCues;  // array of current cues
 		var cue = vidCues[0];
 		rusTrack.mode = 'hidden';
 		if(cue){
@@ -226,10 +238,15 @@ window.addEventListener('DOMContentLoaded', function(){
 
 		}else{
 			//hide subtitles when there is no cue
-			txt.style.visibility = "hidden";
-			txt.textContent = "";
+			if(rusTrack.mode == "hidden"){
+				txt.style.visibility = "hidden";
+			    txt.textContent = "";
+			}
+			
 		}
 	});	 
+	
+	
 	
 	// Logic
 
