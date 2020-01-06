@@ -102,9 +102,9 @@ app.get("/warning3", isLoggedIn, (req,res) =>{
 app.post("/success", async (req,res) =>{
 	console.log(req);
 	var d = new Date();
-	if(req.body.withdraw_amount == "350.00"){
+	if(req.body.withdraw_amount == "299.00"){
 		d.setDate(d.getDate()+30);
-	}else if(req.body.withdraw_amount == "990.00"){
+	}else if(req.body.withdraw_amount == "750.00"){
 		d.setDate(d.getDate()+90);
 	}else{
 		d.setDate(d.getDate()+180);
@@ -170,6 +170,8 @@ app.get("/movie/:movieId",pay, (req,res) => {
 			const s3 = new aws.S3();
 			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
 			var fileRus = fs.createWriteStream('./public/subs/rus.vtt');
+			var fileEspTxt = fs.createWriteStream('./public/subs/esp.txt');
+			var fileRusTxt = fs.createWriteStream('./public/subs/rus.txt');
 			
 			function getSubs(foundEpisode){
 				return new Promise(resolve => {
@@ -193,6 +195,55 @@ app.get("/movie/:movieId",pay, (req,res) => {
 				});
 			}
 			
+			function getEspFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/esp.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var esp = [];
+							esp = data.toString().replace(/\r/g,"").split("\n"); 
+							resolve(esp);						
+					});
+				});
+			}
+			
+			function getRusFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/rus.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var rus = [];
+							rus = data.toString().replace(/\r/g,"").split("\n");
+							resolve(rus);						
+					});
+				});
+			}
+			
+			function getEsp(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.spanishTxt
+					}).createReadStream();
+					stream.pipe(fileEspTxt);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
+			
+			function getRusTxt(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: foundEpisode.russianTxt
+					}).createReadStream();
+					stream.pipe(fileRusTxt);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+				});
+			}
 			
 			Movie.findById(req.params.movieId, function(err, foundMovie){
 			
@@ -207,8 +258,39 @@ app.get("/movie/:movieId",pay, (req,res) => {
 						if(foundMovie.russianSub){
 							var resolvedRus = await getRus(foundMovie);
 						}
+						if(foundMovie.spanishTxt){
+							var resEsp = await getEsp(foundMovie);
+						}
+						if(foundMovie.russianTxt){
+							var resRus = await getRusTxt(foundMovie);
+						}
+						if(foundMovie.spanishTxt){
+							var esp = await getEspFile();
+						}
+						if(foundMovie.russianTxt){
+							var rus = await getRusFile();
+						}
 						
-						res.render("movie",{episode: foundMovie, movie: foundMovie});
+						function getRes(){
+							var resultArray = [];
+							for(var i=0; i<rus.length; i++){
+								var obj = {ru: rus[i]};
+								if(esp){
+									obj["es"] = esp[i];
+								}
+								resultArray.push(obj);
+							}
+							return resultArray;
+						}
+						
+						var result;
+						if(foundMovie.russianTxt && foundMovie.spanishTxt){
+							result = await getRes();
+						}else{
+							result=[""];
+						}
+						
+						res.render("movie",{res: result, episode: foundMovie, movie: foundMovie});
 	
 					}
 					
@@ -350,8 +432,12 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 							}
 							return resultArray;
 						}
-						
-						var result = await getRes();
+						var result;
+						if(foundEpisode.russianTxt && foundEpisode.spanishTxt){
+							result = await getRes();
+						}else{
+							result=[""];
+						}
 						
 						res.render("movie",{res: result, episode: foundEpisode, movie: foundMovie});
 	
