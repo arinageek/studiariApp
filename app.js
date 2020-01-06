@@ -140,9 +140,9 @@ app.post('/emailus', function(req, res) {
           service: 'Gmail', 
           auth: {
 			  user: 'studiariweb@gmail.com',
-			  pass: process.env.GMAILPW
-        }
-      });
+			  pass: "LadySansa979!"
+          }
+    });
       let mailOptions = {
           from: 'studiariweb@gmail.com', // sender address
           to: 'studiariweb@gmail.com', // list of receivers
@@ -158,7 +158,7 @@ app.post('/emailus', function(req, res) {
           }
 		  req.flash('success', 'Your message has been sent!');
               res.redirect("/blogs");
-          });
+      });
 });
 
 
