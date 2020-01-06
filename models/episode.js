@@ -5,6 +5,8 @@ var episodeSchema = new mongoose.Schema({
 	link: String,
 	subtitles: String,
 	russianSub: {type: String, default: null},
+	spanishTxt: {type: String, default: null},
+	russianTxt: {type: String, default: null},
 	parent: {
 		id:{
 			type: mongoose.Schema.Types.ObjectId,

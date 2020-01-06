@@ -7,6 +7,8 @@ var movieSchema = new mongoose.Schema({
 	language: String,
 	link: String,
 	subtitles: String,
+	spanishTxt: {type: String, default: null},
+	russianTxt: {type: String, default: null},
 	russianSub: {type: String, default: null}
 });
 

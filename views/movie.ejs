@@ -77,6 +77,40 @@
 </div>     
     
 <script>
+	
+	//show tip with translation when a span is clicked
+	function showTip(m) {
+		var player = document.querySelector('.player');
+		var dropbtn = document.querySelector('.dropbtn');
+		var video = player.querySelector('.player-video');
+		video.pause();
+		var result = <%-JSON.stringify(res)%>;
+		var tooltipTexts = document.querySelectorAll('.tooltiptext');
+		tooltipTexts.forEach(function(item) {
+			item.style.setProperty('visibility', 'hidden', 'important');
+		});
+		m.querySelector('.tooltiptext').style.setProperty('visibility', 'visible', 'important');
+		var orig = m.childNodes[0].nodeValue.toString().replace(/\n/g, " ");
+		console.log("ss"+orig+"ss");
+		for(var i=0; i<result.length; i++){
+			var f=" "+result[i].<%= movie.language %>;
+			var s=" "+result[i].<%= movie.language %>+" ";
+			var e=result[i].<%= movie.language %>+" ";
+			var y = result[i].<%= movie.language %>;
+			if((orig === f) || (orig === s) || (orig === e) || (orig === y)){
+				console.log("Got it!! "+result[i].ru);
+				m.querySelector('.tooltiptext').textContent = result[i].ru;
+			}
+		}
+	}
+	
+	//hide tip when mouse is out of span
+	function hideTip() {
+		var tooltipTexts = document.querySelectorAll('.tooltiptext');
+		tooltipTexts.forEach(function(item) {
+			item.style.setProperty('visibility', 'hidden', 'important');
+		});
+	}
 
 	function onTrackedVideoFrame(currentTime, duration){
 		
@@ -207,10 +241,13 @@ window.addEventListener('DOMContentLoaded', function(){
 		if(cue){
 			txt.style.visibility = "visible";
 			txt.textContent = "";
-			var words = cue.text;
+			// var words = cue.text;
+			// txt.textContent = words;
 			
-			txt.textContent = words;
-			
+			var words = cue.text.split(/\s+/);
+			for(var i=0; i<words.length; i++){
+				txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words[i]+" <span class=\"tooltiptext\">-</span> </span> ";
+			}
 
 		}else{
 			//hide subtitles when there is no cue
