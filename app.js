@@ -135,32 +135,31 @@ app.get("/about", (req,res) => {
 	res.render("about");
 });
 
-app.post('/emailus', function(req, res) {
-	let transporter = nodeMailer.createTransport({
-          service: 'Gmail', 
-          auth: {
-			  user: 'studiariweb@gmail.com',
-			  pass: "LadySansa979!"
-          }
-    });
-      let mailOptions = {
-          from: 'studiariweb@gmail.com', // sender address
-          to: 'studiariweb@gmail.com', // list of receivers
-          subject: 'A question from studiari', // Subject line
-          text: 'Sender email: '+req.body.email+'\n'+
-		  'Sender name: '+req.body.name+'\n'+
-		  'Message: '+req.body.message+'\n'
-      };
+// app.post('/emailus', function(req, res) {
+// 	let transporter = nodeMailer.createTransport({
+//           service: 'Gmail', 
+//           auth: {
+// 			  user: 'studiariweb@gmail.com',
+// 			  pass: process.env.GMAILPW
+//           }
+//     });
+//       let mailOptions = {
+//           from: 'studiariweb@gmail.com', // sender address
+//           to: 'studiariweb@gmail.com', // list of receivers
+//           subject: 'A question from studiari', // Subject line
+//           text: 'Sender email: '+req.body.email+'\n'+
+// 		  'Sender name: '+req.body.name+'\n'+
+// 		  'Message: '+req.body.message+'\n'
+//       };
 
-      transporter.sendMail(mailOptions, (error, info) => {
-          if (error) {
-              return console.log(error);
-          }
-		  req.flash('success', 'Your message has been sent!');
-              res.redirect("/blogs");
-      });
-});
-
+//       transporter.sendMail(mailOptions, (error, info) => {
+//           if (error) {
+//               return console.log(error);
+//           }
+// 		  req.flash('success', 'Your message has been sent!');
+//               res.redirect("/blogs");
+//       });
+// });
 
 app.get("/movie/:movieId",pay, (req,res) => {
 	
