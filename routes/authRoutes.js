@@ -84,7 +84,7 @@ router.post('/forgot', function(req, res, next) {
         service: 'Gmail', 
         auth: {
           user: 'studiariweb@gmail.com',
-          pass: process.env.GMAILPW
+          pass: 'LadySansa979!'
         }
       });
       var mailOptions = {
@@ -148,7 +148,7 @@ router.post('/reset/:token', function(req, res) {
         service: 'Gmail', 
         auth: {
           user: 'studiariweb@gmail.com',
-          pass: process.env.GMAILPW
+          pass: 'LadySansa979!'
         }
       });
       var mailOptions = {
