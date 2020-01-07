@@ -102,7 +102,7 @@ app.get("/warning3", isLoggedIn, (req,res) =>{
 app.post("/success", async (req,res) =>{
 	console.log(req);
 	var d = new Date();
-	if(req.body.withdraw_amount == "299.00"){
+	if(req.body.withdraw_amount == "2.00"){
 		d.setDate(d.getDate()+30);
 	}else if(req.body.withdraw_amount == "750.00"){
 		d.setDate(d.getDate()+90);
