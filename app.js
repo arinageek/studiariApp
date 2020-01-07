@@ -104,7 +104,7 @@ app.post("/success", async (req,res) =>{
 	var d = new Date();
 	if(req.body.withdraw_amount == "2.00"){
 		d.setDate(d.getDate()+30);
-	}else if(req.body.withdraw_amount == "750.00"){
+	}else if(req.body.withdraw_amount == "3.00"){
 		d.setDate(d.getDate()+90);
 	}else{
 		d.setDate(d.getDate()+180);
