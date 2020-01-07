@@ -1,4 +1,3 @@
-require('dotenv').config();
 var express = require("express");
 var router = express.Router();
 var passport = require("passport");
@@ -85,7 +84,7 @@ router.post('/forgot', function(req, res, next) {
         service: 'Gmail', 
         auth: {
           user: 'studiariweb@gmail.com',
-          pass: 'LadySansa979!'
+          pass: process.env.GMAILPASS
         }
       });
       var mailOptions = {
@@ -149,7 +148,7 @@ router.post('/reset/:token', function(req, res) {
         service: 'Gmail', 
         auth: {
           user: 'studiariweb@gmail.com',
-          pass: 'LadySansa979!'
+          pass: process.env.GMAILPASS
         }
       });
       var mailOptions = {
