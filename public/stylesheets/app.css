@@ -315,11 +315,17 @@ body{
 	    font-size: 6rem;
     }
 	.card-body{
-		font-size: 30px;
+		font-size: 23px;
+	}
+	.image{
+		height: 35rem;
 	}
 	
 }
 @media screen and (min-width: 1001px) {
+	.image{
+		height: 23rem;
+	}
   body {
     font-size: 17px;
   }
@@ -364,7 +370,7 @@ body{
 		text-align: left;
 	}
 	.card-body{
-		font-size:1.1em;
+		font-size:0.9em;
 	}
 }
 
