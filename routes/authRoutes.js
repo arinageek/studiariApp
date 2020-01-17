@@ -12,25 +12,116 @@ router.get("/register", function(req,res){
     res.render("register");
 });
 
-router.post("/register", function(req,res){
+router.post('/register', function(req, res, next) {
+  async.waterfall([
+    function(done) {
+      crypto.randomBytes(20, function(err, buf) {
+        var token = buf.toString('hex');
+        done(err, token);
+      });
+    },
+	function(token, done) {
+      crypto.randomBytes(20, function(err, buf) {
+        var randomPassword = buf.toString('hex');
+        done(err, token, randomPassword);
+      });
+    },
+    function(token, randomPassword, done) {
 	var d = new Date();
-	d.setDate(d.getDate()+1);
+	d.setDate(d.getDate()+3);
 	var newUser = new User({
-        username: req.body.username,
+        username: req.body.email,
 		expirationDate: d
       });
-    User.register(newUser, req.body.password, function(err,user){
+	crypto.randomBytes(20, function(err, buf) {
+        randomPassword = buf.toString('hex');
+      });
+    User.register(newUser,randomPassword, function(err,user){
         if(err){
             console.log(err);
 			req.flash("error", err.message);
             res.redirect("/register");
         }else{
-            passport.authenticate("local")(req,res, function(){
-                req.flash("success", "Your 24 HOUR FREE TRIAL starts now!");
-                res.redirect("/blogs");
-            });
-        }
+			user.registerPasswordToken = token;
+			user.registerPasswordExpires = Date.now() + 3600000; // 1 hour
+
+			user.save(function(err) {
+			  done(err, token, user);
+			});
+		}
     });
+      
+    },
+    function(token, user, done) {
+      var smtpTransport = nodemailer.createTransport({
+        service: 'Gmail', 
+        auth: {
+          user: 'studiariweb@gmail.com',
+          pass: process.env.GMAILPASS
+        }
+      });
+      var mailOptions = {
+        to: user.username,
+        from: 'studiariweb@gmail.com',
+        subject: 'StudiAri Account Setup',
+        text: 'You received this email because you tried to create an account on StudiAri\n\n' +
+          'Please click on the following link or copy it to your browser to continue:\n\n' +
+          'http://' + req.headers.host + '/register/' + token + '\n\n'
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        console.log('mail sent');
+        req.flash('success', 'An email was sent to ' + user.username + ' with following instructions.');
+        done(err, 'done');
+      });
+    }
+  ], function(err) {
+    if (err) return next(err);
+    res.redirect('/register');
+  });
+});
+
+router.get('/register/:token', function(req, res) {
+  User.findOne({ registerPasswordToken: req.params.token, registerPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+    if (!user) {
+      req.flash('error', 'Account registration token is invalid or has expired.');
+      return res.redirect('/register');
+    }
+    res.render('createpassword', {token: req.params.token});
+  });
+});
+
+router.post('/register/:token', function(req, res) {
+  async.waterfall([
+    function(done) {
+      User.findOne({ registerPasswordToken: req.params.token, registerPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+        if (!user) {
+          req.flash('error', 'Account registration token is invalid or has expired.');
+          return res.redirect('back');
+        }
+        if(req.body.password === req.body.confirm) {
+          user.setPassword(req.body.password, function(err) {
+            user.registerPasswordToken = undefined;
+            user.registerPasswordExpires = undefined;
+
+            user.save(function(err) {
+              req.logIn(user, function(err) {
+                done(err, user);
+              });
+            });
+          });
+        } else {
+            req.flash("error", "Passwords don't match!");
+            return res.redirect('back');
+        }
+      });
+    },
+    function(user, done) {
+      done("no error");
+    }
+  ], function(err) {
+	req.flash("success", "Your 3 DAY FREE TRIAL starts now!");
+    res.redirect('/blogs');
+  });
 });
 
 router.get("/login", function(req,res){
