@@ -8,8 +8,8 @@
 </head>
 <body>
 
-	<a href="javascript:history.back()" class="exit">X</a>
-<div class="player">
+	<a href="javascript:history.back()" class="exit"><i class="far fa-times-circle"></i></a>
+<div id="videoPlayer" class="player">
     <video id="video-active" class="player-video" src="<%= episode.link %>" type="video/webm" autoplay>
         <track id="origTrack" kind="subtitles" src="/subs/subtitles.vtt" srclang="en" label="Original" data-state="active">
 		<track id="rusTrack" kind="subtitles" src="/subs/rus.vtt" srclang="ru" label="Russian" data-state="active"> 
@@ -49,9 +49,8 @@
 
         <button data-skip="10" class="player-btn">10s »</button>
 		
-		
-			<div class="dropup">
-		  <button class="dropbtn">sub</button>
+		<div class="dropup">
+		  <button class=" player-btn dropbtn">sub</button>
 		  <div class="dropup-content">
 			  <% 
 			  if(movie.language == "es"){ %>
@@ -63,20 +62,36 @@
 			  if(movie.language == "fr"){ %>
 			  	<a class="fr">fr</a>
 			  <% } 
-			  if(movie.russianSub != ""){ %>
+			  if(movie.russianSub){ %>
 			  	<a class="ru">ru</a>
 			  <% } %>
 			  	
 			  
-		  </div>
+		  </div>	
 		</div>
-
+		
+		<button id="fBtn" onclick="openFullscreen()" class="player-btn"><i class="fas fa-compress"></i></button>
         <button class="player-btn" id="subtitles" type="button" data-state="subtitles">CC</button>
 
     </div>
 </div>     
     
 <script>
+	
+		
+function openFullscreen() {
+	var elem = document.getElementById("videoPlayer");
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+  }
+}
+	
 	
 	//show tip with translation when a span is clicked
 	function showTip(m) {
@@ -160,7 +175,6 @@ window.addEventListener('DOMContentLoaded', function(){
 	const subtitles = player.querySelector('#subtitles');
 	
 
-	
 	// const loadProgressFilled = player.querySelector('.load-progress');
 	
 	

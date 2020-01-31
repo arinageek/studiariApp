@@ -35,7 +35,6 @@ body {
 
 .player {
   width: 100%;
-  border: 6px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.1);
   position: relative;
   overflow: hidden;
@@ -251,7 +250,7 @@ input[type=range]::-moz-range-thumb {
   background-color: #f1f1f1;
   min-width: 160px;
   
-  bottom: 17px;
+  bottom: 25px;
   z-index: 1;
 }
 
