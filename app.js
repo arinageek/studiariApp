@@ -16,6 +16,7 @@ var express               = require("express"),
 	nodeMailer            = require("nodemailer"),
 	MongoStore            = require('connect-mongo')(session),
 	request               = require("request"),
+	http                  = require("http"),
 	async                 = require("async");
 
 const cheerio = require('cheerio');
@@ -374,6 +375,7 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 					stream.on('end', () => {
 					  resolve(1);
 					});
+					
 				});
 			}
 			
@@ -387,6 +389,7 @@ app.get("/movie/:movieId/:seasonId/:episodeId",pay, (req,res) => {
 					stream.on('end', () => {
 					  resolve(1);
 					});
+					
 				});
 			}
 			

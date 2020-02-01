@@ -221,8 +221,9 @@ input[type=range]::-moz-range-thumb {
 }
 
 .tooltip .tooltiptext {
-	font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
   visibility: hidden;
+  font-size: 1.2vw;
   background-color: black;
   color: #fff;
   text-align: center;

@@ -8,8 +8,8 @@
 </head>
 <body>
 
-	<a href="javascript:history.back()" class="exit"><i class="far fa-times-circle"></i></a>
 <div id="videoPlayer" class="player">
+	<a href="javascript:history.back()" class="exit"><i class="far fa-times-circle"></i></a>
     <video id="video-active" class="player-video" src="<%= episode.link %>" type="video/webm" autoplay>
         <track id="origTrack" kind="subtitles" src="/subs/subtitles.vtt" srclang="en" label="Original" data-state="active">
 		<track id="rusTrack" kind="subtitles" src="/subs/rus.vtt" srclang="ru" label="Russian" data-state="active"> 
