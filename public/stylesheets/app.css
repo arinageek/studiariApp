@@ -4,6 +4,98 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:300&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Comfortaa&display=swap');
 
+/* Front page */
+
+.fa-play-circle{
+	color:blue;
+	font-size: 5em;
+	margin: 1em 0em;
+	transition: all .2s ease-in-out;
+}
+
+.fa-play-circle:hover{
+	transform: scale(1.5);
+}
+
+.instruction{
+	background-color: black;
+	color:white;
+	margin-top: 50px;
+	padding-right: 10vw;
+	padding-left: 10vw;
+	padding-bottom: 5vw;
+}
+
+.description {
+  font-family: 'Comfortaa', cursive;
+  margin: auto;
+}
+
+.description p {
+  border-top: 5px dashed;
+  border-color: blue !important;
+  margin:0; padding: 30px;
+  counter-increment: section;
+  position: relative;
+}
+
+.description p:nth-child(even):before {
+  content: counter(section);
+  right: 100%; 
+  margin-right: -20px;
+  position: absolute;
+  border-radius: 50%;
+  padding: 10px;
+  height: 2em;
+  width: 2em;
+  background-color: blue;
+  text-align:center;
+  color: white;
+  font-size: 110%;
+}
+
+.description p:nth-child(odd):before {
+  content: counter(section);
+  left: 100%; 
+  margin-left: -20px;
+  position: absolute;
+  border-radius: 50%;
+  padding: 10px;
+  height: 2em;
+  width: 2em;
+  background-color: blue;
+  text-align:center;
+  color: white;
+  font-size: 110%;
+}
+
+.description p:nth-child(even) {
+  border-left: 5px dashed;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  margin-right: 30px; 
+  padding-right: 0;
+}
+
+.description p:nth-child(odd) {
+  border-right: 5px dashed;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-left: 30px; 
+  padding-left: 0;
+}
+
+.description p:first-child {
+  border-top: 0;
+  border-top-right-radius:0;
+  border-top-left-radius:0;
+}
+
+.description p:last-child {
+  border-bottom-right-radius:0;
+  border-bottom-left-radius:0;
+}
+/* Front page */
 .seasonmenu{
 	background-color:#e6e6e6 !important;
 }

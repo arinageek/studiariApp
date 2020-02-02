@@ -104,11 +104,11 @@ app.post("/success", async (req,res) =>{
 	console.log(req);
 	var d = new Date();
 	if(req.body.withdraw_amount == "199.00"){
-		d.setDate(d.getDate()+30);
+		d.setDate(d.getDate()+31);
 	}else if(req.body.withdraw_amount == "450.00"){
-		d.setDate(d.getDate()+90);
+		d.setDate(d.getDate()+92);
 	}else{
-		d.setDate(d.getDate()+180);
+		d.setDate(d.getDate()+183);
 	}
 	
 	try{
@@ -300,6 +300,113 @@ app.get("/movie/:movieId",pay, (req,res) => {
 				
 			});	
 				
+		}catch(e){
+			console.log("error", e);
+		}
+	})();
+	
+});
+
+app.get("/movieTest", (req,res) => {
+	
+	(async function(){
+		try{
+			
+			const s3 = new aws.S3();
+			
+			var file = fs.createWriteStream('./public/subs/subtitles.vtt');
+			var fileRus = fs.createWriteStream('./public/subs/rus.vtt');
+			var fileEspTxt = fs.createWriteStream('./public/subs/esp.txt');
+			var fileRusTxt = fs.createWriteStream('./public/subs/rus.txt');
+			
+			function getSubs(foundEpisode){
+				return new Promise(resolve => {
+					s3.getObject({
+						Bucket: 'studiari',
+						Key: 'Extra/Season 1/Episode 1/es.vtt'
+					}, resolve(1)).createReadStream().pipe(file);
+				});
+			}
+			
+			function getEspFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/esp.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var esp = [];
+							esp = data.toString().replace(/\r/g,"").split("\n"); 
+							resolve(esp);						
+					});
+				});
+			}
+			
+			function getRusFile(){
+				return new Promise(resolve => {
+					fs.readFile("./public/subs/rus.txt", "utf-8", (err, data) => {
+							if (err) console.log(err);
+							
+							var rus = [];
+							rus = data.toString().replace(/\r/g,"").split("\n");
+							resolve(rus);						
+					});
+				});
+			}
+			
+			function getEsp(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: 'Extra/Season 1/Episode 1/es.txt'
+					}).createReadStream();
+					stream.pipe(fileEspTxt);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+					
+				});
+			}
+			
+			function getRusTxt(foundEpisode){
+				return new Promise(resolve => {
+					var stream = s3.getObject({
+						Bucket: 'studiari',
+						Key: 'Extra/Season 1/Episode 1/ru.txt'
+					}).createReadStream();
+					stream.pipe(fileRusTxt);
+					stream.on('end', () => {
+					  resolve(1);
+					});
+					
+				});
+			}
+			
+			async function work(){	
+				
+				var getSubsResolved = await getSubs();
+				var resEsp = await getEsp();
+				var resRus = await getRusTxt();
+				var esp = await getEspFile();
+				var rus = await getRusFile();
+
+				function getRes(){
+					var resultArray = [];
+					for(var i=0; i<rus.length; i++){
+						var obj = {ru: rus[i]};
+						if(esp){
+							obj["es"] = esp[i];
+						}
+						resultArray.push(obj);
+					}
+					return resultArray;
+				}
+				var result = await getRes();
+				
+				res.render("movieTest",{res: result});
+	
+			}
+					
+			work();		
+			
 		}catch(e){
 			console.log("error", e);
 		}

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test video</title>
+	<link href="/stylesheets/movie.css" rel="stylesheet" type="text/css">
+	<script src="https://kit.fontawesome.com/dee72ff5c6.js"></script>
+</head>
+<body>
+
+<div id="videoPlayer" class="player">
+	<a href="javascript:history.back()" class="exit"><i class="far fa-times-circle"></i></a>
+    <video id="video-active" class="player-video" src="https://studiari.s3.eu-west-2.amazonaws.com/Extra/Season+1/Episode+1/01+La+llegada+de+Sam.mkv" type="video/webm" autoplay>
+        <track id="origTrack" kind="subtitles" src="/subs/subtitles.vtt" srclang="en" label="Original" data-state="active">
+		<track id="rusTrack" kind="subtitles" src="/subs/rus.vtt" srclang="ru" label="Russian" data-state="active"> 
+    </video>
+
+    <div class="player-controls">
+		<span class="subs">
+
+        </span>
+        <div class="progress">
+			<div class="filled-progress"></div>
+        </div>
+
+        <div class="ply-btn">
+            <button class="player-btn toggle-play" title="Toggle Play">
+                <svg class="" width="16" height="16" viewBox="0 0 16 16">
+                    <title>play</title>
+                    <path d="M3 2l10 6-10 6z"></path>
+                </svg>
+            </button>
+        </div>
+		<div id="timeline">
+			<p>
+				<span id="current">00:00:00</span> / <span id="duration">00:00:00</span>
+			</p>	
+		</div>
+		
+
+        <div class="sliders">
+			<i class="fas fa-volume-down"></i>
+            <input type="range" name="volume" class="player-slider" min="0" max="1" step="0.05" value="1">
+			<i class="fas fa-running"></i>
+            <input type="range" name="playbackRate" class="player-slider" min="0.5" max="2" step="0.1" value="1">
+        </div>
+
+        <button data-skip="-10" class="player-btn">« 10s</button>
+
+        <button data-skip="10" class="player-btn">10s »</button>
+		
+		<div class="dropup">
+		  <button class=" player-btn dropbtn">sub</button>
+		  <div class="dropup-content">
+			  	<a class="es">es</a>
+          </div>	
+		</div>
+		
+		<button id="fBtn" onclick="openFullscreen()" class="player-btn"><i class="fas fa-compress"></i></button>
+        <button class="player-btn" id="subtitles" type="button" data-state="subtitles">CC</button>
+
+    </div>
+</div>     
+    
+<script>
+	
+		
+function openFullscreen() {
+	var elem = document.getElementById("videoPlayer");
+	var isInFullScreen = (document.fullscreenElement && document.fullscreenElement !== null) ||
+        (document.webkitFullscreenElement && document.webkitFullscreenElement !== null) ||
+        (document.mozFullScreenElement && document.mozFullScreenElement !== null) ||
+        (document.msFullscreenElement && document.msFullscreenElement !== null);
+	if(isInFullScreen){
+		/* Close fullscreen */
+	  if (document.exitFullscreen) {
+		document.exitFullscreen();
+	  } else if (document.mozCancelFullScreen) { /* Firefox */
+		document.mozCancelFullScreen();
+	  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+		document.webkitExitFullscreen();
+	  } else if (document.msExitFullscreen) { /* IE/Edge */
+		document.msExitFullscreen();
+	  }
+
+	}else {
+
+	  if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	  } else if (elem.mozRequestFullScreen) { /* Firefox */
+		elem.mozRequestFullScreen();
+	  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+		elem.webkitRequestFullscreen();
+	  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+		elem.msRequestFullscreen();
+	  }
+				
+	}
+}
+	
+	
+	//show tip with translation when a span is clicked
+	function showTip(m) {
+		var player = document.querySelector('.player');
+		var dropbtn = document.querySelector('.dropbtn');
+		var video = player.querySelector('.player-video');
+		video.pause();
+		var result = <%-JSON.stringify(res)%>;
+		var tooltipTexts = document.querySelectorAll('.tooltiptext');
+		tooltipTexts.forEach(function(item) {
+			item.style.setProperty('visibility', 'hidden', 'important');
+		});
+		m.querySelector('.tooltiptext').style.setProperty('visibility', 'visible', 'important');
+		var orig = m.childNodes[0].nodeValue.toString().replace(/\n/g, " ");
+		console.log("ss"+orig+"ss");
+		for(var i=0; i<result.length; i++){
+			var f=" "+result[i].es;
+			var s=" "+result[i].es+" ";
+			var e=result[i].es+" ";
+			var y = result[i].es;
+			if((orig === f) || (orig === s) || (orig === e) || (orig === y)){
+				console.log("Got it!! "+result[i].ru);
+				m.querySelector('.tooltiptext').textContent = result[i].ru;
+			}
+		}
+	}
+	
+	//hide tip when mouse is out of span
+	function hideTip() {
+		var tooltipTexts = document.querySelectorAll('.tooltiptext');
+		tooltipTexts.forEach(function(item) {
+			item.style.setProperty('visibility', 'hidden', 'important');
+		});
+	}
+
+	function onTrackedVideoFrame(currentTime, duration){
+		
+		//formatting currentTime
+		var hours = Math.floor(currentTime / 3600);
+		if(hours<10) hours = "0"+hours;
+		currentTime -= 3600*hours;
+		var minutes = Math.floor(currentTime / 60);
+		if(minutes<10) minutes = "0"+minutes;
+		currentTime -= 60*minutes;
+		var seconds = currentTime;
+		if(seconds<10) seconds = "0"+seconds;
+		
+		//formatting duration
+		var hours2 = Math.floor(duration / 3600);
+		if(hours2<10) hours2 = "0"+hours2;
+		duration -= 3600*hours2;
+		var minutes2 = Math.floor(duration / 60);
+		if(minutes2<10) minutes2 = "0"+minutes2;
+		duration -= 60*minutes2;
+		var seconds2 = duration;
+		if(seconds2<10) seconds2 = "0"+seconds2;
+		
+		//displaying the timeline
+		$("#current").text(hours+":"+minutes+":"+seconds);
+		$("#duration").text(hours2+":"+minutes2+":"+seconds2);
+}
+	
+	//when page is loaded, do this
+window.addEventListener('DOMContentLoaded', function(){
+	
+	
+	const player = document.querySelector('.player');
+	const es = document.querySelector('.es');
+	const ru = document.querySelector('.ru');
+	const ge = document.querySelector('.ge');
+	const fr = document.querySelector('.fr');
+	const dropbtn = document.querySelector('.dropbtn');
+	const video = player.querySelector('.player-video');
+	const origTrack = video.textTracks[0];
+	const rusTrack = video.textTracks[1];
+	const progress = player.querySelector('.progress');
+	const progressFilled = player.querySelector('.filled-progress');
+	const toggle = player.querySelector('.toggle-play');
+	const skippers = player.querySelectorAll('[data-skip]');
+	const ranges = player.querySelectorAll('.player-slider');
+	const subtitles = player.querySelector('#subtitles');
+	
+
+	// const loadProgressFilled = player.querySelector('.load-progress');
+	
+	
+	if(es){
+		es.addEventListener('click', function () {
+			dropbtn.textContent = "es";
+			origTrack.mode ="hidden";
+			rusTrack.mode = "disabled";
+		});
+	}
+	if(ru){
+		ru.addEventListener('click', function () {
+			dropbtn.textContent = "ru";
+			origTrack.mode ="disabled";
+			rusTrack.mode = "hidden";
+		});
+	}
+
+	//set up subtitle variables
+	var texts = document.getElementsByClassName("subs");
+	var txt = texts[0];
+	origTrack.mode = 'hidden';
+	rusTrack.mode = 'disabled';
+	
+	subtitles.addEventListener('click', function () {
+		
+		if(dropbtn.textContent != "ru"){
+		
+			if(origTrack.mode == "hidden"){
+				origTrack.mode = "disabled";
+				txt.style.visibility = "hidden";
+				txt.textContent = "";
+			}else{
+				origTrack.mode = "hidden";
+			}
+
+		}else{
+
+			if(rusTrack.mode == "hidden"){
+				rusTrack.mode = "disabled";
+				txt.style.visibility = "hidden";
+				txt.textContent = "";
+			}else{
+				rusTrack.mode = "hidden";
+			}
+		}
+	});
+	
+	$("#video-active").on(
+    "timeupdate", 
+    function(event){
+      onTrackedVideoFrame(Math.floor(this.currentTime), Math.floor(this.duration));
+    });
+	
+	
+	//change subtitle text when cue changes
+	origTrack.addEventListener('cuechange', function () {
+
+	   var vidCues = origTrack.activeCues;  // array of current cues
+		var cue = vidCues[0];
+		origTrack.mode = 'hidden';
+		if(cue){
+			txt.style.visibility = "visible";
+			txt.textContent = "";
+			
+			var words = cue.text.split(/\s+/);
+			for(var i=0; i<words.length; i++){
+				txt.innerHTML += "<span class=\"tooltip\" onmouseout=\"hideTip()\" onmouseover=\"showTip(this)\"> "+words[i]+" <span class=\"tooltiptext\">-</span> </span> ";
+			}
+
+		}else{
+			//hide subtitles when there is no cue
+			if(origTrack.mode == "hidden"){
+				txt.style.visibility = "hidden";
+			    txt.textContent = "";   
+			}
+			
+		}
+	});	  
+
+	rusTrack.addEventListener('cuechange', function () {
+		console.log("Cue change russian!");
+
+	    var vidCues = rusTrack.activeCues;  // array of current cues
+		var cue = vidCues[0];
+		rusTrack.mode = 'hidden';
+		if(cue){
+			txt.style.visibility = "visible";
+			txt.textContent = "";
+			var words = cue.text;
+			
+			txt.textContent = words;
+			
+
+		}else{
+			//hide subtitles when there is no cue
+			if(rusTrack.mode == "hidden"){
+				txt.style.visibility = "hidden";
+			    txt.textContent = "";
+			}
+			
+		}
+	});	 
+	
+	
+	
+	// Logic
+
+	function togglePlay() {
+	  const playState = video.paused ? 'play' : 'pause';
+	  video[playState](); // Call play or paused method
+	}
+
+	function updateButton() {
+	  const togglePlayBtn = document.querySelector('.toggle-play');
+
+	  if(this.paused) {
+		togglePlayBtn.innerHTML = `<svg class="" width="16" height="16" viewBox="0 0 16 16"><title>play</title><path d="M3 2l10 6-10 6z"></path></svg>`;
+	  } else {
+		togglePlayBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16"><title>pause</title><path d="M2 2h5v12H2zm7 0h5v12H9z"></path></svg>`;
+	  }
+	}
+
+	function skip() {
+	  video.currentTime += parseFloat(this.dataset.skip);
+	}
+
+	function rangeUpdate() {
+	  video[this.name] = this.value;
+	}
+
+	function progressUpdate() {
+	  const percent = (video.currentTime / video.duration) * 100;
+	  progressFilled.style.flexBasis = `${percent}%`;
+	}
+	
+	// function loadProgressUpdate() {
+	// 	if(video.buffered.length > 0){
+	// 		const percent = (video.buffered.end(0) / video.duration) * 100;
+	//         loadProgressFilled.style.flexBasis = `${percent}%`;
+	// 	}
+	// }
+
+	
+	function scrub(e) {
+	  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+	  video.currentTime = scrubTime;
+	}
+
+	// Event listeners
+	video.addEventListener('click', togglePlay);
+	video.addEventListener('play', updateButton);
+	video.addEventListener('pause', updateButton);
+	video.addEventListener('timeupdate', progressUpdate);
+	// video.addEventListener('progress', loadProgressUpdate);
+
+	toggle.addEventListener('click', togglePlay);
+	skippers.forEach(button => button.addEventListener('click', skip));
+	ranges.forEach(range => range.addEventListener('change', rangeUpdate));
+	ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate));
+
+	let mousedown = false;
+	progress.addEventListener('click', scrub);
+	progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
+	progress.addEventListener('mousedown', () => mousedown = true);
+	progress.addEventListener('mouseup', () => mousedown = false);
+});
+	
+
+	
+</script>
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
