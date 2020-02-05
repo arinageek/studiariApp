@@ -96,19 +96,14 @@ app.get("/warning1", isLoggedIn, (req,res) =>{
 app.get("/warning2", isLoggedIn, (req,res) =>{
 	res.render("warning2");
 });
-app.get("/warning3", isLoggedIn, (req,res) =>{
-	res.render("warning3");
-});
 
 app.post("/success", async (req,res) =>{
 	console.log(req);
 	var d = new Date();
-	if(req.body.withdraw_amount == "199.00"){
+	if(req.body.withdraw_amount == "300.00"){
 		d.setDate(d.getDate()+31);
-	}else if(req.body.withdraw_amount == "450.00"){
-		d.setDate(d.getDate()+92);
 	}else{
-		d.setDate(d.getDate()+183);
+		d.setDate(d.getDate()+92);
 	}
 	
 	try{

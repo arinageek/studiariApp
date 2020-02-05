@@ -28,7 +28,7 @@ router.post('/register', function(req, res, next) {
     },
     function(token, randomPassword, done) {
 	var d = new Date();
-	d.setDate(d.getDate()+1);
+	d.setDate(d.getDate()-1);
 	var newUser = new User({
         username: req.body.email,
 		expirationDate: d
@@ -119,7 +119,6 @@ router.post('/register/:token', function(req, res) {
       done("no error");
     }
   ], function(err) {
-	req.flash("success", "Ваш 24 часовой бесплатный пробный период начинается сейчас!");
     res.redirect('/blogs');
   });
 });
